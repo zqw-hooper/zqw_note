@@ -4,4 +4,4 @@
 
 ## 自启动服务文件：csvw-setup.service
 
-![avatar](/home/zqw/Desktop/a/linux.png)
+![avatar](https://github.com/zqw-hooper/zqw_note/tree/master/picture/4.png)
