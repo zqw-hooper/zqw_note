@@ -4,4 +4,4 @@
 
 ## 自启动服务文件：csvw-setup.service
 
-![](../../Desktop/YinXiangBiJi.enex_files/Image [3].png)
+![](/home/zqw/Desktop/YinXiangBiJi.enex_files/Image_linux.png)
