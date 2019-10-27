@@ -28,6 +28,8 @@ doxygen -g // 在当前目录下生成名为 Doxygen 的配置文件模板，默
 > - FILE_PATTERNS 选入 Doxygen 的范围，不选就是默认的 C 和 C++的文件类型
 > - RECURSIVE 递归遍历当前目录的子目录，寻找被文档化的程序源文件
 > - GENERATE_HTML 和 GENERATE_LATEX
+> - EXTRACT_PRIVATE 私有变量是否提取
+> - PROJECT_LOGO 项目 logo 图片，显示在 html 首页
 > - IMAGE_PATH = image_dir，指定图片存放的目录，将图片放到当前目录下的 image_dir 目录中，因为文档可能会出现测试图片示例
 > - HTML_OUTPUT= . ，html 输出目录名称，默认为 html 目录，如果为“.”则表明为上述 OUTPUT_DIRECTORY 目录
 > - INPUT = xxx，代码文件或目录，多个文件(目录)需要以空格隔开，如果不指定，表示当前目录，但是，如果指定目录且当前目录有代码文件的话，需要使用点号(“.”)表示当前目录
