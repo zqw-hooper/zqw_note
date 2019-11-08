@@ -39,3 +39,13 @@
 - map迭代器：
   > for (std::map<char,int>::iterator it=mymap.begin(); it!=mymap.end(); ++it)
 				std::cout << it->first << " => " << it->second << '\n';
+
+
+
+## emplace_back()取代push_back():
+> push_back()函数向容器中加入一个临时对象时，首先会调用构造函数生成这个对象，然后调用拷贝构造函数将这个对象放入容器中，最后释放临时对象。
+> emplace_back()函数向容器中加入临时对象，临时对象原地构造，没有赋值或移动的操作。
+## emplace()与insert():
+> 与上例相同
+
+**综上：emplace_back()/emplace()相比push_back()/insert()最大的作用是避免了不必要的临时变量，因此执行速度快、效率更高。**
