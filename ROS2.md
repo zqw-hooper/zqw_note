@@ -20,18 +20,28 @@
 5. 跨系统平台支持：ROS2不止能运行在Linux系统之上，还增加了对Windows、MacOS、RTOS等系统的支持，让开发者的选择更加自由。
 
 ## ROS2性能提升:
-> 1. 持续性增强：ROS1尽管存在数据队列的概念，但是还有很大的局限，订阅者无法接收到加入网络之前的数据；DDS可以为ROS提供数据历史的服务，就算新加入的节点，也可以获取发布的所有历史数据;
-> 2. 可靠性增强：通过DDS配置可靠性原则，用户可以根据需求选择性能模式（BEST_EFFORT）或者稳定模式（RELIABLE);
-> 3. 实时性增强：数据必须在deadline之前完成更新.
+> - 持续性增强：ROS1尽管存在数据队列的概念，但是还有很大的局限，订阅者无法接收到加入网络之前的数据；DDS可以为ROS提供数据历史的服务，就算新加入的节点，也可以获取发布的所有历史数据;
+> - 可靠性增强：通过DDS配置可靠性原则，用户可以根据需求选择性能模式（BEST_EFFORT）或者稳定模式（RELIABLE);
+> - 实时性增强：数据必须在deadline之前完成更新.
   
 ## DDS介绍:
 **简介**:
 > Data Distribution Service(数据分发服务)，是一个专门为分布式实时系统中数据发布/订阅的标准解决方案。
 
 **原理**:
-> DDS 的技术核心是以数据为核心的发布订阅模型（Data-Centric Publish-Subscribe ，DCPS），这种DCPS模型创建了一个“全局数据空间”（global data space）的概念，所有独立的应用都可以去访问。
+> - DDS 的技术核心是以数据为核心的发布订阅模型（Data-Centric Publish-Subscribe ，DCPS），这种DCPS模型创建了一个“全局数据空间”（global data space）的概念，所有独立的应用都可以去访问。
+> - DDS 不仅有发布者、订阅者和话题，还有参与者、datawriter和datareader，并且均拥有各自的QoS属性，并影响着数据传输和数据生命周期。
 
 **QoS(Quality of Service)**:创建发布，订阅, 服务等任务时，可以通过QoS配置结构指定历史记录，深度，可靠性和持久性, 也可以通过默认配置委托DDS配置QoS.
+
+**为什么使用ROS2而不是DDS？**
+> - DDS应用领域非常广泛，军工、航天、汽车、医疗等等，ROS2更专注于机器人应用。
+> - DDS基本掌握在少数的几家公司并且没有开源版本。
+> - DDS的配置和使用较为复杂。而ROS2提供了高抽象的DDS版本，应用更方便使用DDS，但是却不包含所有的DDS功能。
+> - ROS提供了更多的工具包，减少大量的基础工作。
+> - catkin/ament/colcon编译系统可以方便轻松的构建功能包和依赖关系。
+> - launch启动系统可以轻松运行多个程序以及实现参数修改等功能。
+> - ROS2提供仿真模型和实时监测工具。
 
   
 
@@ -50,7 +60,18 @@
 
 
 **ROS工具及功能包**:
-> ROS2-ardent < ROS2-dashing < ROS1-kinetic
+> **ROS2-ardent < ROS2-dashing < ROS1-kinetic**
+> 因为低版本的ROS2维护时间即将到期或已经到期，缺少很多功能包，类似rclcpp和rclpy就缺少一些类或者函数(declare_parameter/ParameterValue/SensorDataQoS/SystemDefaultsQoS...)，推荐使用最新版本的ROS2(目前最新版本为ROS2-dashing, 维护时间到2021年).
 
 
 **ROS2-dashing中部分功能或节点无法直接在ROS2-ardent中直接运行**.
+
+
+
+
+## ROS2 
+RCLCPP_INFO
+RCLCPP_WARN
+RCLCPP_DEBUG
+RCLCPP_ERROR
+RCLCPP_FATAL
