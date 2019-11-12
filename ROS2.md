@@ -1,5 +1,11 @@
 # ROS1与ROS2:
 ## ROS1与ROS2简单对比:
+| ROS2发行版本 | 发布时间 | 停止支持时间 | 支持Linux版本 | Ubuntu停止支持时间 | 
+| :-: | :-: | :-: | :-: | :-: |
+| ardent | 2017-12 | 2018-12 | xenial(16.04) / bionic(18.04) | 2021-4 / 2028-11|
+| bouncy | 2018-7 | 2019-7 | xenial(16.04) / bionic(18.04) | 2021-4 / 2028-11 |
+| crystal | 2018-12 | 2019-12 | xenial(16.04) / bionic(18.04) | 2021-4 / 2028-11 |
+| **dashing** | **2019-5** | **2021-5** | **bionic(18.04)** | **2028-11** |
 
 | **对比项** | **ROS1** | **ROS2** | **说明** |
 | :-: | :-: | :-: | :-: |
@@ -43,8 +49,6 @@
 > - launch启动系统可以轻松运行多个程序以及实现参数修改等功能。
 > - ROS2提供仿真模型和实时监测工具。
 
-  
-
 ## ament/colcon与catkin编译系统：
 **ament是一种元编译系统,是catkin编译系统进一步演化的版本.**
 - catkin系统以CMake为中心，所以只包含python代码的功能包也需要由CMake进行处理，但是CMake并不支持Python setuptools中的所有功能.
@@ -53,16 +57,10 @@
 - catkin_simple是一个用于改善用户catkin体验的工具包，可以减少复杂的CMake代码，但是会存在不稳定的情况。ament也是实现了类似的功能，但是可靠性更强。
 
 
-## ROS2在不同Linux系统比较:
-| Ubuntu 16.04 | Ubuntu 18.04 |
-| :-: | :-: |
-| ROS2 ardent | ROS2 dashing |
-
-
+## 不同版本ROS2比较:
 **ROS工具及功能包**:
 > **ROS2-ardent < ROS2-dashing < ROS1-kinetic**
 > 因为低版本的ROS2维护时间即将到期或已经到期，缺少很多功能包，类似rclcpp和rclpy就缺少一些类或者函数(declare_parameter/ParameterValue/SensorDataQoS/SystemDefaultsQoS...)，推荐使用最新版本的ROS2(目前最新版本为ROS2-dashing, 维护时间到2021年).
-
 
 **ROS2-dashing中部分功能或节点无法直接在ROS2-ardent中直接运行**.
 
