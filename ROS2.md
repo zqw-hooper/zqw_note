@@ -6,7 +6,8 @@
 | bouncy | 2018-7 | 2019-7 | xenial(16.04) / bionic(18.04) | 2021-4 / 2028-11 |
 | crystal | 2018-12 | 2019-12 | xenial(16.04) / bionic(18.04) | 2021-4 / 2028-11 |
 | **dashing** | **2019-5** | **2021-5** | **bionic(18.04)** | **2028-11** |
-
+> ROS-kinetic主要针对Ubuntu 16.04，而在ROS-melodic主要针对Ubuntu 18.04
+---
 | **对比项** | **ROS1** | **ROS2** | **说明** |
 | :-: | :-: | :-: | :-: |
 | **通讯机理** | TCP/UDP | DDS | 
@@ -63,6 +64,9 @@
 > 因为低版本的ROS2维护时间即将到期或已经到期，缺少很多功能包，类似rclcpp和rclpy就缺少一些类或者函数(declare_parameter/ParameterValue/SensorDataQoS/SystemDefaultsQoS...)，推荐使用最新版本的ROS2(目前最新版本为ROS2-dashing, 维护时间到2021年).
 
 **ROS2-dashing中部分功能或节点无法直接在ROS2-ardent中直接运行**.
+
+## ROS1与ROS2之间的通讯：
+通过ros-bridge实现两者的通讯(ros2 run ros1_bridge dynamic_bridge)
 
 
 
