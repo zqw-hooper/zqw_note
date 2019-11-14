@@ -18,3 +18,7 @@
 ### python-zmq
 - **简介**：zeromq(zmq)zero代表零拷贝,提供了三个基本的通信模型，包括pub-sub、client-server、push-pull。通过socket实现不同节点间的通讯，还可以实现进程间的通讯。
 - >补充：localhost = 127.0.0.1被称为本地回环地址，区别：localhost是域名，127.0.0.1是IP地址。主要作用有两个：一是测试本机的网络配置，能PING通127.0.0.1说明本机的网卡和IP协议安装都没有问题；另一个作用是某些SERVER/CLIENT的应用程序在运行时需调用服务器上的资源，一般要指定SERVER的IP地址，但当该程序要在同一台机器上运行而没有别的SERVER时就可以把SERVER的资源装在本机，SERVER的IP地址设为127.0.0.1也同样可以运行。
+
+### capnp
+**一种高性能的编码方案，性能见下图，几乎秒杀google protobuf**  （[capnp介绍](https://www.jianshu.com/p/f1110b22cb5c)）
+![capnp对比protobuff对比](../zqw_note/image/capnp.png)
