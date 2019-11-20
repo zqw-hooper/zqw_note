@@ -18,7 +18,7 @@ int main()
     std::cout << "Here is the matrix inverse of m:\n" << m_i << std::endl;
     Eigen::MatrixXd m_b = m.block(1,1,2,2);
     std::cout << "Here is the matrix block of m:\n" << m_b << std::endl;
-    Eigen::Matrix4d m_identity = Eigen::Matrix4d::Identity() ;
+    Eigen::MatrixXd m_identity = Eigen::Matrix4d::Identity() ;
     std::cout << "Here is the identity matrix :\n" << m_identity << std::endl;
     Eigen::MatrixXd m_random = Eigen::MatrixXd::Random(5,4) ;
     std::cout << "Here is the random matrix :\n" << m_random << std::endl;
