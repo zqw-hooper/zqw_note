@@ -1,6 +1,14 @@
 {
 	"files.associations": {
 		"ostream": "c",
-		"core": "c"
+		"core": "c",
+		"iosfwd": "c",
+		"fstream": "c",
+		"array": "c",
+		"*.tcc": "c",
+		"functional": "c",
+		"istream": "c",
+		"tuple": "c",
+		"utility": "c"
 	}
 }
