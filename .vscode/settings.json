@@ -9,6 +9,11 @@
 		"functional": "c",
 		"istream": "c",
 		"tuple": "c",
-		"utility": "c"
+		"utility": "c",
+		"deque": "c",
+		"list": "c",
+		"string": "c",
+		"unordered_map": "c",
+		"vector": "c"
 	}
 }
