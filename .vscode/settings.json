@@ -52,6 +52,7 @@
 		"thread": "c",
 		"cfenv": "c",
 		"typeindex": "c",
-		"typeinfo": "c"
+		"typeinfo": "c",
+		"stdlib.h": "c"
 	}
 }

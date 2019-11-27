@@ -12,15 +12,20 @@ void bubble_sort(std::vector<double> &t_src)
     std::cout << WHITE << std::endl;
     for (int i = 0; i < t_src.size(); i++)
     {
+        bool is_sorted = true;
         for (int j = 0; j < t_src.size() - i - 1; j++)
         {
             if (t_src.at(j) > t_src.at(j + 1))
             {
-                double temp = 0.0;
-                temp = t_src.at(j + 1);
+                double temp = t_src.at(j + 1);
                 t_src.at(j + 1) = t_src.at(j);
                 t_src.at(j) = temp;
+                is_sorted = false;
             }
+        }
+        if(is_sorted)
+        {
+            break;
         }
     }
 
