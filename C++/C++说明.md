@@ -101,4 +101,32 @@
     - 指针作为参数时, 会拷贝指针作为参数, 由于指针指向的是一个对象, 因此在函数内可以实现对指针所指向对象的修改. 引用作为参数时, 实际是传递对象的本身因此不需要拷贝. 
 16. **vector:**
     - vector将元素存储在连续内存空间中, 当添加的元素超过原先分配的内存大小时, 就需要重新申请空间, 并把原来的元素移到新的内存中. 通常vector实现通常会比空间需求分配更大的空间, 以避免在添加元素时频繁的重新分配空间并对数据进行移动.
-17. class和struct本质没有区别(都可以定义类), 只是默认访问控制权限不同(class默认为private, struct默认为public)
+17. **class**和**struct**本质没有区别(都可以定义类), 只是默认访问控制权限不同(class默认为private, struct默认为public)
+18. **sizeof**: 其是操作符而不是函数, 结果为参数数据占用的空间大小而不是参数维数.
+    **strlen**: 从参数所指向的内存开始往后计数, 直到内存中的内容为0(即'\0').
+    **string**: 字符串是以'\0'结尾的字符数组.
+
+    <table><tr><td bgcolor=AntiqueWhite>char *str3 = "hello";//最后有一个”隐形“的'\0'
+    
+    printf("test3 %lu %lu\n\n", sizeof(str3), strlen(str3)); //8 5
+    注: str3并不是一个数组，而是一个字符指针, 因此sizeof(str3)为8, strlen还是从str3指向的地址开始，直到遇到’\0’，即得到长度5</td></tr></table>
+    <table><tr><td bgcolor=AntiqueWhite> char str1[8] = "hello";
+    
+    printf("test1 %lu %lu\n\n", sizeof(str1), strlen(str1)); //8 5
+    注: str1占用空间是8，而strlen仍然是5</td></tr></table>
+    <table><tr><td bgcolor=AntiqueWhite> char str2[] = {'h','e','l','l','o'};
+    
+    printf("test2 %lu %lu\n\n", sizeof(str2), strlen(str2)); //5 10
+    注: 在str2中没有看到'\0'，所以你可能看到的结果是10，也可能是另外一个莫名其妙的值，甚至可能导致程序崩溃</td></tr></table>
+    <table><tr><td bgcolor=AntiqueWhite> char str4[] = "hello";
+    
+    testArr(str4);//8 5 
+    注: 当数组作为参数时，实际上只是一个指针，所以用sizeof计算时，会得到8</td></tr></table>
+    <table><tr><td bgcolor=AntiqueWhite> char str6[10] = {0};
+    
+    printf("test6 %lu %lu\n\n", sizeof(str6), strlen(str6)); //10 0
+    注: sizeof结果为10，但是由于都是0，因此strlen得到长度位0</td></tr></table>
+    <table><tr><td bgcolor=AntiqueWhite> char str7[5] = "hello";
+    
+    printf("test7 %lu %lu\n\n", sizeof(str7), strlen(str7)); //5 10
+    注: sizeof结果是5，它没有空间容纳最后的’\0’, 因此导致strlen计算的结果和test2一样，可能会是任意值</td></tr></table>
