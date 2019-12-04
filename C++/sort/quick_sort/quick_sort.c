@@ -58,11 +58,11 @@ int partition(std::vector<QcVectorType> &t_src, int left, int right)
 	int i = left;
 	int j = right - 1; //5
 	QcVectorType pivot = mediaPivot(t_src, left, right);
-	for (int a = 0; a < t_src.size(); a++)
-	{
-		std::cout << GREEN << "after mediaPivot vector is : \033[31m" << t_src.at(a) << std::endl;
-		std::cout << WHITE << std::endl;
-	}
+	// for (int a = 0; a < t_src.size(); a++)
+	// {
+	// 	std::cout << GREEN << "after mediaPivot vector is : \033[31m" << t_src.at(a) << std::endl;
+	// 	std::cout << WHITE << std::endl;
+	// }
 	for (;;)
 	{
 		// std::cout << "print i and j : " << i << ", " << j << std::endl;
@@ -86,12 +86,18 @@ int partition(std::vector<QcVectorType> &t_src, int left, int right)
 			break;
 		}
 	}
+	for (int a = 0; a < t_src.size(); a++)
+	{
+		std::cout << GREEN << "before swap vector is : \033[31m" << t_src.at(a) << std::endl;
+		std::cout << WHITE << std::endl;
+	}
+	std::cout << GREEN << "i is : \033[31m" << i << std::endl;
 	swap(&t_src.at(i), &t_src.at(right - 1));
-	// for (int k = 0; k < t_src.size(); k++)
-	// {
-	// 	std::cout << RED << "after partition vector is : \033[31m" << t_src.at(k) << std::endl;
-	// 	std::cout << WHITE << std::endl;
-	// }
+	for (int k = 0; k < t_src.size(); k++)
+	{
+		std::cout << RED << "after swap vector is : \033[31m" << t_src.at(k) << std::endl;
+		std::cout << WHITE << std::endl;
+	}
 	return i;
 }
 
