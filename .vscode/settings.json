@@ -53,6 +53,7 @@
 		"cfenv": "c",
 		"typeindex": "c",
 		"typeinfo": "c",
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"hash_map": "c"
 	}
 }
