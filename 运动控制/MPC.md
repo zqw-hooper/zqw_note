@@ -118,9 +118,9 @@
 [MPC求解（基于apollo代码的理解）](https://blog.csdn.net/weixin_41399470/article/details/91353459)  
 
 # Udacity与Apollo MPC对比:
-| 对比项 | Udacity | Apollo |
+| <font size=5 color=Blue>**对比项**</font> | <font size=5 color=Blue>**Udacity**</font> | <font size=5 color=Blue>**Apollo**</font> |
 | :-: | :-: | :-: |
-| 车辆模型　|　运动学　|　动力学 |
-| 输出控制指令　|　下一拍指令 |　下十拍指令 | 
+| **车辆模型**　|　运动学　|　动力学 |
+| 输出控制指令　|　后一拍指令 |　后十拍指令 | 
 | 二次规划求解器 |　CppAD::Ipopt |  osqp + Linear solver|
-| 前馈控制 | 无 | 有 |
+| **前馈控制** | 无 | 有 |
