@@ -1,10 +1,9 @@
 #include <iostream>
 #include <string>
 
-template <typename c> c Max(c a, c b) 
-{ 
-  std::cout << "this has been changed to c\n!" <<std::endl;
-  return a < b ? b : a; 
+template <typename c> c Max(c a, c b) {
+  std::cout << "this has been changed to c\n!" << std::endl;
+  return a < b ? b : a;
 }
 
 int main() {

@@ -7,8 +7,8 @@ int main() {
   ss << "this is a test about sstream" << 20191122 << "!";
   std::string s = ss.str();
   std::cout << s << std::endl;
-	
-	//this set str as the content of the stringstream of ss1
+
+  // this set str as the content of the stringstream of ss1
   ss1.str(s);
   for (int i = 0; i < 6; i++) {
     std::string s1;
@@ -16,9 +16,11 @@ int main() {
     std::cout << s1 << std::endl;
   }
 
-	std::cout << "stringstream trans to string is :"<<ss1.str() << std::endl;
-  std::cerr << "cerr stringstream trans to string is :"<<ss1.str() << std::endl;
-  std::clog << "clog stringstream trans to string is :"<<ss1.str() << std::endl;
+  std::cout << "stringstream trans to string is :" << ss1.str() << std::endl;
+  std::cerr << "cerr stringstream trans to string is :" << ss1.str()
+            << std::endl;
+  std::clog << "clog stringstream trans to string is :" << ss1.str()
+            << std::endl;
 
   return 0;
 }

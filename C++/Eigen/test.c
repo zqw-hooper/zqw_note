@@ -19,8 +19,10 @@ int main() {
   std::cout << "Here is the matrix block of m:\n" << m_b << std::endl;
   std::cout << "Here is the matrix row(2):\n" << m.row(2) << std::endl;
   std::cout << "Here is the matrix col(1):\n" << m.col(1) << std::endl;
-  std::cout << "Here is the matrix leftcols(2):\n" << m.leftCols(2) << std::endl;
-  std::cout << "Here is the matrix bottomraw(2):\n" << m.bottomRows(2) << std::endl;
+  std::cout << "Here is the matrix leftcols(2):\n"
+            << m.leftCols(2) << std::endl;
+  std::cout << "Here is the matrix bottomraw(2):\n"
+            << m.bottomRows(2) << std::endl;
 
   Eigen::MatrixXd m_identity = Eigen::MatrixXd::Identity(6, 3);
   std::cout << "Here is the identity matrix :\n" << m_identity << std::endl;
