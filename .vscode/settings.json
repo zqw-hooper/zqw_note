@@ -54,6 +54,7 @@
 		"typeindex": "c",
 		"typeinfo": "c",
 		"stdlib.h": "c",
-		"hash_map": "c"
+		"hash_map": "c",
+		"csignal": "cpp"
 	}
 }
