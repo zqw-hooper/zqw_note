@@ -335,7 +335,8 @@
 
 41. **explicit关键字:**
 > 主要是用来修饰类的构造函数，表明该构造函数是显式的，禁止单参数构造函数的隐式转换, 即如果c++类的其中一个构造函数有一个参数，那么在编译的时候就会有一个缺省的转换操作：将该构造函数对应数据类型的数据转换为该类对象。
-[explicit讲解](https://www.jb51.net/article/101557.htm)
+[explicit讲解1](https://www.jb51.net/article/101557.htm)
+[explicit讲解2](https://www.cnblogs.com/gklovexixi/p/5622681.html)
 
 42. **C++类中的特殊成员函数:**
   六个函数特殊成员函数分别是：  
@@ -352,6 +353,7 @@
     > 同复制赋值运算符，唯一不同是参数为右值。
   **C++11新增了=default和=delete函数修饰符，提示编译器使用默认或者删除默认的特殊函数。需要注意的是这两个修饰符只能修饰上述特殊函数.**
   [default讲解](https://mp.weixin.qq.com/s?__biz=MzI2OTA3NTk3Ng==&mid=2649284831&idx=1&sn=177853e985bb3d443b736e7f63152a9d&chksm=f2f993b8c58e1aae2f353beefa1dd30b50ec5ecde2e9f18a5af799286deb5a125305b5232b00&mpshare=1&scene=1&srcid=0326Mq0sWvh9bTYMTlZumlTn&sharer_sharetime=1585311683398&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=AxJXk5ZcW%2B1aJ7YUQJGB0%2BI%3D&pass_ticket=QGB2T9QUKj9%2FDBqTZFRux2fE2MBP33SOaQpnm2b6PMup%2BAIscHX8wNq7hY6vPvW%2F#rd)
+  [特殊成员函数讲解](https://www.jb51.net/article/155953.htm)
 
 43. **多进程和多线程:**
   * 基于进程的多任务处理是**程序的并发执行**.
@@ -359,3 +361,23 @@
   > 多线程程序包含可以同时运行的两个或多个部分。这样的程序中的每个部分称为一个线程，每个线程定义了一个单独的执行路径.
   > 多个线程访问同一资源时，为了保证数据的一致性，最简单的方式就是使用 mutex（互斥锁）.
   [互斥锁讲解](https://www.cnblogs.com/zhanghu52030/p/9166737.html)
+
+44. **左值,右值和左值引用,右值引用:**
+  [左,右值含义](https://www.jianshu.com/p/d19fc8447eaa)
+  * C++11中可以取地址的、有名字的就是左值.
+  * C++11中不能取地址的、没有名字的就是右值（将亡值或纯右值）.
+  **区分左值和右值的便捷方法：看能不能对表达式取地址，如果能，则为左值，否则为右值.**
+
+  * 左值引用就是对一个左值进行引用的类型. 右值引用就是对一个右值进行引用的类型.
+  **左值引用只能绑定左值，右值引用只能绑定右值，如果绑定的不对，编译就会失败.**
+  
+  > 1. 左值引用， 使用 T&, 只能绑定左值
+  > 2. 右值引用， 使用 T&&， 只能绑定右值
+  > 3. 常量左值， 使用 const T&, 既可以绑定左值又可以绑定右值
+  > 4. 已命名的右值引用，编译器会认为是个左值
+
+45. **深浅拷贝:**
+  [深浅拷贝含义1](https://www.jb51.net/article/120922.htm)
+  [深浅拷贝含义2](https://www.yanbinghu.com/2020/01/05/12139.html)
+  * 浅拷贝:指的是仅拷贝对象的所有成员，而不包括其引用对象（例如指针指向的内容）.
+  * 深拷贝:除了拷贝其成员本身的值之外，还拷贝的成员指向的动态内存区域等类似的内容.
