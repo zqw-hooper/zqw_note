@@ -56,5 +56,6 @@
 		"stdlib.h": "c",
 		"hash_map": "c",
 		"csignal": "cpp"
-	}
+	},
+	"git.ignoreLimitWarning": true
 }
