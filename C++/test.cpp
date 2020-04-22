@@ -6,6 +6,7 @@
 #include <vector>
 #include <memory>
 #include <utility>
+#include <bitset>
 
 /**数组做形参**/
 // int* printit(int buf[]) {
@@ -315,6 +316,12 @@ int main(int argc, char **argv)
     // int  temp = reinterpret_cast<int>(a);
     // printf("value is : %d\n", temp);
 
+    /**负数存储形式**/
+    // std::bitset<16> a(2);
+    // std::bitset<16> b(-2);
+    // std::cout << "binary of a is : " << a << std::endl;
+    // std::cout << "binary of b is : " << b << std::endl;
+
     //--------------------------------------------------
     // char *a = "abc";
     // printf("---: %s\n", a);
@@ -331,6 +338,7 @@ int main(int argc, char **argv)
     // const char* b ="const char*";
     // printf("a value is : %s\n", a);
     // printf("b value is : %s\n", b);
+    
 
     return 0;
 }
