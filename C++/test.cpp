@@ -7,6 +7,11 @@
 #include <memory>
 #include <utility>
 #include <bitset>
+#include <fstream>
+#include <sstream>
+#include <istream>
+#include <stdexcept>
+#include <limits>
 
 /**数组做形参**/
 // int* printit(int buf[]) {
@@ -108,21 +113,74 @@
 // }
 
 /**static_cast  dynamic_cast**/
-// class Animal
-// {
-// public:
-//     virtual void eat() { printf("animal eat food!\n"); }
-// };
+class Animal
+{
+public:
+    virtual void eat() { printf("animal eat food!\n"); }
+};
 
-// class Cat : public Animal
-// {
-// public:
-//     void eat() { printf("cat eat food!\n"); };
-//     void vivipation() { printf("vivipation!\n"); };
+class Cat : public Animal
+{
+public:
+    void eat() { printf("cat eat food!\n"); };
+    void vivipation() { printf("vivipation!\n"); };
 
-// private:
-//     void eatBone();
-// };
+private:
+    void eatBone();
+};
+
+/**引用返回值**/
+// int& test(int temp)
+// {
+//     int &bb = temp;
+//     bb = 152;
+//     return bb;
+// }
+
+/**指针返回值**/
+// int* test(int temp)
+// {
+//     int * bb = new int();
+//     *bb = temp*2;
+//     return bb;
+// }
+
+void run(std::istream& in)
+{
+    std::string preamble;
+    in >> preamble;
+    // std::cout << "preamble is is  :" << preamble << std::endl;
+
+    if (preamble != "BO_")
+    {
+        in.setstate(std::ios_base::failbit);
+        // return in;
+    }
+    else
+    { 
+        std::ostringstream ostr;
+        ostr << in.rdbuf();
+        std::string str = ostr.str();
+        std::cout << "string are  :" << str << std::endl;
+    }
+}
+
+void init(std::istream& in)
+{
+    while (!in.eof())
+    {
+        run(in);
+        if (in.fail()) 
+        {
+			in.clear();
+			in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		} 
+        else 
+        {
+			// messages.push_back(msg);
+		} 
+    } 
+}
 
 int main(int argc, char **argv)
 {
@@ -322,6 +380,18 @@ int main(int argc, char **argv)
     // std::cout << "binary of a is : " << a << std::endl;
     // std::cout << "binary of b is : " << b << std::endl;
 
+    /**指针返回值**/
+    // int a = 17;
+    // int *ret = test(a);
+    // printf("ret is :%d\n", *ret);
+    // delete ret;
+    // printf("ret is :%d\n", *ret);
+
+    /**shared pointer**/
+    // std::shared_ptr<int> ptr = std::make_shared<int>();
+    // *ptr = 100;
+    // printf("shared ponter value is : %d\n", *ptr);
+
     //--------------------------------------------------
     // char *a = "abc";
     // printf("---: %s\n", a);
@@ -338,7 +408,19 @@ int main(int argc, char **argv)
     // const char* b ="const char*";
     // printf("a value is : %s\n", a);
     // printf("b value is : %s\n", b);
-    
 
+
+    // std::ifstream file("./Ultrasonic_radar_messages_V5.0.dbc");
+    // std::stringstream ptr ;
+    // ptr << file.rdbuf();
+    // std::string str = ptr.str();
+
+    // init(file);
+
+    // Animal* animal = new Cat();
+    // animal->eat();
+
+    // Cat* cat = new Cat();
+    
     return 0;
 }
