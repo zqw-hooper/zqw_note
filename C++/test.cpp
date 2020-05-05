@@ -113,21 +113,21 @@
 // }
 
 /**static_cast  dynamic_cast**/
-class Animal
-{
-public:
-    virtual void eat() { printf("animal eat food!\n"); }
-};
+// class Animal
+// {
+// public:
+//     virtual void eat() { printf("animal eat food!\n"); }
+// };
 
-class Cat : public Animal
-{
-public:
-    void eat() { printf("cat eat food!\n"); };
-    void vivipation() { printf("vivipation!\n"); };
+// class Cat : public Animal
+// {
+// public:
+//     void eat() { printf("cat eat food!\n"); };
+//     void vivipation() { printf("vivipation!\n"); };
 
-private:
-    void eatBone();
-};
+// private:
+//     void eatBone();
+// };
 
 /**引用返回值**/
 // int& test(int temp)
@@ -145,42 +145,84 @@ private:
 //     return bb;
 // }
 
-void run(std::istream& in)
-{
-    std::string preamble;
-    in >> preamble;
-    // std::cout << "preamble is is  :" << preamble << std::endl;
+/**ifstream and stringstream**/
+// void run(std::istream& in)
+// {
+//     std::string preamble;
+//     in >> preamble;
+//     // std::cout << "preamble is is  :" << preamble << std::endl;
 
-    if (preamble != "BO_")
-    {
-        in.setstate(std::ios_base::failbit);
-        // return in;
-    }
-    else
-    { 
-        std::ostringstream ostr;
-        ostr << in.rdbuf();
-        std::string str = ostr.str();
-        std::cout << "string are  :" << str << std::endl;
-    }
-}
+//     if (preamble != "BO_")
+//     {
+//         in.setstate(std::ios_base::failbit);
+//         // return in;
+//     }
+//     else
+//     { 
+//         std::ostringstream ostr;
+//         ostr << in.rdbuf();
+//         std::string str = ostr.str();
+//         std::cout << "string are  :" << str << std::endl;
+//     }
+// }
 
-void init(std::istream& in)
-{
-    while (!in.eof())
-    {
-        run(in);
-        if (in.fail()) 
-        {
-			in.clear();
-			in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		} 
-        else 
-        {
-			// messages.push_back(msg);
-		} 
-    } 
-}
+// void init(std::istream& in)
+// {
+//     while (!in.eof())
+//     {
+//         run(in);
+//         if (in.fail()) 
+//         {
+// 			in.clear();
+// 			in.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+// 		} 
+//         else 
+//         {
+// 			// messages.push_back(msg);
+// 		} 
+//     } 
+// }
+
+/** this pointer **/
+// class Box
+// {
+// public:
+//     // 构造函数定义
+//     Box(double l = 2.0, double b = 2.0, double h = 2.0)
+//     {
+//         std::cout << "Constructor called." << std::endl;
+//         length = l;
+//         breadth = b;
+//         height = h;
+//     }
+//     double Volume()
+//     {
+//         return this->length * this->breadth * this->height;
+//     }
+//     int compare(Box box)
+//     {
+//         return this->Volume() > box.Volume();
+//     }
+
+// private:
+//     double length;  // Length of a box
+//     double breadth; // Breadth of a box
+//     double height;  // Height of a box
+// };
+
+// class Complex
+// {
+// public:
+//     double real, imag;
+
+//     Complex(double r, double i) : real(r), imag(i) {}
+    
+//     Complex* AddOne()
+//     {
+//         this->real++;
+//         return this;
+//     }
+// };
 
 int main(int argc, char **argv)
 {
@@ -374,6 +416,12 @@ int main(int argc, char **argv)
     // int  temp = reinterpret_cast<int>(a);
     // printf("value is : %d\n", temp);
 
+    /**father and son class related**/
+    // Animal* animal = new Cat();
+    // animal->eat();
+    // Cat* cat = new Cat();
+    // cat->vivipation();
+
     /**负数存储形式**/
     // std::bitset<16> a(2);
     // std::bitset<16> b(-2);
@@ -392,6 +440,23 @@ int main(int argc, char **argv)
     // *ptr = 100;
     // printf("shared ponter value is : %d\n", *ptr);
 
+    /**ifstream and stringstream**/
+    // std::ifstream file("./Ultrasonic_radar_messages_V5.0.dbc");
+    // std::stringstream ptr ;
+    // ptr << file.rdbuf();
+    // std::string str = ptr.str();
+    // init(file);
+
+    /** this pointer **/
+    // Complex c1(100, 110), c2(200, 220);
+    // c2 = c1.AddOne();
+    // std::cout << c2.real << "," << c2.imag << std::endl; //输出 2,1
+    // Complex *c1 = new Complex(10, 11);
+    // Complex *c2 = new Complex(20, 22);
+    // std::cout << "pointer c2 : " << c2 << std::endl;
+    // std::cout << "pointer c1 : " << c1 << std::endl;
+    // c2 = c1->AddOne();
+    // std::cout << "output value : " << c2->real << "," << c2->imag << std::endl;
     //--------------------------------------------------
     // char *a = "abc";
     // printf("---: %s\n", a);
@@ -410,17 +475,7 @@ int main(int argc, char **argv)
     // printf("b value is : %s\n", b);
 
 
-    // std::ifstream file("./Ultrasonic_radar_messages_V5.0.dbc");
-    // std::stringstream ptr ;
-    // ptr << file.rdbuf();
-    // std::string str = ptr.str();
-
-    // init(file);
-
-    // Animal* animal = new Cat();
-    // animal->eat();
-
-    // Cat* cat = new Cat();
     
+
     return 0;
 }
