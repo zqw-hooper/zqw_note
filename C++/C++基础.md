@@ -422,5 +422,4 @@
 
 51. **this:**
   * `this`指针是所有成员函数的**隐含参数**, 可以通过`this`指针访问对象的非静态函数和成员变量。
-
-
+  [this 指针](http://c.biancheng.net/view/170.html)
