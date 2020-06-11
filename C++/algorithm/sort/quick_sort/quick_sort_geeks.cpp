@@ -1,87 +1,75 @@
-#include <iostream>
-#include <cstdlib>
-#include <cstdio>
+/* C++ implementation of QuickSort */
+#include <bits/stdc++.h> 
+using namespace std; 
 
-using namespace std;
+// A utility function to swap two elements 
+void swap(int* a, int* b) 
+{ 
+	int t = *a; 
+	*a = *b; 
+	*b = t; 
+} 
 
-// Swapping two values.
-void swap(int *a, int *b)
-{
-    int temp;
-    temp = *a;
-    *a = *b;
-    *b = temp;
-}
+/* This function takes last element as pivot, places 
+the pivot element at its correct position in sorted 
+array, and places all smaller (smaller than pivot) 
+to left of pivot and all greater elements to right 
+of pivot */
+int partition (int arr[], int low, int high) 
+{ 
+	int pivot = arr[high]; // pivot 
+	int i = (low - 1); // Index of smaller element 
 
-// Partitioning the array on the basis of values at high as pivot value.
-int Partition(int a[], int low, int high)
-{
-    int pivot, index, i;
-    index = low;
-    pivot = high;
+	for (int j = low; j <= high - 1; j++) 
+	{ 
+		// If current element is smaller than the pivot 
+		if (arr[j] < pivot) 
+		{ 
+			i++; // increment index of smaller element 
+			swap(&arr[i], &arr[j]); 
+		} 
+	} 
+	swap(&arr[i + 1], &arr[high]); 
+	return (i + 1); 
+} 
 
-    // Getting index of the pivot.
-    for (i = low; i < high; i++)
-    {
-        if (a[i] < a[pivot])
-        {
-            swap(&a[i], &a[index]);
-            index++;
-        }
-    }
-    // Swapping value at high and at the index obtained.
-    swap(&a[pivot], &a[index]);
+/* The main function that implements QuickSort 
+arr[] --> Array to be sorted, 
+low --> Starting index, 
+high --> Ending index */
+void quickSort(int arr[], int low, int high) 
+{ 
+	if (low < high) 
+	{ 
+		/* pi is partitioning index, arr[p] is now 
+		at right place */
+		int pi = partition(arr, low, high); 
 
-    return index;
-}
+		// Separately sort elements before 
+		// partition and after partition 
+		quickSort(arr, low, pi - 1); 
+		quickSort(arr, pi + 1, high); 
+	} 
+} 
 
-// Random selection of pivot.
-// int RandomPivotPartition(int a[], int low, int high)
-// {
-//     int pvt, n, temp;
-//     n = rand();
-//     // Randomizing the pivot value in the given subpart of array.
-//     pvt = low + n % (high - low + 1);
-//     printf("pvt is : %d\n", pvt);
-//     // Swapping pivot value from high, so pivot value will be taken as a pivot while partitioning.
-//     swap(&a[high], &a[pvt]);
+/* Function to print an array */
+void printArray(int arr[], int size) 
+{ 
+	int i; 
+	for (i = 0; i < size; i++) 
+		cout << arr[i] << " "; 
+	cout << endl; 
+} 
 
-//     return Partition(a, low, high);
-// }
+// Driver Code 
+int main() 
+{ 
+	int arr[] = {5, 3, 1, 2, 4}; 
+	int n = sizeof(arr) / sizeof(arr[0]); 
+	quickSort(arr, 0, n - 1); 
+	cout << "Sorted array: \n"; 
+	printArray(arr, n); 
+	return 0; 
+} 
 
-int QuickSort(int a[], int low, int high)
-{
-    int pindex;
-    if (low < high)
-    {
-        // Partitioning array using randomized pivot.
-        pindex = Partition(a, low, high);
-        // Recursively implementing QuickSort.
-        QuickSort(a, low, pindex - 1);
-        QuickSort(a, pindex + 1, high);
-    }
-    return 0;
-}
-
-int main()
-{
-    int n, i;
-    cout << "\nEnter the number of data elements to be sorted: ";
-    cin >> n;
-
-    int arr[n];
-    for (i = 0; i < n; i++)
-    {
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> arr[i];
-    }
-
-    QuickSort(arr, 0, n - 1);
-
-    // Printing the sorted data.
-    cout << "\nSorted Data ";
-    for (i = 0; i < n; i++)
-        cout << "-> " << arr[i];
-
-    return 0;
-}
+// This code is contributed by rathbhupendra 
