@@ -57,14 +57,14 @@ int partition(std::vector<QcVectorType> &t_src, int left, int right)
 {
   int i = left;
   int j = right - 1;                 // 5
-  QcVectorType pivot = t_src.at(right - 1); //mediaPivot(t_src, left, right);
+  QcVectorType pivot = mediaPivot(t_src, left, right);
   // for (int a = 0; a < t_src.size(); a++)
   // {
   // 	std::cout << GREEN << "after mediaPivot vector is : \033[31m" <<
   // t_src.at(a) << std::endl;
   // 	std::cout << WHITE << std::endl;
   // }
-  for (;;)
+  // for (;;)
   {
     // std::cout << "print i and j : " << i << ", " << j << std::endl;
     while (pivot > t_src.at(++i))
@@ -82,10 +82,10 @@ int partition(std::vector<QcVectorType> &t_src, int left, int right)
       // std::cout << "i swap once  : " << i << ", " << j << std::endl;
       swap(&t_src.at(i), &t_src.at(j));
     }
-    else
-    {
-      break;
-    }
+    // else
+    // {
+    //   break;
+    // }
   }
   // for (int a = 0; a < t_src.size(); a++) {
   //   std::cout << GREEN << "before swap vector is : \033[31m" << t_src.at(a)

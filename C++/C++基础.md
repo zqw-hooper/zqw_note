@@ -423,3 +423,8 @@
 51. **this:**
   * `this`指针是所有成员函数的**隐含参数**, 可以通过`this`指针访问对象的非静态函数和成员变量。
   [this 指针](http://c.biancheng.net/view/170.html)
+
+52. **类成员初始化列表:**
+  [Member Initializer List](https://www.geeksforgeeks.org/when-do-we-use-initializer-list-in-c/)
+  [Member Initializer List Example](https://www.geeksforgeeks.org/output-of-c-program/)
+  * 优先使用成员初始化列表而不是构造函数内赋值操作，因为成员初始化列表效率更高些.

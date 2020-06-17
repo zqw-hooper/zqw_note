@@ -63,23 +63,23 @@
 // };
 
 /**Polymorphism**/
-// class Father
-// {
-// public:
-//   Father() { printf("Father constructor!\n"); }
-//   virtual ~Father() { printf("Father deconstructor!\n"); }
+class Father
+{
+public:
+  Father() { printf("Father constructor!\n"); }
+   ~Father() { printf("Father deconstructor!\n"); }
 
-//   virtual void Print() { printf("Father class!\n"); }
-// };
+  virtual void Print() { printf("Father class!\n"); }
+};
 
-// class Son : public Father
-// {
-// public:
-//   Son() { printf("Son constructor!\n"); }
-//   ~Son() { printf("Son constructor!\n"); }
+class Son : public Father
+{
+public:
+  Son() { printf("Son constructor!\n"); }
+  ~Son() { printf("Son constructor!\n"); }
 
-//   virtual void Print() { printf("Son class!\n"); }
-// };
+  virtual void Print() { printf("Son class!\n"); }
+};
 
 /**pointer function**/
 // int *expand(int a)
@@ -324,6 +324,9 @@ int main(int argc, char **argv)
     // Father* father = new Son;
     // father->Print();
     // delete father;
+
+    Father* father = new Son();
+    delete father;
 
     /** const 在* 左边, const 在*右边(左定值, 右定向)**/
     // int * b = new int(5);
