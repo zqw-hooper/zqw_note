@@ -63,23 +63,32 @@
 // };
 
 /**Polymorphism**/
-class Father
-{
-public:
-  Father() { printf("Father constructor!\n"); }
-   ~Father() { printf("Father deconstructor!\n"); }
+// class Father
+// {
+// public:
+//   Father() { printf("Father constructor!\n"); }
+//    ~Father() { printf("Father deconstructor!\n"); }
 
-  virtual void Print() { printf("Father class!\n"); }
-};
+//   virtual void Print() { printf("Father Print!\n"); }
+// };
 
-class Son : public Father
-{
-public:
-  Son() { printf("Son constructor!\n"); }
-  ~Son() { printf("Son constructor!\n"); }
+// class Son : public Father
+// {
+// public:
+//   Son() { printf("Son constructor!\n"); }
+//   ~Son() { printf("Son constructor!\n"); }
 
-  virtual void Print() { printf("Son class!\n"); }
-};
+//   void Print() override { printf("Son Print!\n"); }
+// };
+
+// class Son1 : public Father
+// {
+// public:
+//   Son1() { printf("Son1 constructor!\n"); }
+//   ~Son1() { printf("Son1 constructor!\n"); }
+
+//   void Print() { printf("Son1 Print!\n"); }
+// };
 
 /**pointer function**/
 // int *expand(int a)
@@ -325,8 +334,11 @@ int main(int argc, char **argv)
     // father->Print();
     // delete father;
 
-    Father* father = new Son();
-    delete father;
+    // Father* father = new Son;
+    // father->Print();
+
+    // Father* father = new Son();
+    // delete father;
 
     /** const 在* 左边, const 在*右边(左定值, 右定向)**/
     // int * b = new int(5);
@@ -482,3 +494,58 @@ int main(int argc, char **argv)
 
     return 0;
 }
+// #include <iostream> 
+// using namespace std;
+ 
+// class Shape {
+//    protected:
+//       int width, height;
+//    public:
+//       Shape( int a=0, int b=0)
+//       {
+//          width = a;
+//          height = b;
+//       }
+//       virtual int area()
+//       {
+//          cout << "Parent class area :" <<endl;
+//          return 0;
+//       }
+// };
+// class Rectangle: public Shape{
+//    public:
+//       Rectangle( int a=0, int b=0):Shape(a, b) { }
+//       int area ()
+//       { 
+//          cout << "Rectangle class area :" <<endl;
+//          return (width * height); 
+//       }
+// };
+// class Triangle: public Shape{
+//    public:
+//       Triangle( int a=0, int b=0):Shape(a, b) { }
+//       int area ()
+//       { 
+//          cout << "Triangle class area :" <<endl;
+//          return (width * height / 2); 
+//       }
+// };
+// // 程序的主函数
+// int main( )
+// {
+//    Shape *shape;
+//    Rectangle rec(10,7);
+//    Triangle  tri(10,5);
+ 
+//    // 存储矩形的地址
+//    shape = &rec;
+//    // 调用矩形的求面积函数 area
+//    shape->area();
+ 
+//    // 存储三角形的地址
+//    shape = &tri;
+//    // 调用三角形的求面积函数 area
+//    shape->area();
+   
+//    return 0;
+// }

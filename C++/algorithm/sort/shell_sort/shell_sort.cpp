@@ -10,7 +10,7 @@ void swap(int &a, int &b)
 
 void shellSort(int arr[], int n)
 {
-    for (int gap = 2; gap > 0; gap--)
+    for (int gap = n - 1; gap > 0; gap--)
     {
         for (int j = gap; j < n; j++)
         {
@@ -25,7 +25,7 @@ void shellSort(int arr[], int n)
 
 int main(int argc, char const *argv[])
 {
-    int arr[] = {5, 3, 1, 2, 4};
+    int arr[] = {12, 34, 54, 2, 3, 4, 56, 78};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     shellSort(arr, n);
@@ -33,6 +33,5 @@ int main(int argc, char const *argv[])
     {
         printf("sorted arr is : %d\n", arr[i]);
     }
-
     return 0;
 }
