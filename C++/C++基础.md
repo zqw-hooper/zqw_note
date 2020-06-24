@@ -444,3 +444,14 @@
   [Member Initializer List](https://www.geeksforgeeks.org/when-do-we-use-initializer-list-in-c/)
   [Member Initializer List Example](https://www.geeksforgeeks.org/output-of-c-program/)
   * 优先使用成员初始化列表而不是构造函数内赋值操作，因为成员初始化列表效率更高些.
+
+53. **类的前置声明:**
+    [类的前置声明](https://mp.weixin.qq.com/s?__biz=MzI3MDQyMDE2OQ==&mid=2247483747&idx=1&sn=f31b2047e10cc040b68005d30f11de41&chksm=ead010c5dda799d308303a3ca44b99cb5b618f3650abc50420cebf469eeb34e3ff87f5019e13&mpshare=1&scene=1&srcid=&sharer_sharetime=1592924309287&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=AwZ2A%2BZsNrCDwHN6uHs%2B6AQ%3D&pass_ticket=R96mvFDYo82O%2Fc57eWjA4QoEvDw%2F%2BpQ1a7j09aliMQ1EM4LeBaECwTCGmavT3NOK#rd)
+
+    - 类的前置声明应用场景: 利用前置类型声明解决文件循环引用.
+    - 类的前置声明使用: 使用前置类型声明只允许声明这个类型的指针和引用.
+    - 通过解决头文件的循环引用问题，可以有以下启发:
+      > 如果使用的仅仅是一个类的指针，没有使用这个类的具体对象（非指针), 也没有访问到类的具体成员，那么前置声明就可以了. 因为指针这一数据类型的大小是特定的，编译器可以获知.
+      > 如果可以不包含头文件，那就不要包含。尽量使用前置声明解决问题.
+      > 尽量在CPP文件中包含头文件，而不要在头文件中包含.
+ 
