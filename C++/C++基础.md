@@ -446,12 +446,129 @@
   * 优先使用成员初始化列表而不是构造函数内赋值操作，因为成员初始化列表效率更高些.
 
 53. **类的前置声明:**
-    [类的前置声明](https://mp.weixin.qq.com/s?__biz=MzI3MDQyMDE2OQ==&mid=2247483747&idx=1&sn=f31b2047e10cc040b68005d30f11de41&chksm=ead010c5dda799d308303a3ca44b99cb5b618f3650abc50420cebf469eeb34e3ff87f5019e13&mpshare=1&scene=1&srcid=&sharer_sharetime=1592924309287&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=AwZ2A%2BZsNrCDwHN6uHs%2B6AQ%3D&pass_ticket=R96mvFDYo82O%2Fc57eWjA4QoEvDw%2F%2BpQ1a7j09aliMQ1EM4LeBaECwTCGmavT3NOK#rd)
+    [类的前置声明一](https://mp.weixin.qq.com/s?__biz=MzI3MDQyMDE2OQ==&mid=2247483747&idx=1&sn=f31b2047e10cc040b68005d30f11de41&chksm=ead010c5dda799d308303a3ca44b99cb5b618f3650abc50420cebf469eeb34e3ff87f5019e13&mpshare=1&scene=1&srcid=&sharer_sharetime=1592924309287&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=AwZ2A%2BZsNrCDwHN6uHs%2B6AQ%3D&pass_ticket=R96mvFDYo82O%2Fc57eWjA4QoEvDw%2F%2BpQ1a7j09aliMQ1EM4LeBaECwTCGmavT3NOK#rd)
+
+    [类的前置声明二](https://mp.weixin.qq.com/s?__biz=MzI3MDQyMDE2OQ==&mid=2247483756&idx=1&sn=77b3877bdbe4f4e2cc80dd1d64dc10ec&chksm=ead010cadda799dc4ebeab07267235595bcbb2b1a4558b5694d1199bc2eec9b230d1ec42c0f3&mpshare=1&scene=1&srcid=&sharer_sharetime=1592960426181&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=A7ESpiU5x4cScY7UASjmL18%3D&pass_ticket=8lPzPI0TIY4zO2p8OJ6ssxZkPe4tS%2B5wv9IW0WvqUkJXLUSr0XKlxi64x2vY7qvS#rd)
 
     - 类的前置声明应用场景: 利用前置类型声明解决文件循环引用.
     - 类的前置声明使用: 使用前置类型声明只允许声明这个类型的指针和引用.
     - 通过解决头文件的循环引用问题，可以有以下启发:
       > 如果使用的仅仅是一个类的指针，没有使用这个类的具体对象（非指针), 也没有访问到类的具体成员，那么前置声明就可以了. 因为指针这一数据类型的大小是特定的，编译器可以获知.
-      > 如果可以不包含头文件，那就不要包含。尽量使用前置声明解决问题.
+      > 如果可以不包含头文件，那就不要包含, 尽量使用前置声明解决问题(因为前置类声明不能获得类的定义，因此当用到类的成员函数或成员变量时，需要通过包含头文件的方式获取类的定义，而前置类声明无法做到这点).
       > 尽量在CPP文件中包含头文件，而不要在头文件中包含.
- 
+    - 类的前置声明优点: 使用前置类型声明只允许声明这个类型的指针和引用, 由于指针类型的大小是固定的, 因此对于上述代码来说ClassInfo类的大小始终是固定的，不管Student类有多复杂, 因此前置类型声明极大的减小了类的大小.
+
+54. **多线程:**
+    ```cpp
+    #include <iostream>
+    #include <thread>
+
+    void function_1() 
+    {
+      std::cout << "I'm function_1()" << std::endl;
+    }
+
+    int main() 
+    {
+      std::thread t1(function_1);
+      // do other things
+      t1.join();
+      return 0;
+    }
+    ```
+    - **同时声明的多线程运行的顺序不一定与定义相同.**
+
+    - `join()`([join与detach](https://www.jianshu.com/p/5d273e4e3cbb)): 主线程会一直阻塞直到子线程执行完成, 即等待子线程结束后在结束主线程.
+    - `detach()`: 将`t1`线程放在后台运行,所有权和控制权交给`C++`托管，以确保与线程相关的资源在线程退出后能被正确的回收. 这种被分离的线程被称为**守护线程（daemon threads）**, 线程分离后即使该线程的对象被析构，线程还是能够在后台运行的，只是主线程不能通过对象名与这个线程进行通讯.
+
+    
+    - **竞争条件(race condition)([竞争条件与互斥锁](https://www.jianshu.com/p/4a2578dd9b5d)):**最常见的就是**数据竞争(data race)**,即线程之间共享数据.
+    - 使用互斥锁`std::mutex`进行资源保护, **`lock()`与`unlock()`**对资源进行上锁和解锁. 但是当`lock()`和`unlock()`之间的语句发生了异常，`unlock()`语句没有机会执行进而导致导致资源一直处于上锁状态.
+    - `std::lock_guard`可以解决`unlock()`未执行导致资源一直上锁的情况. `lock_guard`在类的构造函数中创建资源，在析构函数中释放资源.
+  
+    
+    - **死锁([死锁](https://www.jianshu.com/p/c01e992a3d9d)):**当某个`mutex`上锁后一直不释放，另一个线程访问该锁保护的资源的时候，就会发生死锁，这种情况下使用`lock_guard`就可以保证析构时能释放资源，但是当需要使用两个及以上互斥元的时候，仅仅使用`lock_guard`并不能保证不会发生死锁，因此避免死锁方法如下:
+    > 1. 严格规定上锁的顺序，按照相同的顺序上锁
+    > 2. 如果想同时对多个互斥锁上锁，要使用`std::lock(mutex1,mutex2)`对多个互斥锁同时上锁.
+
+    
+    - **`unique_lock`([unique_lock](https://www.jianshu.com/p/34d219380d90))**: `lock_guard`只能保证在构造和析构的时候执行上锁和解锁操作，而其本身并没有提供上锁和解锁的接口, 当需要分块上锁资源时, 则需要实例化多个`lock_guard`对象, 而`unique_lock`提供了`lock()`和`unlock()`接口，能记录现在处于上锁还是没上锁状态，在析构的时候，会根据当前状态来决定是否要进行解锁. 但是`unique_lock`的效率低于`lock_guard`.
+
+    
+    
+    - **`condition_variable`([condition_variable1](https://www.jianshu.com/p/c1dfa1d40f53))([condition_variable2](https://www.bbsmax.com/A/KE5Q11ly5L/))**:其中`wait()`可以让线程进入**休眠状态**, 在生产消费模式时，当消费者发现队列中没有数据时，就可以通过`wait()`让自己休眠，通过`notify_one()`唤醒处于`wait()`中的条件变量（`condition_variable`）.
+
+    - **future、promise、async、packaged_task:** 这几个模板函数均是为了使线程异步运行.
+    ```cpp
+    #include <iostream>
+    #include <thread>
+
+    int function_1(int var)
+    {
+      std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+      return var * 6;
+    }
+
+    int main()
+    {
+      int a = 4;
+      std::thread t1(function_1, std::ref(a));
+      std::cout << "return var a is : " << a << std::endl;
+      t1.join();
+      return 0;
+    }
+    ```
+    通过如上代码可以得到结果: `return var a is : 4`, 结果并不是期望的`24`，原因是主线程没有等到子线程执行完成就获取参数`a`. 假如想要等子线程执行完在获取相应参数需要用如下实现:
+    ```cpp
+    #include <iostream>
+    #include <thread>
+    #include <future>
+
+    int function_1(int var)
+    {
+      std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+      return var * 6;
+    }
+
+    int main()
+    {
+      int a = 4;
+      std::future<int> fut = std::async(function_1, a);
+      std::cout << "return var a is : " << fut.get() << std::endl;
+      t1.join();
+      return 0;
+    }
+    ```
+    这样主线程就会在子线程执行完后再执行`cout`打印结果. `furture get()`函数会阻塞等待子线程执行完毕并得到反馈结果.
+
+    ```cpp
+    #include <iostream>       // std::cout
+    #include <functional>     // std::ref
+    #include <thread>         // std::thread
+    #include <future>         // std::promise, std::future
+
+    void print_int (std::future<int>& fut) {
+      int x = fut.get();
+      std::cout << "value: " << x << '\n';
+    }
+
+    int main ()
+    {
+      std::promise<int> prom;                      // create promise
+
+      std::future<int> fut = prom.get_future();    // engagement with future
+
+      std::thread th1 (print_int, std::ref(fut));  // send future to new thread
+
+      prom.set_value (10);                         // fulfill promise
+                                               // (synchronizes with getting the future)
+      th1.join();
+      return 0;
+    }
+    ```
+    上述代码通过`promise`可以在子线程开始执行后在设置输入参数，子线程通过`get()`函数获取该输入参数，直到获取该参数后才会继续向后执行线程，否则会阻塞在这里.
+
+    **`packaged_task`**([packaged_task讲解](https://blog.csdn.net/xiao3404/article/details/79541301))将一个普通的可调用函数对象转换为异步执行的任务，可以通过`thread`启动而不是`std::async`或者仿函数形式启动，其执行结果返回值或所抛异常被存储于能通过`std::future`对象访问的共享状态中.
+
+55. **设计模式**
+    - **单例设计模式**: 在整个项目中，针对某一类只能创建一个对象.
