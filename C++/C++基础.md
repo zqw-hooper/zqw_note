@@ -570,5 +570,33 @@
 
     **`packaged_task`**([packaged_task讲解](https://blog.csdn.net/xiao3404/article/details/79541301))将一个普通的可调用函数对象转换为异步执行的任务，可以通过`thread`启动而不是`std::async`或者仿函数形式启动，其执行结果返回值或所抛异常被存储于能通过`std::future`对象访问的共享状态中.
 
+    - **多线程对象调用几种方式:**
+    ```cpp
+    class A
+    {
+      public:
+        void f(int x,char c){}
+        int operator()(int n){return 0;}
+    };
+
+    void foo(int n) {return 0;}
+
+    int main()
+    {
+      A a;
+      std::thread t1(a, 6); //传递a的拷贝给子线程
+      std::thread t2(std::ref(a), 6); //传递a的引用给子线程
+      std::thread t3(std::move(a), 6); //a在主线程中将不再有效
+      std::thread t4(A(), 6); //传递临时创建的A对象给子线程，伪函数方式
+      std::thread t5(foo, 6);
+      std::thread t6([](int x){return x*x;}, 6); //lambda方式
+      std::thread t7(&A::f, a, 6,'w'); //传递a的拷贝的成员函数给子线程
+      std::thread t8(&A::f, &a, 6,'w'); //传递a的地址的成员函数给子线程
+    }
+    ```
+
 55. **设计模式**
     - **单例设计模式**: 在整个项目中，针对某一类只能创建一个对象.
+
+56. **伪函数:**
+    伪函数就是一个类重载`()`运算符， 这样类对象在使用`()`操作符时，看起来就像在调用一个函数.
