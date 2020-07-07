@@ -122,21 +122,21 @@
 // }
 
 /**static_cast  dynamic_cast**/
-// class Animal
-// {
-// public:
-//     virtual void eat() { printf("animal eat food!\n"); }
-// };
+class Animal
+{
+public:
+    virtual void eat() { printf("animal eat food!\n"); }
+};
 
-// class Cat : public Animal
-// {
-// public:
-//     void eat() { printf("cat eat food!\n"); };
-//     void vivipation() { printf("vivipation!\n"); };
+class Cat : public Animal
+{
+public:
+    void eat() { printf("cat eat food!\n"); };
+    void vivipation() { printf("vivipation!\n"); };
 
-// private:
-//     void eatBone();
-// };
+private:
+    void eatBone();
+};
 
 /**引用返回值**/
 // int& test(int temp)
@@ -403,9 +403,12 @@ int main(int argc, char **argv)
     // printf("value is : %d\n", b);
 
     // Animal *animal = new Animal();
+    // animal->eat();
     // Cat* cat = static_cast<Cat*>(animal);
     // cat->eat();
+    // cat->vivipation();
     // Cat* cat = new Cat();
+    // cat->eat();
     // Animal* animal = static_cast<Animal*>(cat);
     // animal->eat();
 
