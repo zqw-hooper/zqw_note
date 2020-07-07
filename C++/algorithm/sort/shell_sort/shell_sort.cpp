@@ -10,14 +10,16 @@ void swap(int &a, int &b)
 
 void shellSort(int arr[], int n)
 {
-    for (int gap = n - 1; gap > 0; gap--)
+    for (int gap = n / 2; gap > 0; gap /= 2)
     {
-        for (int j = gap; j < n; j++)
+        for (int i = gap; i < n; i++)
         {
-            int temp = arr[j];
-            if (arr[j] < arr[j - gap])
+            for (int j = i; j > gap - 1; j -= gap)
             {
-                swap(arr[j], arr[j - gap]);
+                if (arr[j] < arr[j - gap])
+                {
+                    swap(arr[j], arr[j - gap]);
+                }
             }
         }
     }
