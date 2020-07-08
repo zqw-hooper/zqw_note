@@ -603,3 +603,41 @@
 
 56. **伪函数:**
     伪函数就是一个类重载`()`运算符， 这样类对象在使用`()`操作符时，看起来就像在调用一个函数.
+
+57. **引用作为返回值**
+```cpp
+  #include <iostream>
+  #include <stdio.h>
+  #include <vector>
+
+  int temp;
+
+  class TestCase 
+  {
+    public:
+      TestCase() {}
+      ~TestCase() {}
+      int &operator()(int i, int j) 
+      {
+        printf("operator 1 \n");
+        temp = i + j;
+        // int temp1 = i + j;// reference to local variable ‘temp’ returned
+        // return temp1;
+        return temp;
+      }
+    };
+
+  int main(int argc, char const *argv[]) 
+  {
+    /* code */
+    TestCase test;
+    int a = 1;
+    int b = 2;
+    printf("output1 is : %d\n", test(a, b));
+    test(a, b) = 66;
+    printf("temp is : %d\n", temp);
+    return 0;
+  }
+```
+
+如上程序重载`()`运算符并以`int&`作为返回值，`int&`返回值是一个左值变量(需要返回一个左值),当在`int &operator()(int i, int j)`中定义个局部变量`temp1`时，当函数生命周期结束后局部变量`temp1`销毁,则返回值将会发生`reference to local variable ‘temp’ returned`错误，因此当返回值为引用时需要定义个全局变量`temp`， 因为实例对象`test`返回是个`int&`左值，因此可以进行`test(a, b) = 66`赋值。
