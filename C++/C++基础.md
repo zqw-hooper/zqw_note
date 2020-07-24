@@ -641,3 +641,14 @@
 ```
 
 如上程序重载`()`运算符并以`int&`作为返回值，`int&`返回值是一个左值变量(需要返回一个左值),当在`int &operator()(int i, int j)`中定义个局部变量`temp1`时，当函数生命周期结束后局部变量`temp1`销毁,则返回值将会发生`reference to local variable ‘temp’ returned`错误，因此当返回值为引用时需要定义个全局变量`temp`， 因为实例对象`test`返回是个`int&`左值，因此可以进行`test(a, b) = 66`赋值。
+
+58. **模板**  
+  模板有如下知识点：(详见`./template/template.cpp`)  
+      [template](https://www.geeksforgeeks.org/templates-cpp/)
+      * 函数模板
+      * 类模板
+      * 模板参数缺省
+      * 传递non-type参数
+      * 模板和静态变量
+      * 模板元编程
+      * 模板特殊化[Template Specialization](https://www.geeksforgeeks.org/template-specialization-c/)
