@@ -56,6 +56,50 @@
 
    - **虚函数机制：每个含有虚函数的类都有各自的一张虚函数表VTABLE。每个派生类的VTABLE继承了它各个基类的VTABLE，如果基类VTABLE中包含某一项（虚函数的入口地址），则其派生类的VTABLE中也将包含同样的一项，但是两项的值可能不同。如果派生类中重载了该项对应的虚函数，则派生类VTABLE的该项指向重载后的虚函数，如果派生类中没有对该项对应的虚函数进行重新定义，则使用基类的这个虚函数地址。在创建含有虚函数的类的对象的时候，编译器会在每个对象的内存布局中增加一个vptr指针项，该指针指向本类的VTABLE。在通过指向基类对象的指针（设为bp）调用一个虚函数时，编译器生成的代码是先获取所指对象的vtb1指针，然后调用vtb1所指向类的VTABLE中的对应项（具体虚函数的入口地址）.**
 
+    ```cpp
+      // C++ program for function overriding 
+
+      #include <bits/stdc++.h> 
+      using namespace std; 
+
+      class base 
+      { 
+      public: 
+      virtual void print () 
+      { cout<< "print base class" <<endl; } 
+
+      void show () 
+      { cout<< "show base class" <<endl; } 
+      }; 
+
+      class derived:public base 
+      { 
+      public: 
+      void print () //print () is already virtual function in derived class, we could also declared as virtual void print () explicitly 
+      { cout<< "print derived class" <<endl; } 
+
+      void show () 
+      { cout<< "show derived class" <<endl; } 
+      }; 
+
+      //main function 
+      int main() 
+      { 
+      base *bptr; 
+      derived d; 
+      bptr = &d; 
+
+      //virtual function, binded at runtime (Runtime polymorphism) 
+      bptr->print(); 
+
+      // Non-virtual function, binded at compile time 
+      bptr->show(); 
+
+      return 0; 
+      } 
+
+    ```
+
       > `virtual int area() = 0;` = 0 告诉编译器,函数没有主体, 是纯虚函数.
     当类声明中包含纯虚函数时，这个类就称为一个**抽象基类**, 抽象类不能创建对象.
     [抽象基类](https://mp.weixin.qq.com/s?__biz=MzI3MDQyMDE2OQ==&mid=2247483809&idx=1&sn=144348310332b6a5de32155a7b4318a6&chksm=ead01007dda79911218cc31d467f41635e28f909e22778e83b490cc842a476151ceeb6713c95&mpshare=1&scene=1&srcid=&sharer_sharetime=1592918136665&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=A7%2B%2Fuf0ZpqScS3kyQlBUPuM%3D&pass_ticket=R96mvFDYo82O%2Fc57eWjA4QoEvDw%2F%2BpQ1a7j09aliMQ1EM4LeBaECwTCGmavT3NOK#rd)
@@ -652,3 +696,40 @@
       * 模板和静态变量
       * 模板元编程
       * 模板特殊化[Template Specialization](https://www.geeksforgeeks.org/template-specialization-c/)
+
+59. **友元函数和友元类**  
+    [友元](https://www.geeksforgeeks.org/friend-class-function-cpp/?ref=lbp)  
+    被声明为友元的类或者函数可以访问类中的`protected`和`private`成员.
+    ```cpp
+      #include <iostream> 
+      class A { 
+      private: 
+        int a; 
+
+      public: 
+        A() { a = 0; } 
+        friend class B; // Friend Class 
+      }; 
+
+      class B { 
+      private: 
+        int b; 
+
+      public: 
+        void showA(A& x) 
+        { 
+          // Since B is friend of A, it can access 
+          // private members of A 
+          std::cout << "A::a=" << x.a; 
+        } 
+      }; 
+
+      int main() 
+      { 
+        A a; 
+        B b; 
+        b.showA(a); 
+        return 0; 
+      } 
+
+    ```

@@ -122,21 +122,21 @@
 // }
 
 /**static_cast  dynamic_cast**/
-// class Animal
-// {
-// public:
-//     virtual void eat() { printf("animal eat food!\n"); }
-// };
+class Animal
+{
+public:
+    virtual void eat() { printf("animal eat food!\n"); }
+};
 
-// class Cat : public Animal
-// {
-// public:
-//     void eat() { printf("cat eat food!\n"); };
-//     void vivipation() { printf("vivipation!\n"); };
+class Cat : public Animal
+{
+public:
+    void eat() { printf("cat eat food!\n"); };
+    void vivipation() { printf("vivipation!\n"); };
 
-// private:
-//     void eatBone();
-// };
+private:
+    void eatBone();
+};
 
 /**引用返回值**/
 // int& test(int temp)
@@ -233,12 +233,12 @@
 //     }
 // };
 
-void test(int * ptr)
-{
-    int *temp = new int();
-    temp = ptr;
-    *temp = 88;
-}
+// void test(int * ptr)
+// {
+//     int *temp = new int();
+//     temp = ptr;
+//     *temp = 88;
+// }
 
 int main(int argc, char **argv)
 {
@@ -442,8 +442,8 @@ int main(int argc, char **argv)
     // printf("value is : %d\n", temp);
 
     /**father and son class related**/
-    // Animal* animal = new Cat();
-    // animal->eat();
+    Animal* animal = new Cat();
+    animal->eat();
     // Cat* cat = new Cat();
     // cat->vivipation();
 
@@ -499,9 +499,9 @@ int main(int argc, char **argv)
     // printf("a value is : %s\n", a);
     // printf("b value is : %s\n", b);
 
-    int* a = new int(5);
-    test(a);
-    printf("output is : %d\n",*a);
+    // int* a = new int(5);
+    // test(a);
+    // printf("output is : %d\n",*a);
     
 
     return 0;
