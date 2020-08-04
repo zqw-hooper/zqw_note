@@ -696,6 +696,7 @@
       * 模板和静态变量
       * 模板元编程
       * 模板特殊化[Template Specialization](https://www.geeksforgeeks.org/template-specialization-c/)
+      * 可变参数模板[variadic template](https://www.jb51.net/article/53749.htm)
 
 59. **友元函数和友元类**  
     [友元](https://www.geeksforgeeks.org/friend-class-function-cpp/?ref=lbp)  
