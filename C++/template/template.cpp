@@ -201,7 +201,7 @@ int main()
     return 0; 
 } 
 
-#elif 1
+#elif 0
 // Template Specialization
 
 template <class T> 
@@ -226,7 +226,7 @@ int main()
     fun<float>(10.14); 
 } 
 
-#else
+#elif 0
 // An Example Program for class template specialization
 
 template <class T> 
@@ -259,5 +259,30 @@ int main()
     Test<char> b; 
     Test<float> c; 
     return 0; 
+} 
+#else
+// 可变参数函数模板通常是递归的。第一步调用处理包中的第一个实参，然后用剩余的实参调用自身。
+
+// 用来终止递归并处理包中最后一个元素 
+template <typename T> 
+void print(const T &t) 
+{ 
+  cout << t; 
+} 
+  
+// 包中除了最后一个元素之外的其他元素都会调用这个版本的print 
+template <typename T, typename...Args> 
+void print(const T &t, const Args&...rest) 
+{ 
+  cout << t << " ";   // 打印第一个实参 
+  print(rest...);    // 递归调用，打印其他实参 
+} 
+  
+// 测试 
+int main() 
+{ 
+  print("string1", 2, 3.14f, "string2", 42); 
+  cout << endl; 
+  return 0; 
 } 
 #endif
