@@ -768,3 +768,159 @@
 
 63. **atomic:**
     atomic: 原子类型是封装了一个值的类型，它的访问保证不会导致数据的竞争(不会发生内存乱序).
+
+64. **NULL与nullptr**
+    * `NULL`: 本质是0，是一个宏替换，没有类型.
+    * `nullptr`:本质是0，表示空指针，但是具备了类型.
+
+65. **constexpr**
+    * `const`: 未区分出编译期常量和运行期常量.
+    * `constexpr`: 限定在了编译期常量.
+    > `constexpr`修饰的函数，简单的来说，如果其传入的参数可以在编译时期计算出来，那么这个函数就会产生编译时期的值。但是，传入的参数如果不能在编译时期计算出来，那么`constexpr`修饰的函数就和普通函数一样了.
+
+66. **委托构造**
+    * 委托构造[委托构造](https://blog.csdn.net/guang_jing/article/details/27121951): 委托构造函数使用它所属类的其他构造函数执行它自己的初始化过程, 提升代码复用性.
+
+    ```cpp
+      #include <iostream>
+      using namespace std;
+      class A
+      {
+      private:
+        int i = 5;
+        string str = "初始值";
+
+      public:
+        A()
+        {
+          str = "委托构造函数";
+          i = 99;
+        }
+        A(int ii) : A()
+        {
+          //不能写成AA(int ii):A(),i(ii)
+          //委托构造函数不能再利用初始化器初始化其他数据成员
+          i = ii;
+        }
+        void show()
+        {
+          cout << "i=" << i << ",str=" << str << endl;
+        }
+      };
+      int main()
+      {
+        A a(10);
+        a.show();
+      }
+    ```
+67. **继承构造**[链接](https://blog.csdn.net/K346K346/article/details/81703914)  
+    * 子类为完成基类初始化，在C++11之前，需要在初始化列表调用基类的构造函数，从而完成构造函数的传递。如果基类拥有多个构造函数，那么子类也需要实现多个与基类构造函数对应的构造函数,这种方式无疑给开发人员带来麻烦，降低了编码效率.
+    ```cpp
+      class Base {
+      public:
+        Base(int v): _value(v), _c(0){}
+        Base(char c): _value(0), _c(c){}
+      private:
+        int _value;
+        char _c;
+      };
+
+      class Derived: public Base {
+      public:
+        // 初始化基类需要透传参数至基类的各个构造函数，非常麻烦
+        Derived(int v) :Base(v) {}
+        Derived(char c) :Base(c) {}
+
+        // 假设派生类只是添加了一个普通的函数
+        void display() {
+          // dosomething		
+        }
+      };
+    ```
+    * 从 C++11 开始，推出了继承构造函数（Inheriting Constructor），使用 using 来声明继承基类的构造函数.
+    ```cpp
+      class Base {
+      public:
+        Base(int v) :_value(v), _c(0){printf("base construct one: %d %d\n",this->_value,this->_c);}
+        Base(char c): _value(0), _c(c){printf("base construct two: %d %d\n",this->_value,this->_c);}
+      private:
+        int _value;
+        char _c;
+      };
+
+      class Derived :public Base {
+      public:
+        // 使用继承构造函数
+        using Base::Base;
+
+        // 假设派生类只是添加了一个普通的函数
+        void display() {
+          //dosomething		
+        }
+      };
+
+      int main(int argc, char const *argv[]) {
+        Derived de(57);
+
+        return 0;
+      }
+    ```
+
+    * 注意：  
+      > 继承构造函数无法初始化派生类数据成员, 继承构造函数的功能是初始化基类，对于派生类数据成员的初始化则无能为力.
+      > 1. C++11 特性就地初始化成员变量，可以通过 =、{} 对非静态成员快速地就地初始化，以减少多个构造函数重复初始化变量的工作，注意初始化列表会覆盖就地初始化操作.
+        ```cpp
+          class Base {
+          public:
+            Base(int v) :value_(v), c_(0){printf("Base construct one: %d %d\n",this->value_,this->c_);}
+            Base(char c): value_(0), c_(c){printf("Base construct two: %d %d\n",this->value_,this->c_);}
+          private:
+            int value_;
+            char c_;
+          };
+
+          class Derived :public Base {
+          public:
+            // 使用继承构造函数
+            using Base::Base;
+
+            void display() {}
+
+            private:
+              double data_{7.3};
+          };
+
+          int main(int argc, char const *argv[]) {
+            Derived de(12);
+            return 0;
+          }
+        ```
+      > 2. 新增派生类构造函数，使用构造函数初始化列表. 
+      ```cpp
+        class Base {
+        public:
+          Base(int v) :value_(v), c_(0){printf("Base construct one: %d %d\n",this->value_,this->c_);}
+          Base(char c): value_(0), c_(c){printf("Base construct two: %d %d\n",this->value_,this->c_);}
+        private:
+          int value_;
+          char c_;
+        };
+
+        class Derived :public Base {
+        public:
+          // 使用继承构造函数
+          using Base::Base;
+
+          Derived(int a, double b) : Base(a), data_(b) {printf("Derived construct one: %f \n",this->data_);}
+
+          void display() {}
+
+          private:
+            double data_;
+        };
+
+        int main(int argc, char const *argv[]) {
+          Derived de(12, 22.3);
+          return 0;
+        }
+      ```
