@@ -924,3 +924,28 @@
           return 0;
         }
       ```
+
+68. **final**
+    `final`:指定某个类不能被其他类继承或某个虚函数不能被重写.
+    ```cpp
+      class Base
+      {
+      public:
+        Base() {}
+        virtual void func_foo() final{}
+      };
+
+      class Derived final :public Base {
+      public:
+        Derived(){}
+        void func_foo(){}
+
+      };
+
+      class Derived1 :public Derived {
+      public:
+        Derived(){}
+      };
+    ``` 
+
+    * 代码中的`Derived`类后的`final`表示`Derived`不能被其他类继承，`virtual void func_foo() final{}`中的`final`表示`func_foo()`函数不能被子类重写.
