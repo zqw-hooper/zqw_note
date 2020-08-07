@@ -742,4 +742,29 @@
     * 解决办法：
       > 显性compiler barriers: `asm volatile`阻止内存乱序
       > 隐性compiler barriers: 使用原子库`std::atomic` 
+
+61. **cache Hit和cache Miss**   
+    [cache Hit and Miss](https://www.cnblogs.com/jokerjason/p/10711022.html)  
+    * Cache是用来对内存数据的缓存。
+    * CPU要访问的数据在Cache中有缓存，称为“命中” (Hit)，反之则称为“缺失” (Miss)。
+    * CPU访问它的速度介于寄存器与内存之间（数量级的差别）。Cache的成本介于寄存器与内存之间。
+    * 典型的存储器层次结构:
+         <img src="../image/memory_struct.png" width="80%" height="80%" />  
+
+    * CPU Cache Access latency:
+         <img src="../image/speed_of_memory.png" width="80%" height="80%" />  
+         从延迟上看，做一次乘法一般只要三个周期，而做一次CPU的内存访问需要167个cycle，如果需要提升程序性能，减少CPU的memory访问至关重要。 
+
+    * cache line: ache Line可以简单的理解为CPU Cache中的最小缓存单位。内存和高速缓存之间或高速缓存之间的数据移动不是以单个字节或甚至word完,成的。相反，移动的最小数据单位称为缓存行，有时称为缓存块目前主流的CPU Cache的Cache Line大小都是64Bytes。
     
+
+62. **volatile:**
+    * volatile: 对volatile修饰变量的访问，编译器不能做任何优化(假设和推理)，都必须按部就班地与「内存」进行交互, 避免内存乱序发生。
+    > volatile只作用在编译器上，但我们的代码最终是要运行在CPU上的。尽管编译器不会换序，但CPU的乱序执行已是几十年的老技术了.
+
+    * 终极解决乱序问题方法：
+    > a. 使用原子操作`std::atomic<bool>`，它能构建了良好的内存屏障.  
+    > b. 使用`mutex`互斥锁解决.
+
+63. **atomic:**
+    atomic: 原子类型是封装了一个值的类型，它的访问保证不会导致数据的竞争(不会发生内存乱序).

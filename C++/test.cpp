@@ -461,9 +461,21 @@ int main(int argc, char **argv)
     // printf("ret is :%d\n", *ret);
 
     /**shared pointer**/
-    // std::shared_ptr<int> ptr = std::make_shared<int>();
-    // *ptr = 100;
-    // printf("shared ponter value is : %d\n", *ptr);
+    // std::shared_ptr<int> ptr1 = std::make_shared<int>();
+    std::shared_ptr<int> ptr1(new int);
+    *ptr1 = 1001;
+    printf("shared ponter ptr1 value is : %d\n", *ptr1);
+    printf("shared ponter ptr1 address is : %p\n", ptr1.get());
+    *ptr1.get() = 123;
+    printf("shared ponter ptr1 value is : %d\n", *ptr1);
+    printf("shared ponter ptr1 address is : %p\n", ptr1.get());
+    // ptr.reset();
+    // printf("shared ponter use count is : %d\n", ptr.use_count());
+    std::shared_ptr<int> ptr2(ptr1);
+    printf("shared ponter ptr2 address is : %p\n", ptr2.get());
+    printf("shared ponter ptr1 use count is : %d\n", ptr1.use_count());
+    printf("shared ponter ptr2 use count is : %d\n", ptr2.use_count());
+
 
     /**ifstream and stringstream**/
     // std::ifstream file("./Ultrasonic_radar_messages_V5.0.dbc");
