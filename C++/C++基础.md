@@ -949,3 +949,52 @@
     ``` 
 
     * 代码中的`Derived`类后的`final`表示`Derived`不能被其他类继承，`virtual void func_foo() final{}`中的`final`表示`func_foo()`函数不能被子类重写.
+
+69. **lambda(匿名函数)**
+    * 当某个函数仅应用一次并且不想单独命名时采用lambda表达式.
+    * 语法：
+      > [ capture clause ] (parameters) -> return-type  
+      > {   
+      >   definition of method   
+      > } 
+
+    * 按值捕获： 通过`[]`捕获的值在`lambda`内部是`const`类型的，想要修改需要`mutable`修饰`lambda`表达式，且传入`lambda`内部的值不会影响`lambda`外的值.
+      ```cpp
+          int b = 6;
+          auto f = [b](int in) { return b + in + 2; }(1); // f = 9  返回值
+
+          int b1 = 12;
+          auto f = [b1](int in,int in1) { return b1 + in+ in1 + 2; }(1,3); // f = 18  返回值
+
+          int b2 = 5;
+          auto f = [b2]() { return b2 + 2; }; // f() = 7  *****f()是该匿名函数的名字，可以通过f()方式调用匿名函数
+
+          auto f = [](int a) { return a + 3; }; 
+          f(5);// f() = 8  *****f()是该匿名函数的名字，可以通过f(5)方式调用匿名函数
+
+          int b = 6;
+          auto ret = [b]() mutable { return ++b; }; // ret = 7, b = 6  按值捕获
+      ``` 
+
+    * 按引用捕获：通过`[]`捕获的值在`lambda`内部是可修改的，且传入`lambda`内部的值会同步影响`lambda`外的值.
+      ```cpp
+          int a = 9;
+          auto f = [&a](){return ++a;}; // f()= 10, a = 10  按引用方式捕获 
+      ```
+
+    * `[=](){}`: 按值方式捕获所有变量
+    * `[&](){}`: 按引用方式捕获所有变量 
+  
+    * 高阶用法：
+    ```cpp
+        std::vector<int> v1 = {3, 1, 7, 9};
+        int N = 5;
+        // below snippet find first number greater than N
+        // [N]  denotes,   can access only N by value
+        std::vector<int>::iterator p = std::find_if(v1.begin(), v1.end(), [N](int i) {
+          return i > N;
+        });
+
+        std::cout << "First number greater than 5 is : " << *p << std::endl;  // First number greater than 5 is : 7
+
+    ```
