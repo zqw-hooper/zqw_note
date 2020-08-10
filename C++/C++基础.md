@@ -647,6 +647,19 @@
 
 56. **伪函数:**
     伪函数就是一个类重载`()`运算符， 这样类对象在使用`()`操作符时，看起来就像在调用一个函数.
+    ```cpp 
+    class Eat
+    {
+    public:
+      void operator()()
+      {
+        cout << "eat food" << endl;
+      }
+    };
+
+    Eat eat;
+    eat(); // eat food
+    ```
 
 57. **引用作为返回值**
 ```cpp
@@ -998,3 +1011,90 @@
         std::cout << "First number greater than 5 is : " << *p << std::endl;  // First number greater than 5 is : 7
 
     ```
+
+70. **函数包装器(functional)**
+    * 匿名函数包装器:
+      ```cpp 
+      std::function<int(int)> f = [](int a) 
+      {
+        return a + 3;
+      };
+
+      std::cout << "output is : " << f(3)<<std::endl; // output is : 6
+      ```
+
+    * 普通函数包装器:
+    ```cpp 
+      double test(int a)
+      {
+        return  a * 6.5f;
+      }
+
+      std::function<double(int)> f = test;
+      std::cout << "output is : " << f(3)<<std::endl; // output is : 19.5
+    ```
+
+    * 类成员函数
+    ```cpp 
+      class Test
+      {
+      public:
+        double test(int a,int b)
+        {
+          return a * b * 1.0f;
+        }
+      };
+
+      std::function<double(Test *, int, int)> f = &Test::test;
+      Test t;
+      std::cout << "output is :" << f(&t, 3, 5) << std::endl; // output is :15
+    ```
+
+    * 伪函数
+    ```cpp
+      class Test
+      {
+      public:
+        double test(int a,int b)
+        {
+          return a * b * 1.0f;
+        }
+
+        int operator()(int a)
+        {
+          return a * 10;
+        }
+      };
+
+      std::function<int(Test *, int)> f = &Test::operator();
+      Test t;
+      std::cout << "output is :" << f(&t,7) << std::endl; // output is :70
+    ```
+
+71. **bind机制**   
+    * 函数和参数的绑定
+    ```cpp
+      int add(int a, int b, int c)
+      {
+        std::cout << "input is : " << a << ", " << b << ", " << c << std::endl;
+        return a + b + c;
+      }
+
+      auto foo = std::bind(add, 1, 2, 3);
+      std::cout << "output is :" << foo() << std::endl; // input is : 1, 2, 3   output is :6
+    ```
+
+    ```cpp
+      int add(int a, int b, int c)
+      {
+        std::cout << "input is : " << a << ", " << b << ", " << c << std::endl;
+        return a + b + c;
+      }
+
+      auto foo = std::bind(add, std::placeholders::_2, 2,  std::placeholders::_1); // std::placeholders::_1 占位符
+      std::cout << "output is :" << foo(9,7) << std::endl;  //input is : 7, 2, 9   output is :18
+    ```
+
+72. **RAII**
+    * RAII(Resource Acquisition Is Intialization), 是C++的一种管理资源、避免泄漏的惯用法.
+    * RAII的做法是使用一个对象，在其构造时获取对应的资源，在对象生命期内控制对资源的访问，使之始终保持有效，最后在对象析构的时候，释放构造时获取的资源
