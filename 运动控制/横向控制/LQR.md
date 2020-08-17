@@ -1,4 +1,4 @@
-# LQR
+# LQR(apollo)
 
 ## LQR(linear quadratic regulator):
 **[LQR横向控制1](https://blog.csdn.net/zhouyy858/article/details/107606500#commentBox)**  
@@ -20,7 +20,14 @@
          Algebraic Riccati equation (DARE) 和 max_num_iteration:The maximum iterations for solving ARE)作为限制来快速求得最优解，计算反馈矩阵$K = (R + B^TPB)^{-1}(B^TPA)$
     - 根据$K$求出最优控制量$u = -Kx$
     - 通过一个前馈控制输入量$u_{ff}$，解决曲线行驶时的稳态误差，前馈控制考虑了路径的曲率及车辆的转向不足特性。
-        
+
+
+## Trajectory Analyzer:
+* 功能：
+   1. 查询路点: 根据坐标查询参考路径上到当前位置距离最近的点; 根据时间戳查询参考路径上到当前位置时间最近的点;
+   2. 坐标转换(to Frenet坐标系): Frenet坐标系下当前位置到参考点的$s$、$d$、$\dot{s}$、$\dot{d}$
+
+
 ## 数学基础：
 ### 二次型[链接](https://www.zhihu.com/question/38902714)
 1. 二次型：n个变量的二次齐次(每项都是二次的)多项式。
