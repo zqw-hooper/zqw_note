@@ -10,7 +10,7 @@
 * **MPC由如下三个要素组成:**  
 1. 预测模型: 预测模型能够在短时间内很好的预测系统状态的变化.  
 	> 基于车辆运动学模型, 在给定一个控制指令情况下, 就可以根据预测模型和运动规律计算出一定时间后的车辆的状态(x,y,v...), 这个预测模型计算出来的状态只是理论上车辆的可能状态. 如下图所示, 红色线就是根据运动学模型得到的预测状态.     
-	<img src="../image/MPC_MODEL_PREDICT.png" width="50%" height="50%" />
+	<img src="../../image/MPC_MODEL_PREDICT.png" width="50%" height="50%" />
 
 2. 在线滚动优化: 由于预测模型得到的结果与实际仍然存在偏差, 所以采用滚动优化找到每个时刻下的局部最优解, 通常情况会设计一个目标(损失)函数并将其转化为二次规划问题进而找到最优解.     
 	> * 滚动优化是求取最优控制解，基于约束，使某一或某些性能指标达到最优实现控制作用.   
@@ -18,14 +18,14 @@
 
 3. 反馈校正: 到下一个时间点根据新的状态重新进行预测和优化.    
 	> 如下图所示MPC示意图, 可见MPC本质还是一种反馈控制.    
-	<img src="../image/MPC.png" width="50%" height="50%" />
+	<img src="../../image/MPC.png" width="50%" height="50%" />
 
 ## **MPC算法流程:**
 	变量含义 px:当前定位x轴方向坐标, py:当前定位y轴方向坐标, psi:当前偏航角, v:当前车速, cte:当前车辆期望与实际位置间的位置差值, epsi:当前车辆期望和实际偏航角间的角度差值, delta:车轮转角, a:加速度.    
 ### 预测模型:
 	车辆具有多个自由度且运动姿态耦合性强, 受力复杂, 故是一个非线性多自由度运动刚体, 为了简化模型, 因此将模型简化为线性模型.   
 1. 将局部路点转换到车辆坐标系下:  
-	<img src="../image/coordinate_transform.png" width="70%" height="70%" />  
+	<img src="../../image/coordinate_transform.png" width="70%" height="70%" />  
 	由上图可得坐标变换的两个重要公式:  
 	$x_veh = dx*cos(psi) + dy*sin(psi)$  
 	$y_veh = dy*cos(psi) - dx*sin(psi)$
@@ -98,7 +98,7 @@
 # MPC(Model Predictive Control)-Apollo Version
 
 ## **转向盘动力学模型:** 
-<img src="../image/screenshot_steer_wheel_model.png" width="65%" height="40%" />
+<img src="../../image/screenshot_steer_wheel_model.png" width="65%" height="40%" />
 
 > 在apollo中横向控制中，系统的状态变量有四个:  
 **横向误差: lateral_errorlateral_error($e_1$)**  
