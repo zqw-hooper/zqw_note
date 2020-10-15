@@ -1099,7 +1099,7 @@
     * RAII(Resource Acquisition Is Intialization), 是C++的一种管理资源、避免泄漏的惯用法.
     * RAII的做法是使用一个对象，在其构造时获取对应的资源，在对象生命期内控制对资源的访问，使之始终保持有效，最后在对象析构的时候，释放构造时获取的资源
 
-73. **野指针调用虚函数:**
+73. **空/野指针调用虚函数:**
 ```cpp
       #include <cstdio>
       #include <iostream>
@@ -1136,7 +1136,7 @@
           base3->funcB(); //Segmentation fault (core dumped)
       }
 ```  
-**上面程序中导致出现`Segmentation fault (core dumped)`的原因如下：因为类的成员函数和成员变量的调用是通过指针偏移的方式进行调用的，又因为虚函数的调用机制是通过虚表指针和虚函数表来实现的，而虚表指针又是成员函数，而`Base *base3 = nullptr`中`base3`是一个空对象，所以在进行指针偏移时会出现程序崩溃。**
+**上面程序中导致出现`Segmentation fault (core dumped)`的原因如下：因为类的成员变量调用是通过指针偏移的方式进行的，又因为虚函数的调用机制是通过虚表指针和虚函数表来实现的，而虚表指针又是成员函数，而`Base *base3 = nullptr`中`base3`是一个空对象，所以在进行指针偏移时会出现程序崩溃。**
 
 ```cpp
       #include <cstdio>
@@ -1180,6 +1180,10 @@
 ```  
 上面程序产生程序崩溃的实际原因和第一个程序相同。
 
+74. **unique_ptr和shared_ptr实现原理：**   
+[智能指针实现原理1](https://zhuanlan.zhihu.com/p/103903319)  
+[智能指针实现原理2](https://www.jianshu.com/p/b6ac02d406a0)  
+* `unique_ptr`: 对独占资源的管理，`unique_ptr`模板类中禁用了拷贝构造函数和拷贝赋值运算符重载，你无法拷贝unique_ptr指针，进而实现了独享资源的管理，但是`unique_ptr`模板类定义了移动语义，可以将资源管理权转移到另一个`unique_ptr`, 移交后，源指针指向的资源就不存在了.
 
-
+* `shared_ptr`: 共享资源的管理，通过引用计数`use_count`来管理对象，当`shared_ptr`拷贝时会增加，当`shared_ptr`析构时会减少.
 
