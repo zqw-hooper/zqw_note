@@ -1187,3 +1187,75 @@
 
 * `shared_ptr`: 共享资源的管理，通过引用计数`use_count`来管理对象，当`shared_ptr`拷贝时会增加，当`shared_ptr`析构时会减少.
 
+75. **指针传递混淆点：**
+```cpp
+    #include <cstdio>
+    #include <iostream>
+    #include <memory>
+
+    void test(int **x)
+    {
+        *x = new int(5);
+    }
+
+    void test(int *x)
+    {
+        printf("test before x address is : %p\n", x); //test before x address is : (nil)
+        x = new int(6);
+        printf("test after x address is : %p\n", x); //test after x address is : 0x560fe19be280
+        printf("test after x value is : %d\n", *x); //test after x value is : 6
+    }
+
+    int main()
+    {
+        int *a = nullptr;
+        printf("variable a address is : %p\n", a); //variable a address is : (nil)
+        test(a);
+        printf("variable a is : %d\n", *a); //Segmentation fault (core dumped)
+    }
+```
+上面代码最终会发生`Segmentation fault (core dumped)`错误，产生原因是因为函数中参数都是值传递，而指针本质上也是传值. 可以采用如下两种修改错误：
+
+```cpp
+    #include <cstdio>
+    #include <iostream>
+    #include <memory>
+
+    void test(int **x)
+    {
+        printf("test before x address is : %p\n", *x); //test before x address is : (nil)
+        *x = new int(2);
+        printf("test after x address is : %p\n", *x); //test after x address is : 0x558264bfa280
+        printf("test after x value is : %d\n", **x); //test after x value is : 2
+    }
+
+    int main()
+    {
+        int *a = nullptr;
+        printf("variable a address is : %p\n", a); //variable a address is : (nil)
+        test(&a);
+        printf("variable a is : %d\n", *a); //variable a is : 2
+    }
+```
+
+```cpp
+    #include <cstdio>
+    #include <iostream>
+    #include <memory>
+
+    void test(int *x)
+    {
+        printf("test before x address is : %p\n", x); //test before x address is : 0x7ffdb6a76e84
+        *x = 3;
+        printf("test after x address is : %p\n", x); //test after x address is : 0x56544f7f2280
+        printf("test after x value is : %d\n", *x); //test after x value is : 3
+    }
+
+    int main()
+    {
+        int a = 0;
+        printf("variable a address is : %p\n", &a); //variable a address is : 0x7ffdb6a76e84
+        test(&a);
+        printf("variable a is : %d\n", a); //variable a is : 3
+    }
+```
