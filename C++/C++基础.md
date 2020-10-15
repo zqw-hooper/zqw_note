@@ -1098,3 +1098,88 @@
 72. **RAII**
     * RAII(Resource Acquisition Is Intialization), 是C++的一种管理资源、避免泄漏的惯用法.
     * RAII的做法是使用一个对象，在其构造时获取对应的资源，在对象生命期内控制对资源的访问，使之始终保持有效，最后在对象析构的时候，释放构造时获取的资源
+
+73. **野指针调用虚函数:**
+```cpp
+      #include <cstdio>
+      #include <iostream>
+
+      class Base
+      {
+      public:
+          Base() = default;
+          virtual ~Base() = default;
+
+          void funcA()
+          {
+              printf("Base funcA\n");
+          }
+
+          virtual void funcB()
+          {
+              printf("Base funcB\n");
+          }
+      };
+
+      int main()
+      {
+          Base base;
+          base.funcA(); //Base funcAs
+          base.funcB(); //Base funcB
+
+          Base *base1 = new Base();
+          base1->funcA(); //Base funcA
+          base1->funcB(); //Base funcB
+
+          Base *base3 = nullptr;
+          base3->funcA(); //Base funcA
+          base3->funcB(); //Segmentation fault (core dumped)
+      }
+```  
+**上面程序中导致出现`Segmentation fault (core dumped)`的原因如下：因为类的成员函数和成员变量的调用是通过指针偏移的方式进行调用的，又因为虚函数的调用机制是通过虚表指针和虚函数表来实现的，而虚表指针又是成员函数，而`Base *base3 = nullptr`中`base3`是一个空对象，所以在进行指针偏移时会出现程序崩溃。**
+
+```cpp
+      #include <cstdio>
+      #include <iostream>
+
+      class Base
+      {
+      public:
+          Base() = default;
+          virtual ~Base() = default;
+
+          void funcA()
+          {
+              nums_ = 1;
+              printf("Base funcA\n");
+          }
+
+          virtual void funcB()
+          {
+              printf("Base funcB\n");
+          }
+        
+      private:
+        int nums_;
+      };
+
+      int main()
+      {
+          Base base;
+          base.funcA(); //Base funcAs
+          base.funcB(); //Base funcB
+
+          Base *base1 = new Base();
+          base1->funcA(); //Base funcA
+          base1->funcB(); //Base funcB
+
+          Base *base3 = nullptr;
+          base3->funcA(); //Segmentation fault (core dumped)
+          base3->funcB(); //Segmentation fault (core dumped)
+      }
+```  
+上面程序产生程序崩溃的实际原因和第一个程序相同。
+
+
+
+
