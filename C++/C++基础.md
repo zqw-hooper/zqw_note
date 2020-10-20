@@ -1193,11 +1193,6 @@
     #include <iostream>
     #include <memory>
 
-    void test(int **x)
-    {
-        *x = new int(5);
-    }
-
     void test(int *x)
     {
         printf("test before x address is : %p\n", x); //test before x address is : (nil)
