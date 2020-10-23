@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <iostream>
+#include <vector>
 struct Single_linked_list
 {
     int data;
@@ -267,33 +268,220 @@ void moveToFront(Single_linked_list **head)
     }
 }
 
+void removeSortedDuplicates(Single_linked_list **head)
+{
+    Single_linked_list *current_node = *head;
+    Single_linked_list *first_node = *head;
+    Single_linked_list *last_node = *head;
+
+    while (current_node != nullptr && current_node->next != nullptr)
+    {
+        while (current_node->next != nullptr && first_node->data == current_node->next->data)
+        {
+            current_node = current_node->next;
+        }
+
+        first_node->next = current_node->next;
+        current_node = current_node->next;
+        first_node = current_node;
+    }
+}
+
+// void removeUnsortedDuplicates(Single_linked_list **head)
+// {
+//     Single_linked_list *current_node = *head;
+//     // Single_linked_list *current_node1 = *head;
+//     Single_linked_list *prev_node = *head;
+
+//     while (current_node != nullptr && current_node->next != nullptr)
+//     {
+//         printLinkedList(*head);
+//         printf("-------------------\n");
+
+//         Single_linked_list *current_node1 = current_node->next;
+//         while(current_node1 != nullptr)
+//         {
+//             if(current_node->data == current_node1->data)
+//             {
+//                 prev_node->next = current_node1->next;
+//             }
+//             prev_node = current_node1;
+//             current_node1 = current_node1->next;
+
+//         }
+//         current_node = current_node->next;
+//     }
+// }
+
+Single_linked_list *sortedIntersect(Single_linked_list **head_a, Single_linked_list **head_b)
+{
+    Single_linked_list *current_node_a = *head_a;
+    Single_linked_list *new_node = nullptr;
+    Single_linked_list *ret_node = nullptr;
+
+    while(current_node_a != nullptr)
+    {
+        Single_linked_list *current_node_b = *head_b;
+
+        while (current_node_b != nullptr)
+        {
+            if(current_node_b->data == current_node_a->data)
+            {
+                // printf(" current_node_a->data :%d\n",  current_node_a->data);
+                if(new_node == nullptr)
+                {
+                    new_node = current_node_a;
+                    ret_node = new_node;
+                }
+                else
+                {
+                    new_node->next = current_node_a;
+                    new_node = new_node->next;
+                }
+            }
+            current_node_b = current_node_b->next;
+        }
+        current_node_a = current_node_a->next;
+    }
+    new_node->next = nullptr;
+    return ret_node;
+}
+
+void swapNodes(Single_linked_list **head, int first, int second)
+{
+    Single_linked_list *current_node = *head;
+    Single_linked_list *first_prev = nullptr;
+    Single_linked_list *second_prev = nullptr;
+    Single_linked_list *first_next = nullptr;
+    Single_linked_list *second_next = nullptr;
+    // Single_linked_list *prev_node = nullptr;
+
+    while(current_node != nullptr && current_node->next != nullptr)
+    {
+        if(current_node->next->data == first)
+        {
+            first_prev = current_node;
+            first_next = current_node->next->next;
+        }
+
+        if (current_node->next->data == second)
+        {
+            second_prev = current_node;
+            second_next = current_node->next->next;
+        }
+
+
+
+        // prev_node = current_node;
+        current_node = current_node->next;
+
+    }
+}
+
+bool isPalindrome(Single_linked_list **head)
+{
+    Single_linked_list *current_node1 = *head;
+    std::vector<int> list1, list2;
+    while(current_node1 != nullptr)
+    {
+        list1.push_back(current_node1->data);
+        current_node1 = current_node1->next;
+    }
+
+    Single_linked_list *current_node2 = *head;
+    Single_linked_list *prev_node = nullptr;
+    Single_linked_list *next_node = nullptr;
+
+    // reverse linked list
+    while(current_node2 != nullptr)
+    {
+        next_node = current_node2->next;
+        current_node2->next = prev_node;
+        prev_node = current_node2;
+        current_node2 = next_node;
+    }
+
+    while(prev_node != nullptr)
+    {
+        list2.push_back(prev_node->data);
+        prev_node = prev_node->next;
+    }
+
+    int size = list1.size();
+
+    for(int i = 0; i < size; i++)
+    {
+        if(list1[i] != list2[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+Single_linked_list * reverse(Single_linked_list **head, int k)
+{
+    Single_linked_list *current_node = *head;
+    Single_linked_list *prev_node = nullptr;
+    Single_linked_list *next_node = nullptr;
+    int count = 0;
+
+    while(current_node != nullptr && count < k)
+    {
+        next_node = current_node->next;
+        current_node->next = prev_node;
+        prev_node = current_node;
+        current_node = next_node;
+        count++;
+    }
+    if (current_node != nullptr)
+    {
+        (*head)->next = reverse(&current_node, k);
+    }
+    return prev_node;
+}
+
 int main()
 {
-    Single_linked_list *head = nullptr;
+    Single_linked_list *head1 = nullptr;
+    Single_linked_list *head2 = nullptr;
+    Single_linked_list *new_head = nullptr;
 
     // insertHead(&head, 3);
     // insertEnd(&head, 4);
     // insertAfter(&(head->next), 7);
     // insertAfter(&(head->next), 8);
 
-    insertEnd(&head, 5);
-    insertEnd(&head, 6);
-    insertEnd(&head, 7);
-    insertEnd(&head, 8);
-    insertEnd(&head, 9);
-    insertEnd(&head, 10);
-    insertEnd(&head, 11);
+    insertEnd(&head1, 1);
+    insertEnd(&head1, 2);
+    insertEnd(&head1, 3);
 
-    moveToFront(&head);
+    insertEnd(&head1, 4);
+    insertEnd(&head1, 5);
+    insertEnd(&head1, 6);
+    insertEnd(&head1, 7);
+
+    Single_linked_list * ret = reverse(&head1, 3);
+    // printf("isPalindrome : %d\n",isPalindrome(&head1));
+    // insertEnd(&head2, 2);
+    // insertEnd(&head2, 3);
+    // insertEnd(&head2, 4);
+    // new_head = sortedIntersect(&head1, &head2);
+
+    // insertEnd(&head, 9);
+    // insertEnd(&head, 10);
+    // insertEnd(&head, 11);
+    // removeUnsortedDuplicates(&head);
+    // moveToFront(&head);
     // head->next->next->next->next = head;
     // printf("detectLoop :%d\n", detectLoop(&head));
     // printf("countNodesinLoop :%d\n", countNodesinLoop(&head));
 
-    printLinkedList(head);
+    // printLinkedList(new_head);
     // printf("--------------------\n");
 
-    // reverseLinkedList(&head);
-    // printLinkedList(head);
+    // reverseLinkedList(&head1);
+    printLinkedList(ret);
     // printf("count :%d\n", count(&head, 3));
     // printf("getMiddle :%d\n", getMiddle(&head));
 
