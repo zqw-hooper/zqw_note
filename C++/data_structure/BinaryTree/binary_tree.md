@@ -64,4 +64,4 @@
   > 1. Inorder(中序) Traversal (Left-Root-Right)  
   > 2. Preorder(前序) Traversal (Root-Left-Right)  
   > 3. Postorder(后序) Traversal (Left-Right-Root)  
-  > 三种遍历区别在于根节点(root)访问次序.  
+  > 三种遍历区别在于根节点(root)访问位置，左子树始终先于右子树.  

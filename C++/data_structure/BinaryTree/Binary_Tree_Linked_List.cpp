@@ -193,22 +193,91 @@ Binary_Tree_Node *deletion(Binary_Tree_Node *root, int key)
     return root;
 }
 
+std::vector<std::vector<int> > levelOrder(Binary_Tree_Node* root) {
+        std::vector<std::vector<int> > ret;
+        if(root == nullptr)
+        {
+            return ret;
+        }
+        std::queue<Binary_Tree_Node*> queue;
+        queue.push(root);
+        
+        while(!queue.empty())
+        {
+            int nodeCount = queue.size();
+            std::vector<int> temp;
+            while(nodeCount > 0)
+            {
+                Binary_Tree_Node* node = queue.front();
+                queue.pop();
+                if(node->left != nullptr)
+                {
+                    queue.push(node->left);
+                }
+                if(node->right != nullptr)
+                {
+                    queue.push(node->right);
+                }
+                nodeCount--;
+                temp.push_back(node->data);
+            }
+            ret.push_back(temp);
+            temp.clear();
+        }
+        return ret;
+    }
+
+void printLevelOrder(Binary_Tree_Node* root) 
+{
+    std::queue<Binary_Tree_Node *> queue;
+    queue.push(root);
+    Binary_Tree_Node * current_node = nullptr;
+    while(!queue.empty())
+    {
+        current_node = queue.front();
+        printf("printLevelOrder data is : %d",current_node->data);
+        queue.pop();
+        if(current_node->left != nullptr)
+        {
+            queue.push(current_node->left);
+        }
+
+        if (current_node->right != nullptr)
+        {
+            queue.push(current_node->right);
+        }
+        printf("-------------\n");
+    } 
+}
+
+
 int main()
 {
-    Binary_Tree_Node *root = createNode(1);
-    root->left = createNode(2);
-    root->left->left = createNode(4);
-    root->right = createNode(3);
-    root->left->right = createNode(5);
+    Binary_Tree_Node *root = nullptr;
+    // Binary_Tree_Node *root = createNode(1);
+    // root->left = createNode(2);
+    // root->left->left = createNode(4);
+    // root->right = createNode(3);
+    // root->left->right = createNode(5);
+    // root->right->left = createNode(6);
 
-    inorder(root);
-    printf("------------------------\n");
-    preorder(root);
-    printf("------------------------\n");
-    postorder(root);
-    printf("------------------------\n");
+    // inorder(root);
+    // printf("------------------------\n");
+    // preorder(root);
+    // printf("------------------------\n");
+    // postorder(root);
+    // printf("------------------------\n");
     // deletion(root, 7);
     // inorder(root);
-
+    // printLevelOrder(root);
+    std::vector<std::vector<int> >  result = levelOrder(root);
+    for(int i = 0; i < result.size(); i++)
+    {
+        for(int j = 0; j < result[i].size(); j++)
+        {
+            printf(" %d",result[i][j]);
+        }
+        printf(" \n");
+    }
     return 0;
 }
