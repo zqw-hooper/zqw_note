@@ -268,23 +268,31 @@ void moveToFront(Single_linked_list **head)
     }
 }
 
-void removeSortedDuplicates(Single_linked_list **head)
+Single_linked_list *removeSortedDuplicates(Single_linked_list **head)
 {
-    Single_linked_list *current_node = *head;
-    Single_linked_list *first_node = *head;
-    Single_linked_list *last_node = *head;
-
-    while (current_node != nullptr && current_node->next != nullptr)
+    if (*head == nullptr || (*head)->next == nullptr)
     {
-        while (current_node->next != nullptr && first_node->data == current_node->next->data)
+        return *head;
+    }
+
+    Single_linked_list *current_node = *head;
+
+    Single_linked_list *first_ptr = *head;
+
+    while (current_node != nullptr)
+    {
+        if (current_node->data == first_ptr->data)
         {
             current_node = current_node->next;
         }
-
-        first_node->next = current_node->next;
-        current_node = current_node->next;
-        first_node = current_node;
+        else
+        {
+            first_ptr->next = current_node;
+            first_ptr = current_node;
+        }
     }
+    first_ptr->next = nullptr;
+    return *head;
 }
 
 // void removeUnsortedDuplicates(Single_linked_list **head)
