@@ -94,7 +94,7 @@
 [自动驾驶——模型预测控制（MPC）理解与实践](https://blog.csdn.net/qq_42258099/article/details/95353986)  
 [到底什么是非线性规划？](https://blog.csdn.net/wzheng92/article/details/80110963)  
 [using the Model Predictive Control method to drive a car around a virtual track.](https://github.com/mithi/mpc) 
-
+[LQR vs MPC](https://blog.csdn.net/qq_42258099/article/details/95353986)
 # MPC(Model Predictive Control)-Apollo Version
 
 ## **转向盘动力学模型:** 
