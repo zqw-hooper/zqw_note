@@ -550,10 +550,10 @@
     #include <iostream>
     #include <thread>
 
-    int function_1(int var)
+    void function_1(int& var)
     {
       std::this_thread::sleep_for(std::chrono::milliseconds(5000));
-      return var * 6;
+      var = var * 6;
     }
 
     int main()
@@ -571,10 +571,10 @@
     #include <thread>
     #include <future>
 
-    void function_1(int& var)
+    int function_1(int var)
     {
       std::this_thread::sleep_for(std::chrono::milliseconds(5000));
-      var = var * 6;
+      return var * 6;
     }
 
     int main()
