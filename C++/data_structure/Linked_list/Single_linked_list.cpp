@@ -451,25 +451,32 @@ Single_linked_list * reverse(Single_linked_list **head, int k)
 
 int main()
 {
-    Single_linked_list *head1 = nullptr;
-    Single_linked_list *head2 = nullptr;
-    Single_linked_list *new_head = nullptr;
+    Single_linked_list *head = nullptr;
+    // Single_linked_list *head2 = nullptr;
+    // Single_linked_list *new_head = nullptr;
 
-    // insertHead(&head, 3);
+    insertEnd(&head, 1);
+    insertEnd(&head, 2);
+    insertEnd(&head, 3);
+    insertHead(&head, 4);
+
+    insertHead(&head, 5);
+
+    printLinkedList(head);
     // insertEnd(&head, 4);
     // insertAfter(&(head->next), 7);
     // insertAfter(&(head->next), 8);
 
-    insertEnd(&head1, 1);
-    insertEnd(&head1, 2);
-    insertEnd(&head1, 3);
+    // insertEnd(&head1, 1);
+    // insertEnd(&head1, 2);
+    // insertEnd(&head1, 3);
 
-    insertEnd(&head1, 4);
-    insertEnd(&head1, 5);
-    insertEnd(&head1, 6);
-    insertEnd(&head1, 7);
+    // insertEnd(&head1, 4);
+    // insertEnd(&head1, 5);
+    // insertEnd(&head1, 6);
+    // insertEnd(&head1, 7);
 
-    Single_linked_list * ret = reverse(&head1, 3);
+    // Single_linked_list * ret = reverse(&head1, 3);
     // printf("isPalindrome : %d\n",isPalindrome(&head1));
     // insertEnd(&head2, 2);
     // insertEnd(&head2, 3);
@@ -489,7 +496,7 @@ int main()
     // printf("--------------------\n");
 
     // reverseLinkedList(&head1);
-    printLinkedList(ret);
+    // printLinkedList(ret);
     // printf("count :%d\n", count(&head, 3));
     // printf("getMiddle :%d\n", getMiddle(&head));
 
