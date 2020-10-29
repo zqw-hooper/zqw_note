@@ -1124,7 +1124,7 @@
       int main()
       {
           Base base;
-          base.funcA(); //Base funcAs
+          base.funcA(); //Base funcA
           base.funcB(); //Base funcB
 
           Base *base1 = new Base();
@@ -1136,7 +1136,7 @@
           base3->funcB(); //Segmentation fault (core dumped)
       }
 ```  
-**上面程序中导致出现`Segmentation fault (core dumped)`的原因如下：因为类的成员变量调用是通过指针偏移的方式进行的，又因为虚函数的调用机制是通过虚表指针和虚函数表来实现的，而虚表指针又是成员函数，而`Base *base3 = nullptr`中`base3`是一个空对象，所以在进行指针偏移时会出现程序崩溃。**
+**上面程序中导致出现`Segmentation fault (core dumped)`的原因如下：因为类的成员变量调用是通过指针偏移的方式进行的，又因为虚函数的调用机制是通过虚表指针和虚函数表来实现的，而虚表指针又是成员变量，而`Base *base3 = nullptr`中`base3`是一个空对象，所以在进行指针偏移时会出现程序崩溃。**
 
 ```cpp
       #include <cstdio>

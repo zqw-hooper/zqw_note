@@ -1,5 +1,8 @@
 # Binary Tree
 
+
+##[树的基本概念](https://mp.weixin.qq.com/s?__biz=MzUxODAzNDg4NQ==&mid=2247486511&idx=2&sn=2511ba9175ad6e4ae08759404581ae1f&chksm=f98e4885cef9c19378737194492745bc98908885fa4422f164ea89dddc6fa169c10f4d248294&mpshare=1&scene=1&srcid=1029qkGYTmkJorxF1I1atqpg&sharer_sharetime=1603934463631&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=A1fj%2FPtgnqWfA8wbPpthBsc%3D&pass_ticket=PNyOTPON6a%2B35PySys5BAy7gtqF9nVRv4F4bvq9SbhTea29Nq9EzgLYxDPyHthK2&wx_header=0#rd) 
+
 ## 二叉树类型
 * **满二叉树**:每个节点都有0或者2个子节点.
 ```cpp               
