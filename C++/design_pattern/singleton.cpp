@@ -65,7 +65,7 @@ class Singleton
 Singleton* Singleton::m_instance = nullptr;
 
 #elif 1
-//双监察锁，但是由于内存读写reorder不安全
+//双检查锁
 class Singleton
 {
 private:
@@ -76,17 +76,17 @@ public:
     ~Singleton() { printf("Singleton deconstruct!\n"); }
     static Singleton *getInstance()
     {
-        if (m_instance == nullptr)
+        if (m_instance == nullptr) // 第一个判断是为了减少不必要的互斥锁带来的开销，提升性能.
         {
             std::lock_guard<std::mutex> lock(mu);
-            if (m_instance == nullptr)
+            if (m_instance == nullptr) // 第二个判断是为了避免多次创建
             {
                 m_instance = new Singleton();
             }
         }
         return m_instance;
     }
-    static Singleton *m_instance;
+    volatile static Singleton *m_instance;  // volatile可以防止内存读写reorder不安全 
 };
 Singleton *Singleton::m_instance = nullptr;
 #endif
