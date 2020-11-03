@@ -492,7 +492,7 @@
   [Member Initializer List Example](https://www.geeksforgeeks.org/output-of-c-program/)
   * 优先使用成员初始化列表而不是构造函数内赋值操作，因为成员初始化列表效率更高些.
 
-53. **类的前置声明:**
+53. **类的前置声明:** (详见`./design_pattern/adapter_pattern.cpp`) 
     [类的前置声明一](https://mp.weixin.qq.com/s?__biz=MzI3MDQyMDE2OQ==&mid=2247483747&idx=1&sn=f31b2047e10cc040b68005d30f11de41&chksm=ead010c5dda799d308303a3ca44b99cb5b618f3650abc50420cebf469eeb34e3ff87f5019e13&mpshare=1&scene=1&srcid=&sharer_sharetime=1592924309287&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=AwZ2A%2BZsNrCDwHN6uHs%2B6AQ%3D&pass_ticket=R96mvFDYo82O%2Fc57eWjA4QoEvDw%2F%2BpQ1a7j09aliMQ1EM4LeBaECwTCGmavT3NOK#rd)
 
     [类的前置声明二](https://mp.weixin.qq.com/s?__biz=MzI3MDQyMDE2OQ==&mid=2247483756&idx=1&sn=77b3877bdbe4f4e2cc80dd1d64dc10ec&chksm=ead010cadda799dc4ebeab07267235595bcbb2b1a4558b5694d1199bc2eec9b230d1ec42c0f3&mpshare=1&scene=1&srcid=&sharer_sharetime=1592960426181&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=A7ESpiU5x4cScY7UASjmL18%3D&pass_ticket=8lPzPI0TIY4zO2p8OJ6ssxZkPe4tS%2B5wv9IW0WvqUkJXLUSr0XKlxi64x2vY7qvS#rd)

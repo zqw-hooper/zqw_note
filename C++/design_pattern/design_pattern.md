@@ -24,4 +24,8 @@
     > **钩子方法**：在抽象类中已经实现，包括用于判断的逻辑方法和需要子类重写的空方法两种.
 
 4. Adapter Pattern(适配器模式)[链接](https://www.geeksforgeeks.org/adapter-pattern/?ref=rp)  
+    (详见`./adapter_pattern.cpp`) 
    * 定义：将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作.  
+
+5. Proxy Pattern(代理模式)
+   * 定义：由于某些原因需要给某对象提供一个代理以控制对该对象的访问.  
