@@ -9,7 +9,7 @@ void swap(int *x, int *y);
 // A class for Min Heap
 class MinHeap
 {
-    int *harr;     // pointer to array of elements in heap
+    int harr[];     // pointer to array of elements in heap
     int capacity;  // maximum possible size of min heap
     int heap_size; // Current number of elements in min heap
 public:
@@ -48,7 +48,9 @@ MinHeap::MinHeap(int cap)
 {
     heap_size = 0;
     capacity = cap;
-    harr = new int[cap];
+    // harr = new int[cap];
+
+    // std::cout << "size is : " << sizeof(harr)/sizeof(int) << std::endl;
 }
 
 // Inserts a new key 'k'
@@ -142,17 +144,30 @@ void swap(int *x, int *y)
 // Driver program to test above functions
 int main()
 {
-    MinHeap h(11);
-    h.insertKey(3);
-    h.insertKey(2);
-    h.deleteKey(1);
-    h.insertKey(15);
-    h.insertKey(5);
-    h.insertKey(4);
-    h.insertKey(45);
-    cout << h.extractMin() << " ";
-    cout << h.getMin() << " ";
-    h.decreaseKey(2, 1);
-    cout << h.getMin();
-    return 0;
+    int a = 3;
+    int arr[a] = {1,2,3};
+    std::cout <<arr[10] << std::endl;
+//     std::cout << "please give a size" << std::endl;
+//     std::cin >> a;
+//     int arr[a]; 
+        std::cout << "size is : " << sizeof(arr)/sizeof(int) << std::endl;
+// int b[a];
+//         std::cout <<b[7] << std::endl;
+
+
+
+
+    // MinHeap h(11);
+    // h.insertKey(3);
+    // h.insertKey(2);
+    // // h.deleteKey(1);
+    // h.insertKey(15);
+    // h.insertKey(5);
+    // h.insertKey(4);
+    // h.insertKey(45);
+    // cout << h.extractMin() << " ";
+    // cout << h.getMin() << " ";
+    // h.decreaseKey(2, 1);
+    // cout << h.getMin();
+    // return 0;
 }

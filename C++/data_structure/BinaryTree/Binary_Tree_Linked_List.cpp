@@ -236,7 +236,7 @@ void printLevelOrder(Binary_Tree_Node* root)
     while(!queue.empty())
     {
         current_node = queue.front();
-        printf("printLevelOrder data is : %d",current_node->data);
+        printf("printLevelOrder data is : %d",current_node->data); 
         queue.pop();
         if(current_node->left != nullptr)
         {
