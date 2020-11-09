@@ -40,6 +40,10 @@ public:
     int extractMin();
     void minHeapify(int i);
     void deleteKey(int i);
+    void printHeap();
+    bool isMinHeap();
+    void convert2MaxHeap();
+    void maxHeapify(int i);
 
 private:
     int size_;
@@ -52,6 +56,13 @@ MinHeap::MinHeap(int capacity)
     capacity_ = capacity;
     size_ = 0;
     harr_ = new int[capacity];
+}
+
+void MinHeap::printHeap()
+{
+    for (int i = 0; i < size_; ++i)
+        std::cout << harr_[i] << " ";
+    std::cout << "\n";
 }
 
 void MinHeap::insertKey(int k)
@@ -133,6 +144,58 @@ void MinHeap::deleteKey(int i)
     extractMin();
 }
 
+bool MinHeap::isMinHeap()
+{
+    // all non leaf node is at index (n/2-1)
+    for (int i = size_ / 2 - 1; i >= 0; i--)
+    {
+        if (harr_[i] > harr_[left(i)])
+        {
+            return false;
+        }
+
+        if (right(i) < size_)
+        {
+            if (harr_[i] > harr_[right(i)])
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+void MinHeap::maxHeapify(int i)
+{
+    int l = 2 * i + 1;
+    int r = 2 * i + 2;
+    int largest = i;
+
+    if (l < size_ && harr_[l] > harr_[largest])
+    {
+        largest = l;
+    }
+
+    if (r < size_ && harr_[r] > harr_[largest])
+    {
+        largest = r;
+    }
+
+    if (largest != i)
+    {
+        swap(&harr_[largest], &harr_[i]);
+        maxHeapify(largest);
+    }
+}
+
+void MinHeap::convert2MaxHeap()
+{
+    for (int i = size_ / 2 - 1; i >= 0; i--)
+    {
+        maxHeapify(i);
+    }
+}
+
 int main(int argc, const char *argv[])
 {
     MinHeap h(11);
@@ -143,9 +206,15 @@ int main(int argc, const char *argv[])
     h.insertKey(5);
     h.insertKey(4);
     h.insertKey(45);
-    std::cout << h.extractMin() << " ";
-    std::cout << h.getMin() << " ";
-    h.decreaseKey(2, 1);
-    std::cout << h.getMin();
+    // std::cout << h.extractMin() << " ";
+    // std::cout << h.getMin() << " ";
+    // h.decreaseKey(2, 1);
+    // std::cout << h.getMin();
+    // std::cout << h.isMinHeap() << "\n";
+    h.printHeap();
+
+    h.convert2MaxHeap();
+    h.printHeap();
+
     return 0;
 }
