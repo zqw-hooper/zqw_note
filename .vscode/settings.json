@@ -65,7 +65,11 @@
 		"scoped_allocator": "cpp",
 		"regex": "cpp",
 		"valarray": "cpp",
-		"codecvt": "cpp"
+		"codecvt": "cpp",
+		"string_view": "cpp",
+		"iterator": "cpp",
+		"map": "cpp",
+		"memory_resource": "cpp"
 	},
 	"git.ignoreLimitWarning": true
 }

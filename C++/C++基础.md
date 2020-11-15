@@ -1254,3 +1254,18 @@
         printf("variable a is : %d\n", a); //variable a is : 3
     }
 ```
+
+76. **C++11、C++14、C++17**
+  
+    * C++14新特性：[链接](https://segmentfault.com/a/1190000023441427)
+    > 1. 函数返回值类型推导
+    > 2. lambda参数auto
+    > 3. 变量模板
+    > 4. 别名模板
+    > 5. `std::make_unique`
+
+    * C++17新特性：[链接1](https://www.geeksforgeeks.org/features-of-c17-with-examples/)  [链接2](https://blog.csdn.net/qq811299838/article/details/90371604?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param#1.1%20constexpr)
+    > 1. 嵌套命名空间的写法更新
+    > 2. `if`和`switch`判断语句中可以声明和初始化变量
+    > 3. 扩展`constexpr`使用范围，可用于`if`语句中，也可用于`lambda`表达式中
+    > 4. 扩展`auto`的推断范围（`lambda`和模板参数及返回值的类型自动推倒）
