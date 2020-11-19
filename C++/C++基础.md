@@ -544,6 +544,66 @@
     
     
     - **`condition_variable`([condition_variable1](https://www.jianshu.com/p/c1dfa1d40f53))([condition_variable2](https://www.bbsmax.com/A/KE5Q11ly5L/))**:其中`wait()`可以让线程进入**休眠状态**, 在生产消费模式时，当消费者发现队列中没有数据时，就可以通过`wait()`让自己休眠，通过`notify_one()`唤醒处于`wait()`中的条件变量（`condition_variable`）.
+    ```cpp
+        #include <thread>
+        #include <iostream>
+        #include <queue>
+        #include <mutex>
+        #include <condition_variable> 
+
+        std::mutex mx;
+        std::condition_variable cv;
+        std::queue<int> q;
+        bool finished = false;
+
+        void producer(int n) 
+        {
+          for(int i=0; i<n; ++i) 
+          {
+            {
+              std::lock_guard<std::mutex> lk(mx);
+              q.push(i);
+              std::cout << "pushing " << i << std::endl;
+            }
+            cv.notify_one();
+          }
+          {
+            std::lock_guard<std::mutex> lk(mx);
+            finished = true;
+          }
+          cv.notify_one();
+        }
+
+        void consumer() 
+        {
+          while (true) 
+          {
+            std::unique_lock<std::mutex> lk(mx);
+            cv.wait(lk, []{ return finished || !q.empty(); }); // 此处加条件阻塞是为了防止可能由于系统的不确定原因唤醒(被称作伪唤醒)
+            /*
+            while (q.empty()) // 循环判断也可以避免伪唤醒
+            {
+              cv.wait(lk);   
+            }
+            */
+            while (!q.empty()) 
+            {
+              std::cout << "consuming " << q.front() << std::endl;
+              q.pop();
+            }
+            if (finished) break;
+          }
+        }
+
+        int main() 
+        {
+          std::thread t1(producer, 10);
+          std::thread t2(consumer);
+          t1.join();
+          t2.join();
+          std::cout << "finished!" << std::endl;
+        }
+    ```
 
     - **future、promise、async、packaged_task:** 这几个模板函数均是为了使线程异步运行.
     ```cpp
