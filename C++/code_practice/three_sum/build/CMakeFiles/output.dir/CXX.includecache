@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zqw/Desktop/面试/three_sum/three_sum.cpp
+cstdio
+-
+iostream
+-
+vector
+-
+algorithm
+-
+

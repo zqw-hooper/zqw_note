@@ -1,0 +1,3 @@
+/home/zqw/Desktop/面试/coins/build/CMakeFiles/rebuild_cache.dir
+/home/zqw/Desktop/面试/coins/build/CMakeFiles/edit_cache.dir
+/home/zqw/Desktop/面试/coins/build/CMakeFiles/output.dir

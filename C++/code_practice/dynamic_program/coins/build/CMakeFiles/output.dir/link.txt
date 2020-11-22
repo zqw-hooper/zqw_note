@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/output.dir/coins.cpp.o  -o output 
