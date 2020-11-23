@@ -5,6 +5,11 @@
 **[LQR横向控制2](https://mp.weixin.qq.com/s?__biz=MzU5ODMzNjgyOQ==&mid=2247484188&idx=1&sn=ff1ceeb167dba714c34bd783e29c5e3e&chksm=fe44f74ec9337e580dce97221c68420294af323bbad59521d254a661a6a9a2f25b8bd619fb85&mpshare=1&scene=24&srcid=0813688oA8i6nGBI1xrD64fg&sharer_sharetime=1597308597093&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=A%2FtDWpvREGfMGHBbn8yXZ1Q%3D&pass_ticket=iKiIC0PPXpaN2GsRRpg3wB0jFaUVyftIpZkZjdAjmdcyoxOoEQpqAIY9G7W3lSkx&wx_header=0#rd)**  
 **[LQR横向控制3](https://zhuanlan.zhihu.com/p/110239637)**  
 
+**车辆动力学公式推导：**  
+<img src="../../image/vehicle_dymnamic1.jpeg" width="75%" height="75%" />  
+<img src="../../image/vehicle_dymnamic2.jpeg" width="75%" height="75%" />  
+
+**车辆动力学公式：**  
 <img src="../../image/LQR_formula.jpg" width="75%" height="75%" />  
 
 **若一系统动态可以用一组线性微分方程表示，且其成本为二次泛函，这类问题成为二次(LQ)问题，此类问题的解即为线性二次调节器(LQR)。**
