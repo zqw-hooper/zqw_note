@@ -22,8 +22,7 @@ int LCSubStr(char *X, char *Y, int m, int n)
     for (int i=0; i<=m; i++) 
     { 
         for (int j=0; j<=n; j++) 
-        { 
-  
+        {
             // The first row and first column  
             // entries have no logical meaning,  
             // they are used only for simplicity  
