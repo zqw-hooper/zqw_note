@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zqw/Desktop/zqw_note/C++/code_practice/dynamic_program/longest_palindromic_subsequence/main.cpp
+stdio.h
+-
+string.h
+-
+
