@@ -284,6 +284,26 @@ int treeHeight(Binary_Tree_Node* root)
     return height;
 }
 
+void printPaths(Binary_Tree_Node *node, std::vector<int> path)
+{
+    if (node == NULL)
+        return;
+
+    path.push_back(node->data);
+    if(node->left == NULL && node->right == NULL)
+    {
+        for (int i = 0; i < path.size(); i++)
+        {
+            printf("  %d", path[i]);
+        }
+        printf("  \n");
+    }
+    else
+    {
+       printPaths(node->left, path);
+       printPaths(node->right, path);
+    }
+}
 
 int main()
 {
@@ -294,7 +314,9 @@ int main()
     root->right = createNode(3);
     root->left->right = createNode(5);
     root->right->left = createNode(6);
-    printf("tree heigt is : %d\n",treeHeight(root));
+    std::vector<int> path;
+    printPaths(root, path);
+    // printf("tree heigt is : %d\n",treeHeight(root));
     // inorder(root);
     // printf("------------------------\n");
     // preorder(root);
