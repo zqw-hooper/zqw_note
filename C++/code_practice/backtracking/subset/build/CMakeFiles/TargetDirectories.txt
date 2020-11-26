@@ -1,0 +1,3 @@
+/home/zqw/git/zqw_note/C++/code_practice/backtracking/permutations/build/CMakeFiles/rebuild_cache.dir
+/home/zqw/git/zqw_note/C++/code_practice/backtracking/permutations/build/CMakeFiles/output.dir
+/home/zqw/git/zqw_note/C++/code_practice/backtracking/permutations/build/CMakeFiles/edit_cache.dir
