@@ -193,26 +193,52 @@ int count(Single_linked_list **head, int search_for)
 bool detectLoop(Single_linked_list **head)
 {
     Single_linked_list *slow_node = *head;
-    Single_linked_list *fast_node = (*head)->next;
+    Single_linked_list *fast_node = *head;
 
-    while(slow_node != fast_node)
+    while(slow_node && fast_node && fast_node->next)
     {
-        if (fast_node == nullptr || fast_node->next == nullptr)
-        {
-            return false;
-        }
         slow_node = slow_node->next;
         fast_node = fast_node->next->next;
+        if(slow_node == fast_node)
+        {
+            return true;
+        }
     }
-    return true;
+    return false;
+}
+
+Single_linked_list *detectCycle(Single_linked_list *head)
+{
+    if (head == nullptr)
+    {
+        return nullptr;
+    }
+    Single_linked_list *slow = head;
+    Single_linked_list *slow1 = head;
+    Single_linked_list *fast = head;
+    while (fast != nullptr && fast->next != nullptr)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast)
+        {
+            while (slow1 != slow)
+            {
+                slow1 = slow1->next;
+                slow = slow->next;
+            }
+            return slow1;
+        }
+    }
+    return nullptr;
 }
 
 int countNodesinLoop(Single_linked_list **head)
 {
     Single_linked_list *slow_node = *head;
-    Single_linked_list *fast_node = (*head)->next;
+    Single_linked_list *fast_node = *head;
 
-    while(slow_node != nullptr)
+    while (slow_node != nullptr)
     {
         slow_node = slow_node->next;
         fast_node = fast_node->next->next;
@@ -488,9 +514,12 @@ int main()
     // insertEnd(&head, 11);
     // removeUnsortedDuplicates(&head);
     // moveToFront(&head);
-    // head->next->next->next->next = head;
-    // printf("detectLoop :%d\n", detectLoop(&head));
-    // printf("countNodesinLoop :%d\n", countNodesinLoop(&head));
+    head->next->next->next->next = head;
+    printf("detectLoop :%d\n", detectLoop(&head));
+    printf("countNodesinLoop :%d\n", countNodesinLoop(&head));
+    printf("detectCycle :%d\n", detectCycle(head)->data);
+
+    
 
     // printLinkedList(new_head);
     // printf("--------------------\n");
