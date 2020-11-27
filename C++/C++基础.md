@@ -1374,4 +1374,49 @@
     > `set`:使用该容器存储的数据，**各个元素键和值完全相同**，且各个元素的值不能重复（保证了各元素键的唯一性）。该容器会自动根据各个元素的键（其实也就是元素值）的大小进行升序排序.  
     > `map`:使用该容器存储的数据，其各个元素的键必须是唯一的（即不能重复），该容器会根据各元素键的大小，默认进行升序排序.  
     * `stack`、`queue`、`priority_queue`
+80. **移动语义(move semantic)和完美转发(perfect forwarding)[链接](https://mp.weixin.qq.com/s?__biz=MzIwNDgyMTEyMA==&mid=2247483912&idx=1&sn=e4f79f3260fc36b9525301b2f1bd0b7b&chksm=973b05e7a04c8cf149e2d1b7ff74785ab5b9011751b3270215428361ad168dd49594eb8ccf61&mpshare=1&scene=1&srcid=1127fLaEdraBHZ1WLt1frquE&sharer_sharetime=1606451995099&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=A%2FPKMZQ%2B3dGEoakdcYSAJGE%3D&pass_ticket=lhcJGE92YZx88uu41BU7%2BI%2FsYoVaomHeR%2BWrRpn5lUZPYO7j3eTyJMmpxl%2FrHSGz&wx_header=0#rd)**
+  * 右值引用（rvalue reference）是 C++11 为了实现移动语意（move semantic）和完美转发（perfect forwarding）而提出来的.  
+  * 移动语义产生原因： 为了避免不必要的数据拷贝或者资源是独享的，这时移动语义可以完美的解决以上问题，这样在一些对象的构造时可以获取到已有的资源（如内存）而不需要通过拷贝，申请新的内存，这样移动而非拷贝将会大幅度提升性能。`std::move()`转移资源控制权，也可以将左值转成右值。  
+  * 完美转发：实现了参数在传递过程中保持其值属性的功能，即若是左值，则传递之后仍然是左值，若是右值，则传递之后仍然是右值。  
+  ```cpp
+    #include <iostream>
+    #include <utility>
+    void reference(int& v) {
+      std::cout << "左值引用" << std::endl;
+    }
+
+    void reference(int&& v) {
+      std::cout << "右值引用" << std::endl;
+    }
+
+    template <typename T>
+    void pass(T&& v) {
+      std::cout << "普通传参:";
+      reference(v);
+      std::cout << "std::move 传参:";
+      reference(std::move(v));
+      std::cout << "std::forward 传参:";
+      reference(std::forward<T>(v));
+    }
+
+    int main() {
+      std::cout << "传递右值:" << std::endl;
+      pass(1);
+      std::cout << "传递左值:" << std::endl;
+      int v = 1;
+      pass(v);
+      return 0;
+    }
+  ```
+  ```cpp 
+    输出：
+    传递右值:
+    普通传参:左值引用
+    std::move 传参:右值引用
+    std::forward 传参:右值引用
+    传递左值:
+    普通传参:左值引用
+    std::move 传参:右值引用
+    std::forward 传参:左值引用
+  ```   
     

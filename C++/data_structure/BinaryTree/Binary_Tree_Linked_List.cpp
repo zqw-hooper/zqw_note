@@ -315,11 +315,11 @@ int main()
     root->left->right = createNode(4);
     root->right->left = createNode(6);
     std::vector<int> path;
-    // printPaths(root, path);
+    printPaths(root, path);
     // printf("tree heigt is : %d\n",treeHeight(root));
     // inorder(root);
     // printf("------------------------\n");
-    preorder(root);
+    // preorder(root);
     // printf("------------------------\n");
     // postorder(root);
     // printf("------------------------\n");
