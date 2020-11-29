@@ -1509,3 +1509,62 @@
           return 0;
       }
      ```
+
+     ```cpp 
+     #include <iostream>
+
+      class Base
+      {
+      public:
+          Base()
+          {
+              val = new int{5};
+              std::cout << "Base" << std::endl;
+          }
+          ~Base()
+          {
+              std::cout << val << std::endl;
+              std::cout << "~Base" << std::endl;
+              if (val != nullptr)
+              {
+                  delete val;
+              }
+          }
+
+      private:
+          int *val;
+      };
+
+      class Derived : public Base
+      {
+      public:
+          Derived() { std::cout << "Derived" << std::endl; }
+          ~Derived() { std::cout << "~Derived" << std::endl; }
+      };
+
+      void foo(Derived dd)
+      {
+          std::cout << "Hello foo" << std::endl;
+      }
+
+      int main()
+      {
+          Derived d; // 1
+          foo(d); // 2
+          return 0;
+      }
+     ```
+     ```cpp
+          Base
+          Derived
+          Hello foo
+          ~Derived
+          0x55c8a8c7de70
+          ~Base
+          ~Derived
+          0x55c8a8c7de70
+          ~Base
+          free(): double free detected in tcache 2
+          Aborted (core dumped)
+     ```
+     上面代码会出现`free(): double free detected in tcache 2`错误，在`1`处调用基类和派生类的构造函数，在`2`处调用派生类的默认拷贝构造函数**(默认拷贝构造是浅拷贝)**构造出一个新的派生类，在生命周期结束后后调用基类的析构函数，两次析构都`delete val`相同的地址.
