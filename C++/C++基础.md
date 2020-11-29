@@ -1602,3 +1602,39 @@
           static const int val = 9; // OK
       };
       ```
+84. **抽象类不能实例化**
+    ```cpp
+      class Base
+      {
+      public:
+          Base() {}
+          ~Base() {}
+          virtual void func() = 0;
+
+      };
+
+      int main()
+      {
+          Base b;// error: cannot declare variable ‘b’ to be of abstract type ‘Base’
+          Base* b = new Base();// error: cannot declare variable ‘b’ to be of abstract type ‘Base’
+      }
+    ```
+    抽象类不能实例化，那么该如何作为参数传递?
+    ```cpp
+          class Base
+          {
+          public:
+              Base() {}
+              ~Base() {}
+              virtual void func() = 0;
+
+          };
+
+          void foo(Base b){} // error: cannot declare parameter ‘b’ to be of abstract type ‘Base’
+
+          void foo(Base& b){} // Ok
+
+          int main()
+          {
+          }
+    ```
