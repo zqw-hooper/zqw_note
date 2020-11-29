@@ -1568,3 +1568,37 @@
           Aborted (core dumped)
      ```
      上面代码会出现`free(): double free detected in tcache 2`错误，在`1`处调用基类和派生类的构造函数，在`2`处调用派生类的默认拷贝构造函数**(默认拷贝构造是浅拷贝)**构造出一个新的派生类，在生命周期结束后后调用基类的析构函数，两次析构都`delete val`相同的地址.
+
+82. **迭代器失效**
+    * `vector`: 容器在申请更多内存的同时，容器中的所有元素可能会被复制或移动到新的内存地址，这会导致之前创建的迭代器失效.  
+    * `list`: 容器在进行插入（`insert()`）、接合（`splice()`）等操作时，都不会造成原有的 `list` 迭代器失效，甚至进行删除操作，而只有指向被删除元素的迭代器失效，其他迭代器不受任何影响.  
+    * `deque`:  容器会申请更多的内存空间，同时其包含的所有元素可能会被复制或移动到新的内存地址（原来占用的内存会释放），这会导致之前创建的迭代器失效.   
+    * `unordered_map`: 容器过程（尤其是向容器中添加新键值对）中，一旦当前容器的负载因子超过最大负载因子（默认值为 1.0），该容器就会适当增加桶的数量（通常是翻一倍），并自动执行 rehash() 成员方法，重新调整各个键值对的存储位置（此过程又称“重哈希”），此过程很可能导致之前创建的迭代器失效.   
+
+83. ```cpp
+
+     #include <iostream>
+
+      class Base
+      {
+      public:
+          Base(){}
+          ~Base(){}
+      private:
+          static int val = 9; //error: ISO C++ forbids in-class initialization of non-const static member ‘Base::val’
+      };
+      ```
+
+      ```cpp
+
+     #include <iostream>
+
+      class Base
+      {
+      public:
+          Base(){}
+          ~Base(){}
+      private:
+          static const int val = 9; // OK
+      };
+      ```
