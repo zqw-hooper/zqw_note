@@ -1419,4 +1419,93 @@
     std::move 传参:右值引用
     std::forward 传参:左值引用
   ```   
-    
+
+ 81. ```cpp 
+     #include <iostream>
+
+      class Base
+      {
+      public:
+          Base()
+          {
+              val = new int{5};
+              std::cout << "Base" << std::endl;
+          }
+          ~Base()
+          {
+              std::cout << "~Base" << std::endl;
+          }
+
+      private:
+          int *val;
+      };
+
+      class Derived : public Base
+      {
+      public:
+          Derived() { std::cout << "Derived" << std::endl; }
+          ~Derived() { std::cout << "~Derived" << std::endl; }
+      };
+
+      int main()
+      {
+          Base b;  // output : Base  ~Base
+          Derived d; // Base  Derived  ~Derived  ~Base
+
+          Base *ptr_b = new Base();
+          delete ptr_b;  // output : Base  ~Base
+
+          Derived* ptr_d = new Derived();
+          delete ptr_d;  // Base  Derived  ~Derived  ~Base
+
+          Base *ptr = new Derived();
+          delete ptr;  // Base  Derived  ~Base 没有调用派生类的析构函数会发生内存泄露，这是基类派生必须为virtual.
+
+          return 0;
+      }
+     ```
+
+     ```cpp 
+     #include <iostream>
+
+      class Base
+      {
+      public:
+          Base()
+          {
+              val = new int{5};
+              std::cout << "Base" << std::endl;
+          }
+          ~Base()
+          {
+              std::cout << "~Base" << std::endl;
+          }
+
+      private:
+          int *val;
+      };
+
+      class Derived : public Base
+      {
+      public:
+          Derived() { std::cout << "Derived" << std::endl; }
+          ~Derived() { std::cout << "~Derived" << std::endl; }
+      };
+
+      int main()
+      {
+          Base b;  // output : Base  ~Base
+          Derived d; // Base  Derived  ~Derived  ~Base
+
+          Base *ptr_b = new Base();
+          delete ptr_b;  // output : Base  ~Base
+
+          Derived* ptr_d = new Derived();
+          delete ptr_d;  // Base  Derived  ~Derived  ~Base
+
+          Base *ptr = new Derived();
+          delete ptr;  // Base  Derived  ~Base 没有调用派生类的析构函数会发生内存泄露，这是基类派生必须为virtual.
+
+          return 0;
+      }
+     ```
