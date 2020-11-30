@@ -867,17 +867,89 @@
     > a. 使用原子操作`std::atomic<>`，它能构建了良好的内存屏障.  
     > b. 使用`mutex`互斥锁解决.
 
-63. **atomic:**
-    atomic: 原子类型是封装了一个值的类型，它的访问保证不会导致数据的竞争(不会发生内存乱序).
+63. **atomic:**[链接](https://blog.csdn.net/ceasadan/article/details/50467212?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control)
+    * atomic: 原子类型是封装了一个值的类型
+    * 两个作用：
+    > 1. 它的访问保证不会导致数据的竞争(不会发生内存乱序).
+    > 2. 表示在多个线程访问同一个全局资源的时候，能够确保所有其他的线程都不在同一时间内访问相同的资源.   
+    ```cpp
+      #include <iostream>
+      #include <thread>
+      #include <vector>
+      #include <atomic>
+
+      std::atomic<int> clickCnt(0);
+      void ClickAdBoard()
+      {
+          for (int i = 0; i < 100000; ++i)
+          {
+              clickCnt++;
+          }
+      }
+
+      int main()
+      {
+          std::vector<std::thread> threads;
+          for (int i = 1; i <= 10; ++i)
+          {
+              threads.push_back(std::thread(ClickAdBoard));
+          }
+
+          for (auto &th : threads)
+          {
+              th.join();
+          }
+          std::cout << "All Click Count:" << clickCnt << std::endl;
+
+          return 0;
+      }
+    ```
+
+    ```cpp
+      #include <iostream>
+      #include <thread>
+      #include <vector>
+      #include <mutex>
+      std::mutex mu;
+
+      std::atomic<int> clickCnt(0);
+      void ClickAdBoard()
+      {
+          for (int i = 0; i < 100000; ++i)
+          {
+              mu.lock();
+              clickCnt++;
+              mu.unlock();
+          }
+      }
+
+      int main()
+      {
+          std::vector<std::thread> threads;
+          for (int i = 1; i <= 10; ++i)
+          {
+              threads.push_back(std::thread(ClickAdBoard));
+          }
+
+          for (auto &th : threads)
+          {
+              th.join();
+          }
+          std::cout << "All Click Count:" << clickCnt << std::endl;
+
+          return 0;
+      }
+    ```
+
+
 
 64. **NULL与nullptr**
     * `NULL`: 本质是0，是一个宏替换，没有类型.
     * `nullptr`:本质是0，表示空指针，但是具备了类型.
 
-65. **constexpr**
-    * `const`: 未区分出编译期常量和运行期常量.
-    * `constexpr`: 限定在了编译期常量.
-    > `constexpr`修饰的函数，简单的来说，如果其传入的参数可以在编译时期计算出来，那么这个函数就会产生编译时期的值。但是，传入的参数如果不能在编译时期计算出来，那么`constexpr`修饰的函数就和普通函数一样了.
+65. **constexpr**[链接](https://xhy3054.github.io/cpp-const-constexpr/)
+    * `const`: 如果const变量的初始化值是在编译时就可以确定，则在编译时初始化; 如果const变量的初始化值是在运行时才确定，则在运行时初始化；
+    * `constexpr`: 可以被用于变量或函数上，constexpr修饰的变量或函数则与编译期计算有关，要是constexpr变量或函数所使用的变量其值能够在编译时就确定，那么constexpr变量或函数就能在编译时执行计算。另一方面，要是constexpr变量或函数所使用的变量其值只能在运行时确定，那么constexpr就和一般的函数没区别.  
 
 66. **委托构造**
     * 委托构造[委托构造](https://blog.csdn.net/guang_jing/article/details/27121951): 委托构造函数使用它所属类的其他构造函数执行它自己的初始化过程, 提升代码复用性.
@@ -1274,7 +1346,7 @@
 [智能指针实现原理2](https://www.jianshu.com/p/b6ac02d406a0)  
 * `unique_ptr`: 对独占资源的管理，`unique_ptr`模板类中禁用了拷贝构造函数和拷贝赋值运算符重载，你无法拷贝unique_ptr指针，进而实现了独享资源的管理，但是`unique_ptr`模板类定义了移动语义，可以将资源管理权转移到另一个`unique_ptr`, 移交后，源指针指向的资源就不存在了.
 
-* `shared_ptr`: 共享资源的管理，通过引用计数`use_count`来管理对象，当`shared_ptr`拷贝时会增加，当`shared_ptr`析构时会减少.
+* `shared_ptr`: 共享资源的管理，通过引用计数`use_count`来管理对象，当`shared_ptr`拷贝构造或拷贝赋值运算符时引用计数会增加，当`shared_ptr`析构时引用计数会减少，直至引用计数为零释放资源. 为了保证多线程安全引用计数成员变量采用原子类型`(atomic)`来保证.   
 
 75. **指针传递混淆点：**
 ```cpp
@@ -1373,6 +1445,7 @@
     > * 关联容器内的元素是排序的. 关联式容器在存储元素值的同时，还会为各元素额外再配备一个值（又称为“键”，其本质也是一个 C++ 基础数据类型或自定义类型的元素），它的功能是在使用关联式容器的过程中，如果已知目标元素的键的值，则直接通过该键就可以找到目标元素，而无需再通过遍历整个容器的方式四种容器的底层通过红黑树实现的.  
     > `set`:使用该容器存储的数据，**各个元素键和值完全相同**，且各个元素的值不能重复（保证了各元素键的唯一性）。该容器会自动根据各个元素的键（其实也就是元素值）的大小进行升序排序.  
     > `map`:使用该容器存储的数据，其各个元素的键必须是唯一的（即不能重复），该容器会根据各元素键的大小，默认进行升序排序.  
+    * 哈希容器：`unordered_set`、`unordered_multiset`、`unordered_multimap`、`unordered_map`
     * `stack`、`queue`、`priority_queue`
 80. **移动语义(move semantic)和完美转发(perfect forwarding)[链接](https://mp.weixin.qq.com/s?__biz=MzIwNDgyMTEyMA==&mid=2247483912&idx=1&sn=e4f79f3260fc36b9525301b2f1bd0b7b&chksm=973b05e7a04c8cf149e2d1b7ff74785ab5b9011751b3270215428361ad168dd49594eb8ccf61&mpshare=1&scene=1&srcid=1127fLaEdraBHZ1WLt1frquE&sharer_sharetime=1606451995099&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=A%2FPKMZQ%2B3dGEoakdcYSAJGE%3D&pass_ticket=lhcJGE92YZx88uu41BU7%2BI%2FsYoVaomHeR%2BWrRpn5lUZPYO7j3eTyJMmpxl%2FrHSGz&wx_header=0#rd)**
   * 右值引用（rvalue reference）是 C++11 为了实现移动语意（move semantic）和完美转发（perfect forwarding）而提出来的.  
@@ -1569,11 +1642,36 @@
      ```
      上面代码会出现`free(): double free detected in tcache 2`错误，在`1`处调用基类和派生类的构造函数，在`2`处调用派生类的默认拷贝构造函数**(默认拷贝构造是浅拷贝)**构造出一个新的派生类，在生命周期结束后后调用基类的析构函数，两次析构都`delete val`相同的地址.
 
-82. **迭代器失效**
+82. **迭代器失效**[链接](https://www.geeksforgeeks.org/iterator-invalidation-cpp/)[链接1](https://stackoverflow.com/questions/6438086/iterator-invalidation-rules/11336379#11336379)
     * `vector`: 容器在申请更多内存的同时，容器中的所有元素可能会被复制或移动到新的内存地址，这会导致之前创建的迭代器失效.  
+      ```cpp
+      #include <bits/stdc++.h>
+      using namespace std;
+      
+      int main() 
+      {
+        vector <int> v = {1, 5, 10, 15, 20};
+      
+        for (auto it = v.begin(); it != v.end(); it++)
+        {
+            if ((*it) == 5)
+            {
+              v.push_back(-1);  
+            }
+                      
+        }
+      
+        for (auto it = v.begin(); it != v.end(); it++)
+        {
+          cout << (*it) << " "; // 1 5 10 15 20 -1 -1 
+        }
+               
+        return 0;    
+      }
+      ```
     * `list`: 容器在进行插入（`insert()`）、接合（`splice()`）等操作时，都不会造成原有的 `list` 迭代器失效，甚至进行删除操作，而只有指向被删除元素的迭代器失效，其他迭代器不受任何影响.  
     * `deque`:  容器会申请更多的内存空间，同时其包含的所有元素可能会被复制或移动到新的内存地址（原来占用的内存会释放），这会导致之前创建的迭代器失效.   
-    * `unordered_map`: 容器过程（尤其是向容器中添加新键值对）中，一旦当前容器的负载因子超过最大负载因子（默认值为 1.0），该容器就会适当增加桶的数量（通常是翻一倍），并自动执行 rehash() 成员方法，重新调整各个键值对的存储位置（此过程又称“重哈希”），此过程很可能导致之前创建的迭代器失效.   
+    * `unordered_[multi]{set,map}`: 容器过程（尤其是向容器中添加新键值对）中，一旦当前容器的负载因子超过最大负载因子（默认值为 1.0），该容器就会适当增加桶的数量（通常是翻一倍），并自动执行 rehash() 成员方法，重新调整各个键值对的存储位置（此过程又称“重哈希”），此过程很可能导致之前创建的迭代器失效.   
 
 83. ```cpp
 
@@ -1638,3 +1736,8 @@
           {
           }
     ```
+85. **noexcept:**[链接1](https://www.jianshu.com/p/08a53d8c9670)[链接2](https://www.cnblogs.com/sword03/p/10020344.html)
+  * C++11新标准引入的noexcept运算符，可以用于指定某个函数不抛出异常。预先知道函数不会抛出异常有助于简化调用该函数的代码，而且编译器确认函数不会抛出异常，它就能执行某些特殊的优化操作.   
+  
+86. **shared_ptr实现原理**
+    * 
