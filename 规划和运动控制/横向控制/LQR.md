@@ -8,6 +8,7 @@
 **车辆动力学公式推导：**  
 <img src="../../image/vehicle_dymnamic1.jpeg" width="75%" height="75%" />  
 <img src="../../image/vehicle_dymnamic2.jpeg" width="75%" height="75%" />  
+<img src="../../image/vehicle_dymnamic3.jpeg" width="75%" height="75%" />  
 
 **车辆动力学公式：**  
 <img src="../../image/LQR_formula.jpg" width="75%" height="75%" />  
