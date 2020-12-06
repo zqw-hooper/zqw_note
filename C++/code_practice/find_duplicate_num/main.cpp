@@ -26,19 +26,13 @@ void printRepeating(int arr[], int n)
 // Driver code
 int main()
 {
-    // int arr[] = { 1, 6, 3, 1, 3, 6, 6 };
-    // int arr_size = sizeof(arr) / sizeof(arr[0]);
+    int arr[] = { 1, 6, 3, 1, 3, 6, 6 };
+    int arr_size = sizeof(arr) / sizeof(arr[0]);
  
-    // cout << "The repeating elements are: \n";
+    cout << "The repeating elements are: \n";
  
-    // // Function call
-    // printRepeating(arr, arr_size);
-
-    int count = 0;
-
-    cout << "count ++ = " << count++ << endl;
-        int count1 = 0;
-    cout << "++count1  = " << ++count1 << endl;
+    // Function call
+    printRepeating(arr, arr_size);
 
     return 0;
 }
