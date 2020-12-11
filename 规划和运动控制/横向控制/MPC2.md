@@ -28,5 +28,6 @@
 
 * 通常求解二次优化问题时将损失函数转换为：$J = U^THU + f^TU$ 然后使用相应的工具或函数库进行求解二次最优化问题  
 * 则$J = U_{ex}(B^T_{ex}C^T_{ex}QC_{ex}B_{ex} + R)U + 2((C_{ex}(A_{ex}x_t + W_{ex}) - Y_{ref})^TQC_{ex}B_{ex} - U^T_{ref}R)U_{ex}$
-
-
+* 其中$U_{ref}$可以通过前馈控制得到：
+  > 首先车辆的稳态横摆角速度增益为：$\frac{\omega}{\delta} = \frac{\frac{v_x}{L}}{1 + Kv^2_x}$  
+  > 则$\delta = \frac{L}{R} + LKa_y$ 其中：$K = \frac{m}{L^2}(\frac{l_f}{C_r} - \frac{l_r}{C_f})$
