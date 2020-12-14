@@ -22,7 +22,9 @@
 3. 其中$J$是一个关于状态变量$x$和控制输入$u$的二次型目标函数，对它的求解是典型的LQR最优控制问题，求解最小目标函数$J$.
 4. $Q$矩阵元素变大意味着希望跟踪偏差能够快速趋进于零，$J = \int(x^TQx)dt$ 表示跟踪过程路径偏差的累积大小.
    $R$矩阵元素变大意味着希望控制输入能够尽可能小. $J = \int(u^TRu)dt$ 表示跟踪过程控制能量的损耗.
-5. 求解过程：
+5. 求解过程：  
+    - <img src="../../image/LQR_formula_push.jpeg" width="75%" height="75%" />   
+    - [Algebraic Riccati equation](https://en.wikipedia.org/wiki/Algebraic_Riccati_equation)
     - 通过一系列推到得到代数黎卡提方程：$P = A^T_dPA_d - A^T_dPB_d(R + B_dPB_d)^{-1}B^T_dPA_d + Q$ , 其中$A_d$和$B_d$是离散后的$A$和$B$矩阵.
     - 迭代代数黎卡提方程求出$P$
     - 当两次$P$的差值足够小时(通过tolerance:The numerical tolerance for solving Discrete
