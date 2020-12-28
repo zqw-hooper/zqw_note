@@ -39,17 +39,42 @@ low --> Starting index,
 high --> Ending index */
 void quickSort(int arr[], int low, int high) 
 { 
-	if (low < high) 
-	{ 
-		/* pi is partitioning index, arr[p] is now 
-		at right place */
-		int pi = partition(arr, low, high); 
+	// if (low < high) 
+	// { 
+	// 	/* pi is partitioning index, arr[p] is now 
+	// 	at right place */
+	// 	int pi = partition(arr, low, high); 
 
-		// Separately sort elements before 
-		// partition and after partition 
-		quickSort(arr, low, pi - 1); 
-		quickSort(arr, pi + 1, high); 
-	} 
+	// 	// Separately sort elements before 
+	// 	// partition and after partition 
+	// 	quickSort(arr, low, pi - 1); 
+	// 	quickSort(arr, pi + 1, high); 
+	// } 
+
+
+	/* tail call elimination, This QuickSort requires O(Log n) auxiliary space in 
+   	worst case. */
+	while (low < high) 
+    { 
+        /* pi is partitioning index, arr[p] is now 
+           at right place */
+        int pi = partition(arr, low, high); 
+  
+        // If left part is smaller, then recur for left 
+        // part and handle right part iteratively 
+        if (pi - low < high - pi) 
+        { 
+            quickSort(arr, low, pi - 1); 
+            low = pi + 1; 
+        } 
+  
+        // Else recur for right part 
+        else
+        { 
+            quickSort(arr, pi + 1, high); 
+            high = pi - 1; 
+        } 
+    } 
 } 
 
 /* Function to print an array */
@@ -57,7 +82,7 @@ void printArray(int arr[], int size)
 { 
 	int i; 
 	for (i = 0; i < size; i++) 
-		cout << arr[i] << " "; 
+		cout << arr[i] << " - "; 
 	cout << endl; 
 } 
 
