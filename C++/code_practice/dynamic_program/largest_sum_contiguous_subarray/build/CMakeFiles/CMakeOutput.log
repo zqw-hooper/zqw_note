@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_33c38/fast"
-/usr/bin/make -f CMakeFiles/cmTC_33c38.dir/build.make CMakeFiles/cmTC_33c38.dir/build
-make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_33c38.dir/testCCompiler.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_33c38.dir/testCCompiler.c.o   -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_33c38
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_33c38.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_33c38.dir/testCCompiler.c.o  -o cmTC_33c38 
-make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_91007/fast"
+/usr/bin/make -f CMakeFiles/cmTC_91007.dir/build.make CMakeFiles/cmTC_91007.dir/build
+make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_91007.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_91007.dir/testCCompiler.c.o   -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_91007
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91007.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_91007.dir/testCCompiler.c.o  -o cmTC_91007 
+make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0edd1/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0edd1.dir/build.make CMakeFiles/cmTC_0edd1.dir/build
-make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0edd1.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_0edd1.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_0edd1
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0edd1.dir/link.txt --verbose=1
-/usr/bin/cc      -v CMakeFiles/cmTC_0edd1.dir/CMakeCCompilerABI.c.o  -o cmTC_0edd1  
+Run Build Command:"/usr/bin/make" "cmTC_9faf6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9faf6.dir/build.make CMakeFiles/cmTC_9faf6.dir/build
+make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9faf6.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_9faf6.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_9faf6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9faf6.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_9faf6.dir/CMakeCCompilerABI.c.o  -o cmTC_9faf6  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
@@ -59,23 +59,23 @@ Thread model: posix
 gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.12) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0edd1' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJi6lN5.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_0edd1 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_0edd1.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9faf6' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpXsoBN.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_9faf6 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_9faf6.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_0edd1/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_0edd1.dir/build.make CMakeFiles/cmTC_0edd1.dir/build]
-  ignore line: [make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_0edd1.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_0edd1.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_0edd1]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0edd1.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_0edd1.dir/CMakeCCompilerABI.c.o  -o cmTC_0edd1  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_9faf6/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_9faf6.dir/build.make CMakeFiles/cmTC_9faf6.dir/build]
+  ignore line: [make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_9faf6.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_9faf6.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_9faf6]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9faf6.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_9faf6.dir/CMakeCCompilerABI.c.o  -o cmTC_9faf6  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
@@ -85,13 +85,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.12) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0edd1' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJi6lN5.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_0edd1 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_0edd1.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9faf6' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccpXsoBN.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_9faf6 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_9faf6.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccJi6lN5.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccpXsoBN.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -108,7 +108,7 @@ Parsed C implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_0edd1] ==> ignore
+    arg [cmTC_9faf6] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
@@ -120,7 +120,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
-    arg [CMakeFiles/cmTC_0edd1.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_9faf6.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -152,17 +152,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0cbf2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0cbf2.dir/build.make CMakeFiles/cmTC_0cbf2.dir/build
-make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0cbf2.dir/feature_tests.c.o
-/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_0cbf2.dir/feature_tests.c.o   -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_0cbf2
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0cbf2.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_0cbf2.dir/feature_tests.c.o  -o cmTC_0cbf2 
-make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_bbf65/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bbf65.dir/build.make CMakeFiles/cmTC_bbf65.dir/build
+make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bbf65.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_bbf65.dir/feature_tests.c.o   -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_bbf65
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bbf65.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_bbf65.dir/feature_tests.c.o  -o cmTC_bbf65 
+make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -172,17 +172,17 @@ make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_eb5b4/fast"
-/usr/bin/make -f CMakeFiles/cmTC_eb5b4.dir/build.make CMakeFiles/cmTC_eb5b4.dir/build
-make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_eb5b4.dir/feature_tests.c.o
-/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_eb5b4.dir/feature_tests.c.o   -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_eb5b4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb5b4.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_eb5b4.dir/feature_tests.c.o  -o cmTC_eb5b4 
-make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_84631/fast"
+/usr/bin/make -f CMakeFiles/cmTC_84631.dir/build.make CMakeFiles/cmTC_84631.dir/build
+make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_84631.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_84631.dir/feature_tests.c.o   -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_84631
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_84631.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_84631.dir/feature_tests.c.o  -o cmTC_84631 
+make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -192,17 +192,17 @@ make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_27356/fast"
-/usr/bin/make -f CMakeFiles/cmTC_27356.dir/build.make CMakeFiles/cmTC_27356.dir/build
-make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_27356.dir/feature_tests.c.o
-/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_27356.dir/feature_tests.c.o   -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_27356
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_27356.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_27356.dir/feature_tests.c.o  -o cmTC_27356 
-make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_f53ba/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f53ba.dir/build.make CMakeFiles/cmTC_f53ba.dir/build
+make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f53ba.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_f53ba.dir/feature_tests.c.o   -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f53ba
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f53ba.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_f53ba.dir/feature_tests.c.o  -o cmTC_f53ba 
+make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -210,30 +210,30 @@ make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_27066/fast"
-/usr/bin/make -f CMakeFiles/cmTC_27066.dir/build.make CMakeFiles/cmTC_27066.dir/build
-make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_27066.dir/testCXXCompiler.cxx.o
-/usr/bin/c++      -o CMakeFiles/cmTC_27066.dir/testCXXCompiler.cxx.o -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_27066
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_27066.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_27066.dir/testCXXCompiler.cxx.o  -o cmTC_27066 
-make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_6f109/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6f109.dir/build.make CMakeFiles/cmTC_6f109.dir/build
+make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6f109.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_6f109.dir/testCXXCompiler.cxx.o -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_6f109
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6f109.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_6f109.dir/testCXXCompiler.cxx.o  -o cmTC_6f109 
+make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1605b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1605b.dir/build.make CMakeFiles/cmTC_1605b.dir/build
-make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_1605b.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++      -o CMakeFiles/cmTC_1605b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_1605b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1605b.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_1605b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_1605b  
+Run Build Command:"/usr/bin/make" "cmTC_e78d8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e78d8.dir/build.make CMakeFiles/cmTC_e78d8.dir/build
+make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e78d8.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_e78d8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_e78d8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e78d8.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_e78d8.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_e78d8  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
@@ -243,23 +243,23 @@ Thread model: posix
 gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.12) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1605b' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccoYidfw.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_1605b /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_1605b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e78d8' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccxujTvc.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_e78d8 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_e78d8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_1605b/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_1605b.dir/build.make CMakeFiles/cmTC_1605b.dir/build]
-  ignore line: [make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_1605b.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_1605b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_1605b]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1605b.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_1605b.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_1605b  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_e78d8/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_e78d8.dir/build.make CMakeFiles/cmTC_e78d8.dir/build]
+  ignore line: [make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_e78d8.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_e78d8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_e78d8]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e78d8.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_e78d8.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_e78d8  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
@@ -269,13 +269,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.12) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1605b' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccoYidfw.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_1605b /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_1605b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e78d8' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccxujTvc.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_e78d8 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_e78d8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccoYidfw.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccxujTvc.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -292,7 +292,7 @@ Parsed CXX implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_1605b] ==> ignore
+    arg [cmTC_e78d8] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
@@ -304,7 +304,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
-    arg [CMakeFiles/cmTC_1605b.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_e78d8.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -334,17 +334,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e8e87/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e8e87.dir/build.make CMakeFiles/cmTC_e8e87.dir/build
-make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_e8e87.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_e8e87.dir/feature_tests.cxx.o -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_e8e87
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8e87.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_e8e87.dir/feature_tests.cxx.o  -o cmTC_e8e87 
-make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_05c10/fast"
+/usr/bin/make -f CMakeFiles/cmTC_05c10.dir/build.make CMakeFiles/cmTC_05c10.dir/build
+make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_05c10.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_05c10.dir/feature_tests.cxx.o -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_05c10
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05c10.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_05c10.dir/feature_tests.cxx.o  -o cmTC_05c10 
+make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -407,17 +407,17 @@ make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1b985/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1b985.dir/build.make CMakeFiles/cmTC_1b985.dir/build
-make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_1b985.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_1b985.dir/feature_tests.cxx.o -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_1b985
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1b985.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_1b985.dir/feature_tests.cxx.o  -o cmTC_1b985 
-make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_fe45a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fe45a.dir/build.make CMakeFiles/cmTC_fe45a.dir/build
+make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fe45a.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_fe45a.dir/feature_tests.cxx.o -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_fe45a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe45a.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_fe45a.dir/feature_tests.cxx.o  -o cmTC_fe45a 
+make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -480,17 +480,17 @@ make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp
+Change Dir: /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_dc2fe/fast"
-/usr/bin/make -f CMakeFiles/cmTC_dc2fe.dir/build.make CMakeFiles/cmTC_dc2fe.dir/build
-make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_dc2fe.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_dc2fe.dir/feature_tests.cxx.o -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_dc2fe
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dc2fe.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_dc2fe.dir/feature_tests.cxx.o  -o cmTC_dc2fe 
-make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/knapsack_problem/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_3255e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3255e.dir/build.make CMakeFiles/cmTC_3255e.dir/build
+make[1]: Entering directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3255e.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_3255e.dir/feature_tests.cxx.o -c /home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_3255e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3255e.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_3255e.dir/feature_tests.cxx.o  -o cmTC_3255e 
+make[1]: Leaving directory '/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

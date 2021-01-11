@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zqw/zqw_git/zqw_note/C++/code_practice/dynamic_program/largest_sum_contiguous_subarray/main.cpp
+iostream
+-
+climits
+-
+
