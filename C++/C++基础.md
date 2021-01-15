@@ -1447,10 +1447,24 @@
     > `map`:使用该容器存储的数据，其各个元素的键必须是唯一的（即不能重复），该容器会根据各元素键的大小，默认进行升序排序.  
     * 哈希容器：`unordered_set`、`unordered_multiset`、`unordered_multimap`、`unordered_map`
     * `stack`、`queue`、`priority_queue`
-80. **移动语义(move semantic)和完美转发(perfect forwarding)[链接](https://mp.weixin.qq.com/s?__biz=MzIwNDgyMTEyMA==&mid=2247483912&idx=1&sn=e4f79f3260fc36b9525301b2f1bd0b7b&chksm=973b05e7a04c8cf149e2d1b7ff74785ab5b9011751b3270215428361ad168dd49594eb8ccf61&mpshare=1&scene=1&srcid=1127fLaEdraBHZ1WLt1frquE&sharer_sharetime=1606451995099&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=A%2FPKMZQ%2B3dGEoakdcYSAJGE%3D&pass_ticket=lhcJGE92YZx88uu41BU7%2BI%2FsYoVaomHeR%2BWrRpn5lUZPYO7j3eTyJMmpxl%2FrHSGz&wx_header=0#rd)**
+80. **移动语义(move semantic)和完美转发(perfect forwarding)[链接1](https://mp.weixin.qq.com/s?__biz=MzIwNDgyMTEyMA==&mid=2247483912&idx=1&sn=e4f79f3260fc36b9525301b2f1bd0b7b&chksm=973b05e7a04c8cf149e2d1b7ff74785ab5b9011751b3270215428361ad168dd49594eb8ccf61&mpshare=1&scene=1&srcid=1127fLaEdraBHZ1WLt1frquE&sharer_sharetime=1606451995099&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=A%2FPKMZQ%2B3dGEoakdcYSAJGE%3D&pass_ticket=lhcJGE92YZx88uu41BU7%2BI%2FsYoVaomHeR%2BWrRpn5lUZPYO7j3eTyJMmpxl%2FrHSGz&wx_header=0#rd)[链接2](https://blog.csdn.net/p942005405/article/details/84644069)**
   * 右值引用（rvalue reference）是 C++11 为了实现移动语意（move semantic）和完美转发（perfect forwarding）而提出来的.  
   * 移动语义产生原因： 为了避免不必要的数据拷贝或者资源是独享的，这时移动语义可以完美的解决以上问题，这样在一些对象的构造时可以获取到已有的资源（如内存）而不需要通过拷贝，申请新的内存，这样移动而非拷贝将会大幅度提升性能。`std::move()`转移资源控制权，也可以将左值转成右值。  
-  * 完美转发：实现了参数在传递过程中保持其值属性的功能，即若是左值，则传递之后仍然是左值，若是右值，则传递之后仍然是右值。  
+  ```cpp
+    template <typename T>
+    typename remove_reference<T>::type&& move(T&& t)
+    {
+      return static_cast<typename remove_reference<T>::type&&>(t);
+    }
+  ```
+  * 完美转发：实现了参数在传递过程中保持其值属性的功能，即若是左值，则传递之后仍然是左值，若是右值，则传递之后仍然是右值。
+  ```cpp
+    template<typename T>
+    T&& forward(T &param)
+    {
+      return static_cast<T&&>(param);
+    }
+  ```  
   ```cpp
     #include <iostream>
     #include <utility>
@@ -1493,7 +1507,7 @@
     std::forward 传参:左值引用
   ```   
 
- 81. ```cpp 
+ 1.  ```cpp 
      #include <iostream>
 
       class Base
@@ -1642,7 +1656,7 @@
      ```
      上面代码会出现`free(): double free detected in tcache 2`错误，在`1`处调用基类和派生类的构造函数，在`2`处调用派生类的默认拷贝构造函数**(默认拷贝构造是浅拷贝)**构造出一个新的派生类，在生命周期结束后后调用基类的析构函数，两次析构都`delete val`相同的地址.
 
-82. **迭代器失效**[链接](https://www.geeksforgeeks.org/iterator-invalidation-cpp/)[链接1](https://stackoverflow.com/questions/6438086/iterator-invalidation-rules/11336379#11336379)
+81. **迭代器失效**[链接](https://www.geeksforgeeks.org/iterator-invalidation-cpp/)[链接1](https://stackoverflow.com/questions/6438086/iterator-invalidation-rules/11336379#11336379)
     * `vector`: 容器在申请更多内存的同时，容器中的所有元素可能会被复制或移动到新的内存地址，这会导致之前创建的迭代器失效.  
       ```cpp
       #include <bits/stdc++.h>
@@ -1673,7 +1687,7 @@
     * `deque`:  容器会申请更多的内存空间，同时其包含的所有元素可能会被复制或移动到新的内存地址（原来占用的内存会释放），这会导致之前创建的迭代器失效.   
     * `unordered_[multi]{set,map}`: 容器过程（尤其是向容器中添加新键值对）中，一旦当前容器的负载因子超过最大负载因子（默认值为 1.0），该容器就会适当增加桶的数量（通常是翻一倍），并自动执行 rehash() 成员方法，重新调整各个键值对的存储位置（此过程又称“重哈希”），此过程很可能导致之前创建的迭代器失效.   
 
-83. ```cpp
+82. ```cpp
 
      #include <iostream>
 
@@ -1700,7 +1714,7 @@
           static const int val = 9; // OK
       };
       ```
-84. **抽象类不能实例化**
+83. **抽象类不能实例化**
     ```cpp
       class Base
       {
@@ -1736,7 +1750,7 @@
           {
           }
     ```
-85. **noexcept:**[链接1](https://www.jianshu.com/p/08a53d8c9670)[链接2](https://www.cnblogs.com/sword03/p/10020344.html)
+84. **noexcept:**[链接1](https://www.jianshu.com/p/08a53d8c9670)[链接2](https://www.cnblogs.com/sword03/p/10020344.html)
   * C++11新标准引入的noexcept运算符，可以用于指定某个函数不抛出异常。预先知道函数不会抛出异常有助于简化调用该函数的代码，而且编译器确认函数不会抛出异常，它就能执行某些特殊的优化操作.   
   
 86. **不能重载的运算符**
@@ -1744,3 +1758,39 @@
     * `?`
     * `::`
     * `sizeof`
+    * 
+87. 进程之间的通信方式以及优缺点
+* 管道（PIPE）
+    * 有名管道：一种半双工的通信方式，它允许无亲缘关系进程间的通信
+        * 优点：可以实现任意关系的进程间的通信
+        * 缺点：
+            1. 长期存于系统中，使用不当容易出错
+            2. 缓冲区有限
+    * 无名管道：一种半双工的通信方式，只能在具有亲缘关系的进程间使用（父子进程）
+        * 优点：简单方便
+        * 缺点：
+            1. 局限于单向通信 
+            2. 只能创建在它的进程以及其有亲缘关系的进程之间
+            3. 缓冲区有限
+* 信号量（Semaphore）：一个计数器，可以用来控制多个线程对共享资源的访问
+    * 优点：可以同步进程
+    * 缺点：信号量有限
+* 信号（Signal）：一种比较复杂的通信方式，用于通知接收进程某个事件已经发生
+* 消息队列（Message Queue）：是消息的链表，存放在内核中并由消息队列标识符标识
+    * 优点：可以实现任意进程间的通信，并通过系统调用函数来实现消息发送和接收之间的同步，无需考虑同步问题，方便
+    * 缺点：信息的复制需要额外消耗 CPU 的时间，不适宜于信息量大或操作频繁的场合
+* 共享内存（Shared Memory）：映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问
+    * 优点：无须复制，快捷，信息量大
+    * 缺点：
+        1. 通信是通过将共享空间缓冲区直接附加到进程的虚拟地址空间中来实现的，因此进程间的读写操作的同步问题
+        2. 利用内存缓冲区直接交换信息，内存的实体存在于计算机中，只能同一个计算机系统中的诸多进程共享，不方便网络通信
+* 套接字（Socket）：可用于不同计算机间的进程通信
+    * 优点：
+        1. 传输数据为字节级，传输数据可自定义，数据量小效率高
+        2. 传输数据时间短，性能高
+        3. 适合于客户端和服务器端之间信息实时交互
+        4. 可以加密,数据安全性强
+    * 缺点：需对传输的数据进行解析，转化成应用级的数据。
+
+88. [Bjarne Stroustrup C++ Style and Technique FAQ 1](https://www.stroustrup.com/bstechfaq.htm)
+    [Bjarne Stroustrup C++ Style and Technique FAQ 2](https://www.stroustrup.com/bsfaq2cn.html)
