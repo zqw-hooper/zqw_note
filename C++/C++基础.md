@@ -518,7 +518,9 @@
 52. **类成员初始化列表:**
   [Member Initializer List](https://www.geeksforgeeks.org/when-do-we-use-initializer-list-in-c/)
   [Member Initializer List Example](https://www.geeksforgeeks.org/output-of-c-program/)
-  * 优先使用成员初始化列表而不是构造函数内赋值操作，因为成员初始化列表效率更高些.
+  * 优先使用成员初始化列表而不是构造函数内初始化，因为成员初始化列表效率更高些.
+  > 构造函数内初始化：先调用构造函数+赋值运算符
+  > 初始化列表: 拷贝构造函数
 
 53. **类的前置声明:** (详见`./design_pattern/adapter_pattern.cpp`) 
     [类的前置声明一](https://mp.weixin.qq.com/s?__biz=MzI3MDQyMDE2OQ==&mid=2247483747&idx=1&sn=f31b2047e10cc040b68005d30f11de41&chksm=ead010c5dda799d308303a3ca44b99cb5b618f3650abc50420cebf469eeb34e3ff87f5019e13&mpshare=1&scene=1&srcid=&sharer_sharetime=1592924309287&sharer_shareid=87c63c66f42a4150bca9a3d2a69b5061&exportkey=AwZ2A%2BZsNrCDwHN6uHs%2B6AQ%3D&pass_ticket=R96mvFDYo82O%2Fc57eWjA4QoEvDw%2F%2BpQ1a7j09aliMQ1EM4LeBaECwTCGmavT3NOK#rd)

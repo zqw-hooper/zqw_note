@@ -26,6 +26,7 @@ string inorder(Node* node, unordered_map<string, int>& m)
 	// because we want to print multiple duplicates 
 	// only once, consider example of 4 in above 
 	// subtree, it should be printed only once. 
+	cout << str << endl;
 	if (m[str] == 1) 
 		cout << node->data << " "; 
 
@@ -56,13 +57,13 @@ Node* newNode(int data)
 int main() 
 { 
 	Node* root = NULL; 
-	root = newNode(1); 
-	root->left = newNode(2); 
+	root = newNode(2); 
+	root->left = newNode(1); 
 	root->right = newNode(3); 
-	root->left->left = newNode(4); 
-	root->right->left = newNode(2); 
-	root->right->left->left = newNode(4); 
-	root->right->right = newNode(4); 
+	// root->left->left = newNode(4); 
+	// root->right->left = newNode(2); 
+	// root->right->left->left = newNode(4); 
+	// root->right->right = newNode(4); 
 	printAllDups(root); 
 	return 0; 
 } 

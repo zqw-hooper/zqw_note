@@ -79,7 +79,7 @@ int main()
     int in[] = {3, 9, 20, 15, 7};
     int pre[] = {9, 3, 15, 20, 7};
     int len = sizeof(in) / sizeof(in[0]);
-    TreeNode *root = buildTree(in, 0, len - 1, pre, 0, len - 1);
+    TreeNode *root = buildTree(pre, 0, len - 1, in, 0, len - 1);
 
     /* Let us test the built tree by 
     printing Insorder traversal */
