@@ -1,43 +1,47 @@
 #include <cstdio>
+#include <iostream>
 
 void merge(int arr[], int left, int right, int right_bound)
 {
-    int mid = right - 1;
-    int temp_arr[right_bound - left + 1];
-    for (int m = 0; m < (right_bound - left + 1); m++)
-    {
-        temp_arr[m] = arr[m];
-    }
+    int n1 = right - left;
+    int n2 = right_bound - right + 1;
 
-    int i = left;
-    int j = right;
-    int k = 0;
-    while (i <= mid && j <= right_bound)
+    int L[n1];    
+    int R[n2];
+    for (int i = 0; i < n1; i++)
+        L[i] = arr[left + i];
+    for (int j = 0; j < n2; j++)
+        R[j] = arr[right + j];
+
+    int i = 0;
+    int j = 0;
+    int k = left;
+    while (i < n1 && j < n2)
     {
-        if (temp_arr[i] <= temp_arr[j])
+        if (L[i] <= R[j])
         {
-            arr[k] = temp_arr[i];
+            arr[k] = L[i];
             k++;
             i++;
         }
         else
         {
-            arr[k] = temp_arr[j];
+            arr[k] = R[j];
             k++;
             j++;
         }
     }
 
-    while (i <= mid)
+    while (i < n1)
     {
-        arr[k] = temp_arr[i];
+        arr[k] = L[i];
         k++;
         i++;
     }
 
-    while (j <= right_bound)
+    while (j < n2)
     {
-        arr[k] = temp_arr[j];
+        arr[k] = R[j];
         k++;
         j++;
     }
