@@ -1,0 +1,1 @@
+/home/zqw/Desktop/cuda/sample1/devel/./cmake.lock 10
