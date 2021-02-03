@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+#if 0
 class counter {
 public:
   counter() : count(0) {}
@@ -74,3 +75,20 @@ int main() {
   cout << " ptr2's use count: " << ptr2.use_count() << endl;
   return 0;
 }
+
+#elif 1
+
+class A {
+public:
+  void operator++(int) { cout << "operator++(int)"; }
+  void operator++() { cout << "operator++()"; }
+};
+
+int main()
+{
+    A a;
+    ++a; // "operator++()"
+    a++; // "operator++(int)"
+  return 0;
+}
+#endif

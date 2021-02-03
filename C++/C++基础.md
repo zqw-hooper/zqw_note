@@ -1796,3 +1796,20 @@
 
 88. [Bjarne Stroustrup C++ Style and Technique FAQ 1](https://www.stroustrup.com/bstechfaq.htm)
     [Bjarne Stroustrup C++ Style and Technique FAQ 2](https://www.stroustrup.com/bsfaq2cn.html)
+
+89. `operator++`
+    ```cpp
+      class A {
+      public:
+        void operator++(int) { cout << "operator++(int)"; }
+        void operator++() { cout << "operator++()"; }
+      };
+
+      int main()
+      {
+          A a;
+          ++a; // "operator++()"
+          a++; // "operator++(int)"
+        return 0;
+      }
+    ```
