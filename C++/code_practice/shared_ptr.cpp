@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-#if 0
+#if 1
 class counter {
 public:
   counter() : count(0) {}
@@ -73,22 +73,6 @@ int main() {
   printf("ptr1's address is : %p\n", ptr2.get());
   cout << " ptr1's use count: " << ptr1.use_count() << endl;
   cout << " ptr2's use count: " << ptr2.use_count() << endl;
-  return 0;
-}
-
-#elif 1
-
-class A {
-public:
-  void operator++(int) { cout << "operator++(int)"; }
-  void operator++() { cout << "operator++()"; }
-};
-
-int main()
-{
-    A a;
-    ++a; // "operator++()"
-    a++; // "operator++(int)"
   return 0;
 }
 #endif
