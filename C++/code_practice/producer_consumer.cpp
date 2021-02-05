@@ -13,8 +13,12 @@ queue<int> q;
 void producer()
 {
     unique_lock<mutex> lck(mx);
-    q.push(1);
-    cout << "front num: " << q.front() << endl;
+    for(int i = 0; i < 5; i++)
+    {
+        q.push(i);
+        cout << "push: " << i << endl;
+    }
+
     ready = true;
     cv.notify_one();
 }
