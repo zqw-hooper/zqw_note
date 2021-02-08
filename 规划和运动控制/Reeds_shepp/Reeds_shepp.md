@@ -8,4 +8,6 @@
 
 48种Base Word分成5大类(`CCC`,`CSC`,`CCCC`,`CCSC`,`CCSCC`)，9个小类(每个类别可由一组公式求解)，其中`C`代表左或右方向, `S`代表直行方向.  
 
-<img src="./formula_down.jpeg" width="50%" height="50%" />    
+* 如下为一种Base Word推倒过程：   
+
+<img src="./formula_down.jpeg" width="70%" height="70%" />    
