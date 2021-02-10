@@ -1813,3 +1813,5 @@
         return 0;
       }
     ```
+
+90. 多态(Polymorphism)分类[链接](https://www.geeksforgeeks.org/polymorphism-in-c/)

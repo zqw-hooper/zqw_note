@@ -5,3 +5,7 @@
 
 
 <img src="./cubic_spline_formula2.jpeg" width="65%" height="50%" />    
+
+
+
+[curves链接](https://www.tutorialspoint.com/computer_graphics/computer_graphics_curves.htm)
