@@ -419,7 +419,7 @@
               cout << "fun() Called\n"; 
               Test t; 
               return t; 
-          } 
+          }   
             
           int main() 
           { 
@@ -1815,3 +1815,65 @@
     ```
 
 90. 多态(Polymorphism)分类[链接](https://www.geeksforgeeks.org/polymorphism-in-c/)
+91. Why are only static const integral types & enums allowed In-class Initialization? 
+92. 为何空类的大小不是零？
+    * 为了确保两个不同对象的地址不同，必须如此. 也正因为如此，new返回的指针总是指向不同的单个对象.   
+93. 为何成员函数不是默认为虚？
+    * 许多类不是被用来做基类的.  
+    * 虚函数的类有虚机制的开销(指存放vtable带来的空间开销和通过vtable中的指针间接调用带来的时间开销).    
+94. 为何析构函数不是默认为虚？
+    * 许多类不是被用来做基类的.    
+  
+> 何时该让析构函数为虚呢？  
+  当类有其它虚函数的时候，你就应该让析构函数为虚。有其它虚函数，就意味着这个类要被继承，就意味着它有点“interface”的味道了。这样一来，程序员就可能会以基类指针来指向由它的继承类所实例化而来的对象，而能否通过基类指针来正常释放这样的对象就要看析构函数是否为虚了.
+
+95. C++中为何没有虚拟构造函数？
+    * 虚拟机制的设计目的是使程序员在不完全了解细节（比如只知该类实现了某个界面，而不知该类确切是什么东东）的情况下也能使用对象。但是，要建立一个对象，可不能只知道“这大体上是什么”就完事——你必须完全了解全部细节，清楚地知道你要建立的对象是究竟什么。所以，构造函数当然不能是虚的了。  
+96. 为何无法在派生类中重载？
+    ```cpp
+        #include<iostream>
+        using namespace std;
+
+        class B {
+        public:
+          int f(int i) { cout << "f(int): "; return i+1; }
+          // ...
+        };
+
+        class D : public B {
+        public:
+          double f(double d) { cout << "f(double): "; return d+1.3; }
+          // ...
+        };
+
+        int main()
+        {
+          D* pd = new D;
+
+          cout << pd->f(2) << '\n';
+          cout << pd->f(2.3) << '\n';
+        }
+      
+      程序运行结果是：
+        f(double): 3.3
+        f(double): 3.6
+    ```
+
+    * 在C++中，没有跨域重载——继承类和基类虽然关系很亲密，但也不能坏了这条规矩。  
+
+    不过，如果你非得要跨域重载，也不是没有变通的方法——你就把那些函数弄到同一个域里来好了。使用一个using声明就可以搞定。
+    ```cpp
+      class D : public B {
+      public:
+        using B::f;	// make every f from B available
+        double f(double d) { cout << "f(double): "; return d+1.3; }
+        // ...
+      };
+
+    这样一来，结果就是
+      f(int): 3
+      f(double): 3.6
+    ```
+97. 我能从构造函数调用虚函数吗？
+    * 可以。不过你得悠着点。当你这样做时，也许你自己都不知道自己在干什么！在构造函数中，虚拟机制尚未发生作用，因为此时overriding尚未发生。  
+  
