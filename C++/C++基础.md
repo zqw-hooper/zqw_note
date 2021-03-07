@@ -1876,4 +1876,157 @@
     ```
 97. 我能从构造函数调用虚函数吗？
     * 可以。不过你得悠着点。当你这样做时，也许你自己都不知道自己在干什么！在构造函数中，虚拟机制尚未发生作用，因为此时overriding尚未发生。  
-  
+98. C++ 的对象在内存中的存放形式是怎么样的？  
+    基本上，C++ 简单地通过连接各个子对象来构建对象。例如：`struct A { int a,b; };`在内存中的表现就是两个`int`型变量彼此相邻。  
+    又如：`struct B : A { int c; };`在内存中的表现是类型为A的对象和`int`型变量彼此相邻，c跟在A型对象的后面, 也就是说，a和b彼此相邻，b和c彼此相邻。虚函数通常是通过在含有虚函数的类的每个对象中加入一个指针（vptr）来实现的。这个指针指向一个相应的函数表（vtbl）。每个类都有其独 特的 vtbl，所有属于同一个类的对象共享同一个 vtbl。
+99.  以下代码:
+     ```cpp
+        class Handle 
+        {
+           private:
+              string name;
+              X* p;
+           public:
+              Handle(string n):name(n), p(0) { /* acquire X called "name" and let p point to it */ }
+              ~Handle() { delete p; /* release X called "name" */ }
+              // ...
+        };
+
+        void f(const string& hh)
+        {
+            Handle h1(hh);
+            Handle h1 = h2; // 会引起灾难！
+            // ...
+        }
+      ```
+      * 在此，默认复制构造函数使得 h2.name==h1.name 并且 h2.p==h2.p。这将导致一场灾难：当函数 f() 运行结束时，会调*用 h1 和 h2 的析构函数，这就导致 h1.p 和 h2.p 所指向的对象被 delete 了两次。  
+      * 如何避免这场灾难？最简单的办法是，将复制构造函数和赋值运算符声明为私有成员，从而关闭复制机制：
+        ```cpp
+          class Handle 
+          {
+            private:
+              string name;
+              X* p;
+
+              Handle(const Handle&); // 阻止复制
+              Handle& operator=(const Handle&);
+            public:
+              Handle(string n)
+                      :name(n), p(0) { /* acquire the X called "name" and let p point to it */ }
+              ~Handle() { delete p; /* release X called "name" */ }
+              // ...
+          };
+
+          void f(const string& hh)
+          {
+              Handle h1(hh);
+              Handle h1 = h2; // 编译器报错
+              // ...
+          }
+        ```
+        * 如果需要复制机制，我们可以定义自己的复制构造函数和赋值运算符，让它们按我们期待的那样工作。  
+
+        * 现在看一下如下代码。对`Point`来说，可以使用默认的复制机制，但它的构造函数有点问题：
+          ```cpp 
+                struct Point 
+                {
+                  int x,y;
+                  Point(int xx = 0, int yy = 0) :x(xx), y(yy) { }
+                };
+
+                void f(Point);
+
+                void g()
+                {
+                  Point orig; // 使用默认值 (0,0) 创建 orig
+                  Point p1(2); // 使用 yy 的默认值 (0) 来创建 p1
+                  f(2); // 调用 Point(2,0);
+                }
+          ```
+          为了便于创建对象（如这里的 orig 和 p1），我们为 Point 的构造函数提供了默认参数。然后，有些人会感到惊讶的事情发生了：调用 f() 时，2 会转换成 Point(2,0)。当我们定义一个接受单个参数的构造函数时，同时亦定义了一种类型转换方式。默认情况下，类型转换是隐式进行的。若想把类型转换改成 显式进行，就要将构造函数声明为`explicit`:
+          ```cpp
+              struct Point {
+                      int x,y;
+                      explicit Point(int xx = 0, int yy = 0) :x(xx), y(yy) { }
+              };
+
+              void f(Point);
+
+              void g()
+              {
+                      Point orig; // 使用默认值 (0,0) 创建 orig
+                      Point p1(2); // 使用 yy 的默认值 (0) 来创建 p1
+                                          // 显式调用构造函数
+                      f(2); // 错误（试图进行隐式转换）
+                      Point p2 = 2; // 错误（试图进行隐式转换）
+                      Pont p3 = Point(2); // 正确（显式转换）
+              }
+            ```
+100. 什么是纯虚函数？     
+     * 纯虚函数是指不必在基类中定义，但必须在派生类中被覆盖（override）的函数。通过新奇的“=0”语法可将虚函数声明为纯虚函数。 例如：
+      ```cpp
+          class Base 
+          {
+            public:
+              void f1();                         // 不是虚函数
+              virtual void f2();         // 是虚函数，但不是纯虚函数
+              virtual void f3() = 0;  // 纯虚函数
+          };
+
+          Base b; // error: pure virtual f3 not overridden
+      ```
+      在此，Base 是抽象类（因为它有一个纯虚函数），所以不能直接用它来定义对象：Base（很显然）是用来做基类的。例如：
+        ```cpp
+          class Derived : public Base 
+          {
+            // 没有定义 f1：没关系
+            // 没有定义 f2：没关系，继承了 Base::f2
+            void f3();
+          };
+
+          Derived d; // ok: Derived::f3 覆盖了 Base::f3
+        ```
+      抽象类是定义接口的非常好的工具。事实上，一个只有纯虚函数的类通常被称为接口。
+      当然你也可以定义纯虚函数：
+        ```Base::f3() { /* ... */ }```
+
+      这样做往往意义不大（虽然这样做可为派生类提供一些简单的公共代码），而且在派生类中仍然需要覆盖 Base::f3()。
+      如果你没有在派生类中覆盖纯虚函数，那该派生类也是抽象类：
+        ```cpp
+          class D2 : public Base {
+                  // 没有定义 f1：没关系
+                  // 没有定义 f2：没关系，继承了 Base::f2
+                  // 没有定义 f3：没关系，但 D2 因此也是抽象类
+          };
+
+          D2 d; // 错误：没有覆盖纯虚函数 Base::f3
+        ```
+101. 为何 C++ 既有指针也有引用？  
+      * C++ 的指针继承于 C，若要移除指针，势必造成严重的兼容性问题。引用有几方面的用处，在 C++ 中引入它的主要目的是为了支持运算符重载。  
+      ```cpp
+        void f1(const complex* x, const complex* y) // 没有引用
+        {
+                complex z = *x+*y; // 难看
+                // ...
+        }
+
+        void f2(const complex& x, const complex& y) // 使用引用
+        {
+                complex z = x+y; // 看起来不错
+                // ...
+        }
+      ```
+      * 如果没有引用，那么用指针来operator overloading操作。A operator +(const A *a, const A *_a); 那么使用的时候，&a + &b，这样看起来是不是很难受。    
+102. 如下代码：
+      ```cpp
+           int a = 7;
+           double* p1 = (double*) &a; // ok（但指向的并非 double 类型的对象）
+           double* p2 = static_cast<double *>(&a); // 错误
+           double* p2 = reinterpret_cast<double *>(&a); // ok：我真的想这么干
+
+           const int c = 7;
+           int* q1 = &c; // 错误
+           int* q2 = (int*)&c; // ok（但 *q2=2; 仍然是不合法的代码，而且有可能失败）
+           int* q3 = static_cast<int *>(&c); // 错误：static_cast 不能去除 const 属性
+           int* q4 = const_cast<int *>(&c); // 我的确想这么干
+      ```
