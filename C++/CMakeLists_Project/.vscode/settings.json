@@ -1,0 +1,150 @@
+{
+	"oneDarkPro.vivid": true,
+	"workbench.iconTheme": "material-icon-theme",
+	"editor.minimap.enabled": false,
+	"workbench.colorTheme": "Atom One Dark",
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"editor.fontLigatures": true,
+	"workbench.settings.openDefaultKeybindings": true,
+	"editor.insertSpaces": false,
+	"explorer.confirmDragAndDrop": false,
+	"diffEditor.ignoreTrimWhitespace": true,
+	"editor.acceptSuggestionOnEnter": "off",
+	"files.associations": {
+		"*.prisma": "graphql"
+	},
+	"terminal.integrated.shell.osx": "/bin/bash",
+	"editor.wordWrap": "on",
+	"emmet.excludeLanguages": [
+		"markdown"
+	],
+	"emmet.includeLanguages": {
+		"javascript": "javascriptreact"
+	},
+	"explorer.compactFolders": false,
+	"eslint.options": {},
+	"explorer.sortOrder": "type",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	/*-------------------------------
+  *      SILENCING THE NOISE
+  -------------------------------*/
+	"workbench.activityBar.visible": true,
+	"workbench.editor.showTabs": true,
+	/*---------------------------------------------------------------
+  *     MY COLORS -- Configured according to One Dark theme
+  ---------------------------------------------------------------*/
+	"workbench.colorCustomizations": {
+		"editor.background": "#131e2c",
+		"editor.selectionHighlightBackground": "#1b293b",
+		"titleBar.activeBackground": "#131e2c",
+		"titleBar.inactiveBackground": "#1b293b",
+		"sideBar.background": "#131e2c",
+		"sideBarSectionHeader.background": "#1b293b",
+		"input.background": "#1b293b",
+		"input.border": "#ffffff00",
+		// For sidebar
+		"list.hoverBackground": "#1d2e44",
+		"list.focusBackground": "#182a42",
+		"list.activeSelectionBackground": "#284264",
+		"list.inactiveSelectionBackground": "#1d2e44",
+		"activityBar.background": "#1e2e33",
+		"titleBar.activeBackground": "#3B4412",
+		"titleBar.activeForeground": "#F9FBF0",
+		// For Cmd + P menu
+		"quickInput.background": "#131e2c"
+	},
+	/*--------------------------
+  * Other settings
+  ----------------------------*/
+	// Code preferences
+	"editor.tabSize": 4,
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 4,
+	"editor.formatOnSave": true,
+	"explorer.openEditors.visible": 0,
+	"editor.lineNumbers": "on",
+	"editor.renderLineHighlight": "none",
+	"editor.renderControlCharacters": false,
+	"editor.matchBrackets": "never",
+	"workbench.editor.limit.enabled": true,
+	// Zen mode
+	"zenMode.fullScreen": false,
+	"zenMode.centerLayout": false,
+	"zenMode.hideTabs": true,
+	"window.title": "${folderName}",
+	// Editor Typography
+	"editor.lineDecorationsWidth": 10, // Adds padding to the left
+	"workbench.fontAliasing": "antialiased",
+	"editor.lineHeight": 20,
+	"editor.letterSpacing": 0.2,
+	"editor.fontSize": 15,
+	"editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontWeight": "400",
+	// Editor Suggestions Typography
+	"editor.suggestFontSize": 16,
+	"editor.suggestLineHeight": 28,
+	// Terminal Typography
+	"terminal.integrated.fontSize": 15,
+	"terminal.integrated.lineHeight": 1.5,
+	"terminal.integrated.fontWeight": "300",
+	"workbench.editor.labelFormat": "short",
+	"breadcrumbs.enabled": true,
+	"explorer.autoReveal": true,
+	"window.zoomLevel": 0.75,
+	"workbench.editorAssociations": [
+		{
+			"viewType": "jupyter.notebook.ipynb",
+			"filenamePattern": "*.ipynb"
+		}
+	],
+	"editor.accessibilitySupport": "on",
+	"python.showStartPage": false,
+	"[cpp]": {
+		"editor.defaultFormatter": "xaver.clang-format"
+	},
+	// Disable welcome screen on startup
+	"workbench.welcome.enabled": false,
+	// Controls if the diff editor shows the diff side by side or inline
+	"diffEditor.renderSideBySide": false,
+	// Insert spaces when pressing Tab
+	"editor.insertSpaces": true,
+	// Minimap
+	"editor.minimap.enabled": true,
+	// A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events
+	"editor.mouseWheelScrollSensitivity": 1,
+	// Controls whether the editor should render whitespace characters
+	"editor.renderWhitespace": "all",
+	// Extensions to be installed by the Extension Manager
+	"extension-manager.extensions": [
+		"eg2.tslint", // TypeScript linter
+		"ms-vscode.cpptools", // Cpp tools
+		"msjsdiag.debugger-for-chrome", // Debugger for Chrome
+		"robertohuertasm.vscode-icons" // Cool icons for files
+	],
+	// Default end of line character
+	"files.eol": "\n",
+	// Glob patterns for excluding folders and files
+	"files.exclude": {
+		"**/*.build": true,
+		"**/*.git": true,
+		"**/*.err": true,
+		"**/*.rec": true,
+		"**/*.log": true,
+		"**/*.evt": true,
+		"**/buildfre.*": true,
+		"**/buildchk.*": true,
+		"**/.DS_Store": true
+	},
+	// Glob patterns for excluding files and folders in searches
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		".build/**": true,
+		"out*/**": true,
+		"i18n/**": true,
+		"extensions/**/out/**": true,
+		"*.min.js": true
+	},
+	// Enable linter for TypeScript files
+	"tslint.enable": true
+}

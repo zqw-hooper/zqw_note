@@ -1,0 +1,92 @@
+{
+	"cmake" : 
+	{
+		"generator" : 
+		{
+			"multiConfig" : false,
+			"name" : "Unix Makefiles"
+		},
+		"paths" : 
+		{
+			"cmake" : "/home/zqw/Desktop/QNX_sdp/QNX/PIE_ENV/cmake/cmake-3.17.0-Linux-x86_64/bin/cmake",
+			"cpack" : "/home/zqw/Desktop/QNX_sdp/QNX/PIE_ENV/cmake/cmake-3.17.0-Linux-x86_64/bin/cpack",
+			"ctest" : "/home/zqw/Desktop/QNX_sdp/QNX/PIE_ENV/cmake/cmake-3.17.0-Linux-x86_64/bin/ctest",
+			"root" : "/home/zqw/Desktop/QNX_sdp/QNX/PIE_ENV/cmake/cmake-3.17.0-Linux-x86_64/share/cmake-3.17"
+		},
+		"version" : 
+		{
+			"isDirty" : false,
+			"major" : 3,
+			"minor" : 17,
+			"patch" : 0,
+			"string" : "3.17.0",
+			"suffix" : ""
+		}
+	},
+	"objects" : 
+	[
+		{
+			"jsonFile" : "codemodel-v2-800bb7f2f59769f92045.json",
+			"kind" : "codemodel",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		{
+			"jsonFile" : "cache-v2-cbd8388e188782ced183.json",
+			"kind" : "cache",
+			"version" : 
+			{
+				"major" : 2,
+				"minor" : 0
+			}
+		},
+		{
+			"jsonFile" : "cmakeFiles-v1-5d3506f4e9f095eb1bfc.json",
+			"kind" : "cmakeFiles",
+			"version" : 
+			{
+				"major" : 1,
+				"minor" : 0
+			}
+		}
+	],
+	"reply" : 
+	{
+		"client-integration-vscode" : 
+		{
+			"cache-v2" : 
+			{
+				"jsonFile" : "cache-v2-cbd8388e188782ced183.json",
+				"kind" : "cache",
+				"version" : 
+				{
+					"major" : 2,
+					"minor" : 0
+				}
+			},
+			"cmakeFiles-v1" : 
+			{
+				"jsonFile" : "cmakeFiles-v1-5d3506f4e9f095eb1bfc.json",
+				"kind" : "cmakeFiles",
+				"version" : 
+				{
+					"major" : 1,
+					"minor" : 0
+				}
+			},
+			"codemodel-v2" : 
+			{
+				"jsonFile" : "codemodel-v2-800bb7f2f59769f92045.json",
+				"kind" : "codemodel",
+				"version" : 
+				{
+					"major" : 2,
+					"minor" : 0
+				}
+			}
+		}
+	}
+}
