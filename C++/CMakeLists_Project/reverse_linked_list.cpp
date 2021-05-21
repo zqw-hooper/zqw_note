@@ -53,6 +53,7 @@ void insert(ListNode **node, int val)
 
     last_node->next = new_node;
 }
+int a;
 
 int main()
 {
