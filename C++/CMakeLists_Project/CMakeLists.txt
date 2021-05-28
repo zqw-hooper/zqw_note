@@ -2,10 +2,13 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(test)
 add_compile_options(
   -std=c++11
-  -Werror)
+  -Werror
+  -g 
+  -ggdb 
+  -Wall)
 
-  find_package(Threads REQUIRED)
-  include_directories(include)
+find_package(Threads REQUIRED)
+include_directories(include)
 
 set(SRC_LIST main.cpp)
 add_executable(test ${SRC_LIST})

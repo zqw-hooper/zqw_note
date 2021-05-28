@@ -5,7 +5,6 @@
             "label": "build",
             "command": "bash ${workspaceFolder}/run.sh",
             "args": [
-                
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

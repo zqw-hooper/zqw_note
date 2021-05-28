@@ -1,14 +1,17 @@
 #include <iostream>
+#include <memory>
+#include <stdio.h>
 
-using namespace std;
-int c = 7;
+std::shared_ptr<int> a = std::make_shared<int>();
+
+void test(int &_in) {
+  a = std::make_shared<int>(_in);
+  printf("*a %d\n", *a);
+}
 
 int main() {
-  int a(0), b(1);
-  cout << a + b << endl;
-  cout << " DJKFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
-          "FFDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDFFdddddddddd"
-          "dddddFF"
-       << endl;
+
+  int b = 49;
+  test(b);
   return 0;
 }

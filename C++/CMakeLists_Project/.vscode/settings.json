@@ -11,7 +11,8 @@
 	"diffEditor.ignoreTrimWhitespace": true,
 	"editor.acceptSuggestionOnEnter": "off",
 	"files.associations": {
-		"*.prisma": "graphql"
+		"*.prisma": "graphql",
+		"ostream": "cpp"
 	},
 	"terminal.integrated.shell.osx": "/bin/bash",
 	"editor.wordWrap": "on",

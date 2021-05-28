@@ -27,13 +27,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 11,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 13,
+				"line" : 16,
 				"parent" : 0
 			},
 			{
@@ -45,7 +45,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 8,
+				"line" : 11,
 				"parent" : 0
 			}
 		]
@@ -65,6 +65,18 @@
 				{
 					"backtrace" : 3,
 					"fragment" : "-Werror"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-ggdb"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wall"
 				}
 			],
 			"includes" : 
