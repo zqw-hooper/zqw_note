@@ -2064,3 +2064,37 @@
 105. `extern`和`extern "C"`
      * `extern`:告诉编译器，这是一个全局变量或函数，如果在本文件中没有找到相应的变量或函数，可以在后面或其他文件中寻找.`extern int a;`这里a只是变量声明(不分配内存)，`int a;`这里a是变量定义(分配内存).  
      * `extern "C"`:`C++`支持函数重载，编译器通过添加有关变量的信息来区分重载函数。这种将附加信息添加到函数名称的技术称为名称处理。`C++`标准没有指定任何特殊的名称处理技术，因此不同的编译器可能会将不同的信息附加到函数名称中。`C`语言不支持函数重载。当将某些代码放在`extern“ C”`块中时，`C++`编译器会将其中的代码按照`C`的方式编译和链接。  
+
+106. `__attribute__ ((visibility ("default")))` [链接1](https://juejin.cn/post/6844903549906714632) [链接2](https://answerywj.com/2019/04/13/hide-symbol-of-static-library/)  
+     * visibility用于设置动态链接库中函数的可见性，将变量或函数设置为hidden，则该符号仅在本so中可见，在其他库中则不可见。  
+
+107. **##高级用法**
+* `#` 对应变量字符串化.    
+* `##` 标识符连接在一起，形成一个新的标识符. 
+  ```cpp
+  #include <iostream>
+  void fucktest() { printf("111111111111111111111\n"); }
+  void fuck8() { printf("222222222222222222\n"); }
+
+  #define HANDLER(a, b) a##b()
+
+  #define HANDLER2(a, b)                                                         \
+    printf("t.var = %d\n", t.a);                                                 \
+    printf("t.bet = %d\n", t.b);
+
+  struct Test {
+    int var;
+    int bet;
+  };
+
+  int main() {
+    Test t;
+    t.bet = 989;
+    t.var = 765;
+    HANDLER(fuck, test); // 111111111111111111111
+    HANDLER(fuck, 8); // 222222222222222222
+    HANDLER2(var, bet); // t.var = 765 t.bet = 989
+    return 0;
+  }
+  ```
+
